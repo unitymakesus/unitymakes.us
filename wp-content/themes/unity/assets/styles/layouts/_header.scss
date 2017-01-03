@@ -1,0 +1,55 @@
+nav {
+  background-color: color('grey', 'darken-4');
+
+  ul {
+    a {
+      font-size: 16px;
+      text-transform: uppercase;;
+      font-weight: 300;
+      letter-spacing: .5px;
+
+      &:hover, &:focus, &:active {
+        background-color: rgba(255, 255, 255, .15);
+      }
+    }
+
+    li.active > a {
+      position: relative;
+
+      &::after {
+        content: '';
+        height: 2px;
+        background: $primary-color;
+        position: absolute;
+        bottom: 0px;
+        left: 15px;
+        right: 15px;
+      }
+    }
+  }
+}
+
+.menu-item-has-children {
+  overflow: visible;
+
+  &:hover, &:active, &:focus {
+    .sub-menu {
+      display: block;
+      opacity: 1;
+    }
+  }
+}
+
+.sub-menu {
+  @extend .dropdown-content;
+
+  li {
+    & > a {
+      color: color('grey', 'darken-4');
+    }
+
+    &.active > a::after {
+      display: none;
+    }
+  }
+}

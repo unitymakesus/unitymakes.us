@@ -1,0 +1,43 @@
+footer.page-footer {
+  color: white;
+  font-size: 17px;
+
+  h5 {
+    text-transform: uppercase;
+    font-size: 1.2em;
+  }
+
+  a {
+    color: white;
+
+    &:hover, &:focus, &:active {
+      text-decoration: underline;
+    }
+  }
+
+  .footer-copyright {
+    background-color: color("grey", "lighten-1");
+    color: color("grey", "darken-4");
+
+    i.cc {
+      font-size: 17px;
+      vertical-align: text-bottom;
+    }
+
+    a {
+      color: color("grey", "darken-4");
+      text-decoration: underline;
+    }
+  }
+}
+
+// Sticky Footer
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.wrap {
+  flex: 1 0 auto;
+}

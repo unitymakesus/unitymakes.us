@@ -1,0 +1,642 @@
+/* Stylesheet for mp_stacks admin */
+
+#mp_stacks_content_metabox{
+	display:block;	
+}
+#side-sortables .postbox{
+	display:block;	
+}
+
+/* Hide the "Add new Brick" button beside the "brick Editor" title */
+.post-type-mp_brick .page-title-action{
+	display:none!important;
+}
+
+/* Hide the MP Stacks Category selector */
+#side-sortables #mp_stacksdiv{
+	display:none;	
+}
+
+/*Top Level duplicate subpage Menu Button*/
+#toplevel_page_mp-stacks-about .wp-first-item{
+	display:none;
+}
+
+/*Hide Add Stack button for text content type tinymce */
+.postbox[id^="mp_stacks"] .mp_stack-thickbox{
+	display:none;	
+}
+/*hide slug div*/
+.post-type-mp_brick #normal-sortables,
+.post-type-mp_brick #edit-slug-box,
+.post-type-mp_brick #misc-publishing-actions,
+.post-type-mp_brick #minor-publishing-actions,
+.post-type-mp_brick #submitdiv .handlediv,
+.post-type-mp_brick #submitdiv .hndle{
+	display:none;	
+}
+/* Make the "Submit" button fixed to the top right*/
+@media (min-width: 800px) {
+	.post-type-mp_brick #submitdiv{
+		position: fixed;
+		z-index: 999;
+		top: 0;
+		right: 0;
+		width: 100%;
+		max-width: 300px;
+	}
+}
+
+@media screen and (max-width: 600px){
+	#wpbody {
+		padding-top: 0px!important;
+	}
+}
+
+.post-type-mp_brick #major-publishing-actions{
+	border-top:none;
+}
+
+/*Shortcode edit buttons*/
+#mp_stack_btns{
+	padding: 2px;
+	position: absolute;
+	display: none;
+	z-index: 155000;	
+}
+/* The text options like font size, color, line height, paragraph spacing */
+.mp_field.mp_brick_text_option{
+	display:inline-block;
+	float:left;
+	margin-right:0px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	
+	margin-top: 0px;
+	padding: 12px!important;
+	border:none;
+	max-width:25%;
+	/*height:53px;*/
+}
+.mp_stacks_singletext_content_type_repeater_repeater div[class*="bigscreen"],
+.mp_stacks_singletext_content_type_repeater_repeater div[class*="laptop"],
+.mp_stacks_singletext_content_type_repeater_repeater div[class*="tablet"],
+.mp_stacks_singletext_content_type_repeater_repeater div[class*="mobile"]{
+	display:none;
+}
+/* Make the 'Paragraph Height' align to the right */
+div[class*="brick_text_paragraph_margin_bottomBBBBB"]{
+	border-right:solid 1px #eee;
+}
+/* This is the screen size picker for the text areas */
+div[class*="brick_text_screen_size_controllerBBBBB"],
+div[class*="brick_text_screen_size_controllerBBBBB "]{
+	display:inline-block!important;
+	float:none!important;
+}
+.brick_screen_size_picker{
+	display:inline-block;	
+}
+.brick_screen_size{
+	display:inline-block;
+	font-family: dashicons;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size:30px;
+	line-height:30px;
+}
+.brick_screen_size.desktop:before{
+	content: "\f472";	
+}
+.brick_screen_size.tablet:before{
+	content: "\f471";	
+}
+.brick_screen_size.mobile:before{
+	content: "\f470";	
+}
+.mp_brick_text_option .wp-picker-container{
+	margin-top:1px;
+}
+.mp_field.mp_brick_text_option .mp_title{
+	display: inline-block;
+  	margin-right: 7px;
+  	vertical-align: top;
+ 	margin-top: 4px;	
+}
+.mp_field.mp_brick_text_option .wp-picker-container{
+	display:block;
+}
+.mp_field.mp_brick_text_option em{
+	display:none;
+}
+
+/* Hide both singletext and doubletext areas by default */
+#mp_stacks_singletext_metabox,
+#mp_stacks_text_metabox{
+	display:none;	
+}
+
+/*Styles for the doubletext "old" text content-type */
+.mp_stacks_text_content_type_repeater_repeater div[class*="brick_text_line_1BBBBB"],
+.mp_stacks_text_content_type_repeater_repeater div[class*="brick_text_line_2BBBBB"]{
+	clear:both;	
+}
+.mp_stacks_text_content_type_repeater_repeater div[class*="brick_text_line_1BBBBB"]{
+	margin-bottom:30px;	
+}
+
+/* Styles for the singletext "new" text content-type */
+.mp_stacks_singletext_content_type_repeater_repeater div[class*="brick_textBBBBB"],
+.mp_stacks_singletext_content_type_repeater_repeater div[class*="brick_textBBBBB "]{
+	clear:both;	
+}
+
+/*Make the color picker sit above the text size box if they are overlapping */
+.repeater_container div[class*="brick_text_color"]{
+	z-index:9999;
+}
+
+
+
+#mp_stack-media-button:before{
+	background-size: 20px;
+	background-position-y: 6px;
+}
+
+/*Hide slug, parent and description on Stacks manage page - may be a hook to do this better but for now:*/
+.taxonomy-mp_stacks .form-wrap{
+	display:none;	
+}
+
+/* Alignment Icons for Content Types on Metabox Page */
+.mp-core-radio-element{
+	display:inline-block;
+	float:left;
+	margin-right:20px;
+}
+.mp-core-radio-description{
+	clear:both;	
+	display:inline-block;
+}
+#mp_stacks_content_metabox .mp_field_brick_alignment{
+	display:inline-block;
+}
+.mp_field_brick_alignment .mp-core-radio-description img{
+	margin-right:4px;	
+	float:left;
+}
+
+/* Colored borders around the content-type selects */
+select.brick_first_content_type{	
+	border: 2px solid #e47e30;
+}
+select.brick_second_content_type{	
+	border: 2px solid #3a99da;
+}
+/* Color-Coded Outlines around the content types metaboxes */
+#advanced-sortables #mp_stacks_content_metabox + div{
+	border: solid #e47e30 2px;
+}
+#advanced-sortables #mp_stacks_content_metabox + div + div{
+	border: solid #3a99da 2px;
+}
+
+/*Shortcode insert designs*/
+.mp-stacks-shortcode-choose-action{
+	width:100%;
+	height: 250px;
+	display:table;	
+}
+/*Make new stack button area*/
+.mp-stacks-shortcode-choose-action .mp-stacks-shortcode-action-choice{
+	display:table-cell;
+	vertical-align:middle;	
+	text-align:center;
+	cursor:pointer;
+}
+.mp-stacks-shortcode-action-choice.new-stack{
+	background-color:#24A45A;
+	width:70%;
+}
+.mp-stacks-shortcode-action-choice.new-stack:hover{
+	background-color:#03682E;
+}
+.mp-stacks-new-stack-action-icon{
+	display: inline-block;
+	vertical-align: top;
+}
+.mp-stacks-new-stack-action-icon:before{
+	display:inline-block;
+	font-family: dashicons;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\f339";
+	font-size:100px;
+	line-height:100px;
+}
+/*Use Existing Stack button area*/
+.mp-stacks-shortcode-choose-action .mp-stacks-shortcode-action-choice{
+	display:table-cell;
+	vertical-align:middle;	
+	text-align:center;
+	color:#fff;
+}
+.mp-stacks-shortcode-action-choice.existing-stack{
+	background-color:#3498db;
+	width:30%;
+}
+.mp-stacks-shortcode-action-choice.existing-stack:hover{
+	background-color:#005995;
+}
+.mp-stacks-existing-stack-action-icon{
+	display: inline-block;
+	vertical-align: top;
+}
+.mp-stacks-existing-stack-action-icon:before{
+	display:inline-block;
+	font-family: dashicons;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\f322";
+	font-size:100px;
+	line-height:100px;
+}
+/*hide the options which will be shown by javascript after user selection*/
+.mp-stacks-shortcode-new-stack-div,
+.mp-stacks-shortcode-existing-stack-div,
+.duplicate-stack-option,
+.template-stack-option{
+	display:none;	
+}
+.mp-stacks-shortcode-new-stack-div{
+	line-height:1;	
+}
+.mp-stacks-manage-page-new-stack-div .mp-stacks-new-stack-heading{
+	margin-bottom:20px;
+}
+.mp-stacks-new-stack-option{
+	margin-bottom:20px;	
+}
+.mp-stacks-new-stack-option em{
+	display:block;
+	float:none;	
+}
+.mp-stacks-new-stack-option-title{
+	margin-bottom:10px;	
+}
+.mp-stacks-new-stack-option-title em{
+	margin-top:5px;	
+}
+
+.mp_stack_successful{
+	background-color:#9AFF99;
+	color:#000;
+	text-align:center;
+	display:table-cell;
+	vertical-align:middle;
+	padding:25px;	
+}
+.mp-stacks-successful-image,
+.mp-stacks-successful-text{
+	display:table-cell;
+	vertical-align:middle;	
+	font-weight: 600;
+}
+.mp_stack_successful .mp-stacks-icon-250{
+	width:30px;	
+	margin-right: 10px;
+}
+.mp-stacks-new-stack-input{
+	margin-right:10px;
+	width:200px;
+}
+.mp-stacks-new-stack-button:before{
+	font-family: dashicons;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\f107";
+	margin-right:5px;
+}
+#TB_window{
+	overflow:scroll;
+}
+#TB_ajaxContent{
+	overflow:visible;
+}
+
+/**
+ * Sortable Posts Style
+ * http://mintplugins.com
+ */
+.column-mp_stack_order{
+	width:0px;
+}
+.menu-order-drag-button {
+	padding:6px 0px 6px 0px;
+	position:absolute;
+	left:3px;
+	cursor:move!important;
+	opacity:0;
+}
+.type-mp_brick:hover .menu-order-drag-button {
+	opacity:1;
+}
+#posts-filter .check-column{
+	padding-left:4px;	
+}
+
+/* Confirmation field width - where the user types "This is NOT a new Stack"*/
+.mp-stacks-insert-stack-confirmation{
+	width:350px;	
+}
+
+/* The admin notice */
+#wpbody .mp-stacks-editor-title-notice{
+	border-left: none;
+	padding: 0px; 
+	background-color:transparent;
+	-webkit-box-shadow:none;
+	box-shadow:none;	
+}
+.mp-stacks-editor-notice-icon{
+	width:10px;
+	margin-right:5px;
+}
+/* Directory */
+body.mp-stacks_page_mp_stacks_plugin_directory .wrap h2{
+	margin-bottom:12px;	
+}
+.mp-stacks-directory-header{
+	padding:30px;
+	border: 1px solid #dedede;
+	background-color:#fff;
+}
+.mp-stacks-directory-title{
+	color: #222;
+	font-size: 1.3em;
+	font-weight: 700;
+	margin-bottom:10px;
+}
+.mp-stacks-directory-subtitle{
+	width:50%;	
+	margin-bottom:10px;
+}
+
+/* Stack Template Selector when Creating a New Stack */
+.mp-stacks-new-stack-duplicate-stack .mp-stacks-id{
+	display:none!important;	
+}
+.mp-stacks-new-stack-duplicate-stack > li > .mp-stacks-duplicate-button,
+.mp-stacks-new-stack-duplicate-stack > li > .mp-stacks-duplicate-preview-container,
+.mp-stacks-installed-templates > li{
+	padding:7px;
+	background-color:#222;
+	color:#ccc;
+	font: 400 13px/32px "Open Sans",sans-serif;	
+	line-height:1;
+	display:table;
+	width:100%;
+	max-width:400px;
+	float:left;
+	margin-right:5px;
+	cursor:pointer;
+}
+.mp-stacks-new-stack-duplicate-stack > li{
+	max-width: 400px;
+	width:100%;
+	margin-bottom:1px;
+	display:inline-block;
+}
+.mp-stacks-new-stack-duplicate-stack > li > .mp-stacks-duplicate-button{
+	max-width:250px;
+	padding:6px;
+}
+.mp-stacks-new-stack-duplicate-stack > li > .mp-stacks-duplicate-preview-container{
+	max-width:90px;
+	padding:5px;	
+	text-align:center;
+}
+.mp-stacks-new-stack-duplicate-stack > li > .mp-stacks-duplicate-preview-container a{
+	display:inline-block;	
+}
+.mp-stacks-new-stack-duplicate-stack > li > .mp-stacks-duplicate-button:hover,
+.mp-stacks-installed-templates > li:hover{
+	background-color:#0074a2;
+	color:#fff;
+}
+.mp-stacks-new-stack-duplicate-stack > li > .mp-stacks-duplicate-button > div,
+.mp-stacks-installed-templates > li > div{
+	display:table-cell;
+	vertical-align:middle;	
+}
+.mp-stacks-installed-templates .mp-stacks-installed-template-function-name{
+	display:none;	
+}
+.mp-stacks-installed-templates > li > .mp-stacks-installed-template-preview-img{
+	width: 35px;	
+}
+.mp-stacks-installed-templates > li > .mp-stacks-installed-template-preview-img img{
+	width: 30px;	
+}
+.mp-stacks-installed-templates > li .template-tag-container{
+	display: inline-block;
+	margin-right: 4px;	
+	text-align:right;
+}
+.mp-stacks-duplicate-preview,
+.mp-stacks-duplicate-preview-icon{
+	display:inline-block;
+	float:left;	
+}
+.mp-stacks-duplicate-preview{
+	margin-top: 4.5px;
+}
+.mp-stacks-duplicate-icon{
+	width:25px;	
+}
+.mp-stacks-duplicate-preview-icon:after,
+.mp-stacks-duplicate-icon:after{
+	font-family: dashicons;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size:20px;
+	line-height:20px;
+	content: "\f504";	
+}
+.mp-stacks-duplicate-icon:after{
+content: "\f161";
+}
+.mp-stacks-installed-template-tag{
+	text-align:right;	
+}
+.mp-stacks-installed-templates > li .template-tag-title{
+	font-weight: bold;
+	font-size: 10px;
+	text-transform: uppercase;
+	margin: -2px 0 0 0;
+	color: #444444;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.7);
+	padding: 0 5px;
+	line-height: 16px;
+	text-align:right;
+	display:inline-block;
+	
+	background: #eeeeee; /* Old browsers */
+	background: -moz-linear-gradient(top,  #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #eeeeee 0%,#cccccc 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+.mp_stacks_template_popup_preview{
+	position:absolute;
+	z-index:999999999999999999;
+}
+.mp_stacks_template_popup_preview_img{
+	max-width:200px;
+	border:7px solid #333;	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.mp-stacks-new-stack-source-type{
+	margin: 7px 0px;	
+}
+
+/*Single Stack Edit Page*/
+.mp-stacks-permalink{
+	display:table;	
+}
+.mp-stacks-permalink-prefix{
+	display:table-cell;
+	margin-right:4px;	
+}
+.mp-stacks-permalink-slug{
+	display:table-cell;
+	width:100%;
+}
+
+.mp-stacks-clearedfix:after {
+	content: ".";
+	visibility: hidden;
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+/* Brick Link Picker Alignment */
+.post-type-mp_brick #wp-link .query-results{
+	top: 135px!important;
+}
+
+/* Hide notices in the Brick Editor */
+.post-type-mp_brick .woocommerce-message,
+.post-type-mp_brick .notice,
+.post-type-mp_brick .error{
+	display:none!important;	
+}
+
+#mp-stacks-copy-brick-link,
+#mp-stacks-paste-brick-link{
+	text-decoration:none!important;		
+}
+
+/* Hide the div which holds the brick json when copying a brick */
+#mp-brick-json{
+	
+}
+
+/*Export/Import a Brick Module Styles*/
+.mp-stacks-brick-export-import-container{
+	display:table;
+	width:100%;
+	height:100%;	
+}
+.mp-stacks-brick-export-action-choice{
+	display:table-cell;
+	vertical-align:middle;	
+	text-align:center;
+	cursor:pointer;
+	color:#fff;
+	padding: 50px;
+}
+.mp-stacks-brick-export-action-choice.export-brick{
+	background-color:#24A45A;
+	width:50%;
+}
+.mp-stacks-export-brick-action-title,
+.mp-stacks-import-brick-action-title{
+	font-size:25px;	
+	line-height:45px;
+	text-decoration:none;
+}
+.mp-stacks-export-brick-action-description,
+.mp-stacks-import-brick-action-description,
+#mp-stacks-main-export-brick-link:hover .dashicons,
+#mp-stacks-export-brick-link{
+	text-decoration:none;	
+}
+.mp-stacks-brick-export-action-choice.export-brick:hover{
+	background-color:#03682E;
+}
+.mp-stacks-export-brick-action-icon{
+	display: inline-block;
+	vertical-align: top;
+}
+.mp-stacks-export-brick-action-icon:before{
+	display:inline-block;
+	font-family: dashicons;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\f317";
+	font-size:100px;
+	line-height:100px;
+}
+/* Import Brick Button */
+.mp-stacks-brick-export-action-choice.import-brick{
+	background-color:#24A45A;
+	width:50%;
+}
+.mp-stacks-brick-export-action-choice.import-brick:hover{
+	background-color:#03682E;
+}
+.mp-stacks-import-brick-action-icon{
+	display: inline-block;
+	vertical-align: top;
+}
+.mp-stacks-import-brick-action-icon:before{
+	display:inline-block;
+	font-family: dashicons;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\f316";
+	font-size:100px;
+	line-height:100px;
+}
+/* Import Brick Form */
+#mp-stacks-import-brick-form{
+	display:none;
+	max-width: 300px;
+	padding:15px;	
+}
+.mp-stacks-brick-import-selected:hover{
+	background-color:#24A45A!important;
+}
+.mp-stacks-import-brick-error{
+	margin:10px 0px 0px 0px;
+	padding:10px;
+	color:#F00;
+	background-color:#FFF;
+	display:inline-block;	
+	border-left: 3px solid #F00;
+}

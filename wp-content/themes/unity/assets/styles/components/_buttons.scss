@@ -1,0 +1,30 @@
+.btn {
+  color: color("grey", "darken-4");
+  border-bottom: 4px solid $primary-color-dark;
+
+  &:hover, &:focus, &:active {
+    color: color("grey", "darken-4");
+  }
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+
+  &:hover, &:focus, &:active {
+    color: color("grey", "darken-4");
+    background: $primary-color;
+    border-color: $primary-color;
+  }
+}
+
+.nav-btn {
+  line-height: 36px;
+  padding-top: 12px;
+  padding-left: 15px;
+
+  a {
+    @extend .btn-ghost;
+  }
+}

@@ -1,0 +1,13 @@
+.card-action {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.primary-color {
+  background: $primary-color;
+  border-bottom: 4px solid $primary-color-dark;
+  
+  a {
+    color: color('grey', 'darken-4');
+  }
+}

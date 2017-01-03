@@ -1,0 +1,20 @@
+.entry-share.entry-share {
+  margin: 3em 0;
+
+  .label {
+    display: inline-block;
+    padding-right: 1em;
+    text-transform: uppercase;
+    color: color('grey', 'base');
+  }
+
+  .chip {
+    background: $primary-color;
+
+    a {
+      text-decoration: none;
+      display: block;
+      color: color('grey', 'darken-4');
+    }
+  }
+}

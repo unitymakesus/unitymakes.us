@@ -1,0 +1,19 @@
+{
+  "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "roots/soil": "3.7.1",
+        "wpackagist-plugin/disable-emojis": "dev-trunk",
+        "wpackagist-plugin/email-address-encoder": "dev-trunk",
+        "wpackagist-plugin/manual-image-crop": "dev-trunk",
+        "wpackagist-plugin/simple-page-ordering": "dev-trunk",
+        "wpackagist-plugin/tinymce-advanced": "dev-trunk",
+        "wpackagist-plugin/user-switching": "dev-trunk",
+        "wpackagist-plugin/wp-pagenavi": "dev-trunk",
+        "wpackagist-plugin/wp-smushit": "dev-trunk"
+    }
+}

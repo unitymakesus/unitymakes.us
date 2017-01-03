@@ -1,0 +1,71 @@
+// Typography
+
+html {
+  font-family: "Josefin Sans", "Roboto", sans-serif;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.h3 {
+  @extend h3;
+}
+
+.h4 {
+  @extend h4;
+}
+
+.accent {
+  text-transform: uppercase;
+  font-weight: 300;
+  overflow: hidden;
+
+  span {
+    position: relative;
+
+    &::before, &::after {
+      content: '';
+      height: 2px;
+      top: 50%;
+      margin-top: -5px;
+      width: 100%;
+      background: $primary-color;
+      position: absolute;
+    }
+
+    &::before {
+      right: 100%;
+      margin-right: .5em;
+    }
+
+    &::after {
+      left: 100%;
+      margin-left: .5em;
+    }
+  }
+}
+
+
+// Layout
+.vertical-padding-3 {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+.horizontal-padding-1 {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.center-align {
+  justify-content: center;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.center {
+  vertical-align: middle;
+}
