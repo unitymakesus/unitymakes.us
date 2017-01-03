@@ -94,7 +94,7 @@ let webpackConfig = {
         })}`,
       },
       {
-        test: /\.(ttf|eot|otf|woff2?|png|jpe?g|gif|svg)$/,
+        test: /\.(ttf|eot|otf|woff2?|png|jpe?g|gif|svg)(\?\S*)?$/,
         include: /node_modules|bower_components/,
         loader: 'file',
         options: {
