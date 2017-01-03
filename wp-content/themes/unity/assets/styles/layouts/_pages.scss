@@ -54,6 +54,18 @@
   }
 }
 
-.rpt_custom_btn {
-  padding: 0 !important;
+.rpt_style_basic {
+  .rpt_custom_btn {
+    padding: 0 !important;
+
+    a {
+      text-transform: uppercase;
+      color: color('grey', 'darken-4') !important;
+      @extend .hoverable;
+
+      &:hover, &:focus, &:active {
+        background: $primary-color-dark;
+      }
+    }
+  }
 }
