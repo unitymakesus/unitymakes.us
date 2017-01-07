@@ -8,8 +8,14 @@
 
 .hero {
   h1 {
-    line-height: .6em;
     color: white;
+    line-height: .6em;
+
+    body:not(.home) & {
+      line-height: 1em;
+      text-transform: uppercase;
+      font-style: italic;
+    }
   }
 }
 
@@ -66,6 +72,29 @@
       &:hover, &:focus, &:active {
         background: $primary-color-dark;
       }
+    }
+  }
+}
+
+.page-id-157, .page-id-186 {
+  .hero {
+    h1 {
+      line-height: 1em;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+  }
+
+  .page-content {
+    max-width: 700px;
+    font-size: 1.5em;
+
+    p, ul, ol {
+      margin: 2em;
+    }
+
+    img {
+      // width: 100%;
     }
   }
 }

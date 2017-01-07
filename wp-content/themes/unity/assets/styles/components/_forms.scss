@@ -17,3 +17,21 @@
 a.caldera-forms-modal {
   @extend .btn;
 }
+
+.caldera-grid  {
+  label {
+    font-weight: normal;
+    font-size: 14px;
+    color: color('grey', 'darken-2');
+    text-transform: uppercase;
+  }
+
+  input {
+    box-sizing: border-box;
+  }
+
+  .btn-default {
+    @extend .btn;
+    @extend .btn-large;
+  }
+}
