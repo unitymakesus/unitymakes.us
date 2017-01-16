@@ -29,7 +29,7 @@
           'link'  => '#'
         ],
         [
-          'img'   => App\asset_path('images/women-owned.jpg'),
+          'img'   => App\asset_path('images/woman-podcast.jpg'),
           'alt'   => 'We build websites for women owned businesses',
           'title' => 'Women Owned<br />Businesses',
           'link'  => '#'
