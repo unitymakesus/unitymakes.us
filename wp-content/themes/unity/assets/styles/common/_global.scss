@@ -8,6 +8,11 @@ strong {
   font-weight: 700;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .h3 {
   @extend h3;
 }
@@ -53,6 +58,11 @@ strong {
   padding-bottom: 3em;
 }
 
+.vertical-padding-1 {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
 .horizontal-padding-1 {
   padding-left: 1em;
   padding-right: 1em;
@@ -68,4 +78,8 @@ strong {
 
 .center {
   vertical-align: middle;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }

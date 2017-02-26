@@ -15499,6 +15499,11 @@ strong {
   font-weight: 700;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .accent {
   text-transform: uppercase;
   font-weight: 300;
@@ -15536,6 +15541,11 @@ strong {
   padding-bottom: 3em;
 }
 
+.vertical-padding-1 {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
 .horizontal-padding-1 {
   padding-left: 1em;
   padding-right: 1em;
@@ -15553,6 +15563,11 @@ strong {
 
 .center {
   vertical-align: middle;
+}
+
+.flex-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .btn,
@@ -16244,6 +16259,22 @@ body:not(.home) .hero h1 {
   line-height: 1em;
   text-transform: uppercase;
   font-style: italic;
+}
+
+.client-logos img {
+  max-width: 200px;
+}
+
+.client-logos img.evh {
+  width: 100px;
+}
+
+.client-logos img.first-vote-nc {
+  width: 150px;
+}
+
+.client-logos img.everett-gaskins-hancock {
+  max-width: 250px;
 }
 
 .testimonial blockquote {

@@ -37,6 +37,62 @@
       ]
     ])
 
+    <section class="vertical-padding-3 client-logos">
+      <div class="valign-wrapper center-align flex-wrap">
+        <span class="vertical-padding-1">
+          <img class="valign horizontal-padding-1"
+               src="{{ App\asset_path('images/clients/rtp.gif') }}"
+               alt="Research Triangle Park" />
+        </span>
+        <span class="vertical-padding-1">
+          <img class="valign horizontal-padding-1"
+               src="{{ App\asset_path('images/clients/transloc.png') }}"
+               alt="TransLoc" />
+        </span>
+        <span class="vertical-padding-1">
+          <img class="valign horizontal-padding-1 evh"
+               src="{{ App\asset_path('images/clients/evh-logo.jpg') }}"
+               alt="The Hispanic Liaison El Vínculo Hispano" />
+        </span>
+        <span class="vertical-padding-1">
+          <img class="valign horizontal-padding-1"
+               src="{{ App\asset_path('images/clients/nc-initiative.png') }}"
+               alt="North Carolina Community Development Initiative" />
+        </span>
+        <span class="vertical-padding-1">
+          <img class="valign horizontal-padding-1"
+               src="{{ App\asset_path('images/clients/nc-housing-coalition.png') }}"
+               alt="North Carolina Housing Coalition" />
+        </span>
+        <span class="vertical-padding-1">
+          <img class="valign horizontal-padding-1"
+               src="{{ App\asset_path('images/clients/nc-newsroom-cooperative.png') }}"
+               alt="North Carolina Newsroom Cooperative" />
+        </span>
+        <span class="vertical-padding-1">
+          <img class="valign horizontal-padding-1"
+               src="{{ App\asset_path('images/clients/padgett-nc.png') }}"
+               alt="Padgett Business Services North Carolina" />
+        </span>
+        <span class="vertical-padding-1">
+          <img class="valign horizontal-padding-1 everett-gaskins-hancock"
+               src="{{ App\asset_path('images/clients/everett-gaskins-hancock.jpg') }}"
+               alt="Everett Gaskins Hancock LLP" />
+        </span>
+        <span class="vertical-padding-1">
+          <img class="valign horizontal-padding-1 first-vote-nc"
+               src="{{ App\asset_path('images/clients/first-vote-nc.png') }}"
+               alt="First Vote North Carolina" />
+        </span>
+        <span class="vertical-padding-1">
+          <img class="valign horizontal-padding-1"
+               src="{{ App\asset_path('images/clients/my-friend-teresa.svg') }}"
+               alt="My Friend Teresa Studios"
+               width="200" />
+        </span>
+      </div>
+    </section>
+
     @include('partials.content-parallax', [
       'type'    => 'testimonial',
       'img'     => '<img src="' . App\asset_path('images/FVNC-banner.jpg') . '" alt="">',
@@ -84,33 +140,31 @@
                         </div>
                       </div>'
     ])
+
+    <section class="container vertical-padding-3">
+      <div class="valign-wrapper center-align">
+        <a class="valign horizontal-padding-1" href="https://www.bcorporation.net/what-are-b-corps" target="_blank">
+          <img class=""
+               src="{{ App\asset_path('images/pending-b-corp.png') }}"
+               srcset="{{ App\asset_path('images/pending-b-corp.png') }} 1x, {{ App\asset_path('images/pending-b-corp@2x.png') }} 2x"
+               alt="B Corporation - Pending"
+               width="59" height="104" />
+        </a>
+        <a class="valign horizontal-padding-1" href="{{ get_permalink(get_page_by_path('hosting')) }}" target="_blank">
+          <img class=""
+               src="{{ App\asset_path('images/eco-friendly-website.png') }}"
+               srcset="{{ App\asset_path('images/eco-friendly-website.png') }} 1x, {{ App\asset_path('images/eco-friendly-website@2x.png') }} 2x"
+               alt="300% eco-friendly website"
+               width="160" height="103" />
+        </a>
+        <a class="valign horizontal-padding-1" href="#" target="_blank">
+          <img class=""
+               src="{{ App\asset_path('images/wcag.png') }}"
+               srcset="{{ App\asset_path('images/wcag.png') }} 1x, {{ App\asset_path('images/wcag@2x.png') }} 2x"
+               alt="WCAG version 2.0 level AA"
+               width="110" height="80" />
+        </a>
+      </div>
+    </section>
   @endwhile
-  <section class="container vertical-padding-3">
-    <p class="center-align valign-wrapper">
-      <a href="https://www.bcorporation.net/what-are-b-corps" target="_blank">
-        <img class="valign center inline-block horizontal-padding-1"
-             src="{{ App\asset_path('images/pending-b-corp.png') }}"
-             srcset="{{ App\asset_path('images/pending-b-corp.png') }} 1x, {{ App\asset_path('images/pending-b-corp@2x.png') }} 2x"
-             alt="B Corporation - Pending" />
-      </a>
-      <a href="http://ncnewsroom.org/" target="_blank">
-      <img class="valign center inline-block horizontal-padding-1"
-           src="{{ App\asset_path('images/nc-newsroom-coop.png') }}"
-           srcset="{{ App\asset_path('images/nc-newsroom-coop.png') }} 1x, {{ App\asset_path('images/nc-newsroom-coop@2x.png') }} 2x"
-           alt="NC Newsroom Cooperative" />
-      </a>
-      <a href="{{ get_permalink(get_page_by_path('hosting')) }}" target="_blank">
-        <img class="valign center inline-block horizontal-padding-1"
-             src="{{ App\asset_path('images/eco-friendly-website.png') }}"
-             srcset="{{ App\asset_path('images/eco-friendly-website.png') }} 1x, {{ App\asset_path('images/eco-friendly-website@2x.png') }} 2x"
-             alt="300% eco-friendly website" />
-      </a>
-      <a href="#" target="_blank">
-        <img class="valign center inline-block horizontal-padding-1"
-             src="{{ App\asset_path('images/wcag.png') }}"
-             srcset="{{ App\asset_path('images/wcag.png') }} 1x, {{ App\asset_path('images/wcag@2x.png') }} 2x"
-             alt="WCAG version 2.0 level AA" />
-      </a>
-    </p>
-  </section>
 @endsection
