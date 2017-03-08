@@ -37,61 +37,50 @@
       ]
     ])
 
-    <section class="vertical-padding-3 client-logos">
-      <div class="valign-wrapper center-align flex-wrap">
-        <span class="vertical-padding-1">
-          <img class="valign horizontal-padding-1"
-               src="{{ App\asset_path('images/clients/rtp.gif') }}"
-               alt="Research Triangle Park" />
-        </span>
-        <span class="vertical-padding-1">
-          <img class="valign horizontal-padding-1"
-               src="{{ App\asset_path('images/clients/transloc.png') }}"
-               alt="TransLoc" />
-        </span>
-        <span class="vertical-padding-1">
-          <img class="valign horizontal-padding-1 evh"
-               src="{{ App\asset_path('images/clients/evh-logo.jpg') }}"
-               alt="The Hispanic Liaison El Vínculo Hispano" />
-        </span>
-        <span class="vertical-padding-1">
-          <img class="valign horizontal-padding-1"
-               src="{{ App\asset_path('images/clients/nc-initiative.png') }}"
-               alt="North Carolina Community Development Initiative" />
-        </span>
-        <span class="vertical-padding-1">
-          <img class="valign horizontal-padding-1"
-               src="{{ App\asset_path('images/clients/nc-housing-coalition.png') }}"
-               alt="North Carolina Housing Coalition" />
-        </span>
-        <span class="vertical-padding-1">
-          <img class="valign horizontal-padding-1"
-               src="{{ App\asset_path('images/clients/nc-newsroom-cooperative.png') }}"
-               alt="North Carolina Newsroom Cooperative" />
-        </span>
-        <span class="vertical-padding-1">
-          <img class="valign horizontal-padding-1"
-               src="{{ App\asset_path('images/clients/padgett-nc.png') }}"
-               alt="Padgett Business Services North Carolina" />
-        </span>
-        <span class="vertical-padding-1">
-          <img class="valign horizontal-padding-1 everett-gaskins-hancock"
-               src="{{ App\asset_path('images/clients/everett-gaskins-hancock.jpg') }}"
-               alt="Everett Gaskins Hancock LLP" />
-        </span>
-        <span class="vertical-padding-1">
-          <img class="valign horizontal-padding-1 first-vote-nc"
-               src="{{ App\asset_path('images/clients/first-vote-nc.png') }}"
-               alt="First Vote North Carolina" />
-        </span>
-        <span class="vertical-padding-1">
-          <img class="valign horizontal-padding-1"
-               src="{{ App\asset_path('images/clients/my-friend-teresa.svg') }}"
-               alt="My Friend Teresa Studios"
-               width="200" />
-        </span>
-      </div>
-    </section>
+    @include('partials.content-clients', [
+      'clients'   => [
+        [
+          'img'   => App\asset_path('images/clients/rtp.gif'),
+          'alt'   => 'Research Triangle Park'
+        ],
+        [
+          'img'   => App\asset_path('images/clients/transloc.png'),
+          'alt'   => 'TransLoc'
+        ],
+        [
+          'img'   => App\asset_path('images/clients/evh-logo.jpg'),
+          'alt'   => 'The Hispanic Liaison El Vínculo Hispano',
+          'class' => 'evh'
+        ],
+        [
+          'img'   => App\asset_path('images/clients/nc-initiative.png'),
+          'alt'   => 'North Carolina Community Development Initiative'
+        ],
+        [
+          'img'   => App\asset_path('images/clients/nc-housing-coalition.png'),
+          'alt'   => 'North Carolina Housing Coalition'
+        ],
+        [
+          'img'   => App\asset_path('images/clients/padgett-nc.png'),
+          'alt'   => 'Padgett Business Services North Carolina'
+        ],
+        [
+          'img'   => App\asset_path('images/clients/everett-gaskins-hancock.jpg'),
+          'alt'   => 'Everett Gaskins Hancock LLP',
+          'class' => 'everett-gaskins-hancock'
+        ],
+        [
+          'img'   => App\asset_path('images/clients/first-vote-nc.png'),
+          'alt'   => 'First Vote North Carolina',
+          'class' => 'first-vote-nc'
+        ],
+        [
+          'img'   => App\asset_path('images/clients/my-friend-teresa.svg'),
+          'alt'   => 'My Friend Teresa Studios',
+          'width' => '200'
+        ],
+      ]
+    ])
 
     @include('partials.content-parallax', [
       'type'    => 'testimonial',
@@ -150,19 +139,31 @@
                alt="B Corporation - Pending"
                width="59" height="104" />
         </a>
-        <a class="valign horizontal-padding-1" href="{{ get_permalink(get_page_by_path('hosting')) }}" target="_blank">
+        <a class="valign horizontal-padding-1" href="{{ get_permalink(get_page_by_path('hosting')) }}">
           <img class=""
                src="{{ App\asset_path('images/eco-friendly-website.png') }}"
                srcset="{{ App\asset_path('images/eco-friendly-website.png') }} 1x, {{ App\asset_path('images/eco-friendly-website@2x.png') }} 2x"
                alt="300% eco-friendly website"
                width="160" height="103" />
         </a>
-        <a class="valign horizontal-padding-1" href="#" target="_blank">
+        <span class="valign horizontal-padding-1">
           <img class=""
                src="{{ App\asset_path('images/wcag.png') }}"
                srcset="{{ App\asset_path('images/wcag.png') }} 1x, {{ App\asset_path('images/wcag@2x.png') }} 2x"
                alt="WCAG version 2.0 level AA"
                width="110" height="80" />
+        </span>
+        <a class="valign horizontal-padding-1" href="http://www.supplier-connection.net" target="_blank">
+          <img class=""
+               src="{{ App\asset_path('images/nc-newsroom-logo.png') }}"
+               alt="North Carolina Newsroom Cooperative Member Organization"
+               width="140" height="100" />
+        </a>
+        <a class="valign horizontal-padding-1" href="https://ncnewsroom.org/" target="_blank">
+          <img class=""
+               src="{{ App\asset_path('images/sc_badge_supporter.png') }}"
+               alt="Supplier Collection. Connect with this growing network"
+               width="160" height="100" />
         </a>
       </div>
     </section>
