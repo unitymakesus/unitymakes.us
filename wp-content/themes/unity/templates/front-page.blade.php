@@ -70,11 +70,6 @@
           'class' => 'everett-gaskins-hancock'
         ],
         [
-          'img'   => App\asset_path('images/clients/first-vote-nc.png'),
-          'alt'   => 'First Vote North Carolina',
-          'class' => 'first-vote-nc'
-        ],
-        [
           'img'   => App\asset_path('images/clients/my-friend-teresa.svg'),
           'alt'   => 'My Friend Teresa Studios',
           'width' => '200'
