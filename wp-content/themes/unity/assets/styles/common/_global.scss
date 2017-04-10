@@ -26,27 +26,29 @@ img {
   font-weight: 300;
   overflow: hidden;
 
-  span {
-    position: relative;
+  @media #{$medium-and-up} {
+    span {
+      position: relative;
 
-    &::before, &::after {
-      content: '';
-      height: 2px;
-      top: 50%;
-      margin-top: -5px;
-      width: 100%;
-      background: $primary-color;
-      position: absolute;
-    }
+      &::before, &::after {
+        content: '';
+        height: 2px;
+        top: 50%;
+        margin-top: -5px;
+        width: 100%;
+        background: $primary-color;
+        position: absolute;
+      }
 
-    &::before {
-      right: 100%;
-      margin-right: .5em;
-    }
+      &::before {
+        right: 100%;
+        margin-right: .5em;
+      }
 
-    &::after {
-      left: 100%;
-      margin-left: .5em;
+      &::after {
+        left: 100%;
+        margin-left: .5em;
+      }
     }
   }
 }

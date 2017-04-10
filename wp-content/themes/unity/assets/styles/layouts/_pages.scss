@@ -4,6 +4,12 @@
   img {
     height: auto;
   }
+
+  .parallax {
+    img {
+      object-fit: cover;
+    }
+  }
 }
 
 .hero {
@@ -15,6 +21,15 @@
       line-height: 1em;
       text-transform: uppercase;
       font-style: italic;
+    }
+
+    @media #{$small-and-down} {
+      font-size: 3.5rem;
+      line-height: 1;
+
+      strong {
+        display: block;
+      }
     }
   }
 }

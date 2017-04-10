@@ -26,5 +26,9 @@
 
   a {
     @extend .btn-ghost;
+
+    .side-nav & {
+      @extend .btn;
+    }
   }
 }

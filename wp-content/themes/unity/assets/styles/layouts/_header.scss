@@ -1,8 +1,15 @@
 nav {
   background-color: color('grey', 'darken-4');
 
+  .brand-logo {
+    img {
+      vertical-align: middle;
+      display: inline-block;
+    }
+  }
+
   ul {
-    a {
+    a, .collapsible-header {
       font-size: 16px;
       text-transform: uppercase;;
       font-weight: 300;
@@ -25,6 +32,23 @@ nav {
         left: 15px;
         right: 15px;
       }
+    }
+  }
+}
+
+.side-nav {
+  li {
+    &:hover, &:active {
+      background: none;
+    }
+
+    a {
+      font-size: 16px;
+    }
+
+    .collapsible-header {
+      color: #444;
+      margin: 0;
     }
   }
 }
