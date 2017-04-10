@@ -1,7 +1,7 @@
 <footer class="page-footer">
   <div class="container">
     <div class="row">
-      <div class="col m3">
+      <div class="col s12 m6 l3">
         @php
           $icon = get_site_icon_url(75);
           $icon2x = get_site_icon_url(150);
@@ -20,13 +20,13 @@
           <a href="https://www.linkedin.com/company/unity-digital-agency"><i class="fa fa-lg fa-linkedin"></i></a>&nbsp;&nbsp;
         </p>
       </div>
-      <div class="col m3">
+      <div class="col s12 m6 l3">
         @php(dynamic_sidebar('sidebar-footer-1'))
       </div>
-      <div class="col m3">
+      <div class="col s12 m6 l3">
         @php(dynamic_sidebar('sidebar-footer-2'))
       </div>
-      <div class="col m3">
+      <div class="col s12 m6 l3">
         @php(dynamic_sidebar('sidebar-footer-3'))
       </div>
     </div>

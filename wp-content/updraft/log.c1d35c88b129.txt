@@ -1,0 +1,286 @@
+0000.000 (0) Opened log file at time: Wed, 04 Jan 2017 02:22:12 +0000 on http://unitymakes.us
+0000.013 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.12.30 WP: 4.7 PHP: 5.6.29 (cgi-fcgi, Linux chi-rs36.websitehostserver.net 2.6.32-673.26.1.lve1.4.15.el6.x86_64 #1 SMP Sun Jul 17 09:01:31 EDT 2016 x86_64) MySQL: 5.5.5 WPLANG: en_US Server: Apache safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 31.9M | 32.5M) multisite: N openssl: OpenSSL 1.0.1e-fips 11 Feb 2013 mcrypt: Y LANG:  ZipArchive::addFile: Y
+0000.202 (0) Free space on disk containing Updraft's temporary directory: 217456 MB
+0000.206 (0) Tasks: Backup files: 1 (schedule: manual) Backup DB: 1 (schedule: manual)
+0000.213 (0) Requesting semaphore lock (fd) (apparently not via scheduler)
+0000.216 (0) Set semaphore last lock (fd) time to 2017-01-04 02:22:12
+0000.218 (0) Semaphore lock (fd) complete
+0000.224 (0) Backup run: resumption=0, nonce=c1d35c88b129, begun at=1483496532 (0s ago), job type=backup
+0000.226 (0) Scheduling a resumption (1) after 300 seconds (1483496832) in case this run gets aborted
+0000.238 (0) Checking if we have a zip executable available
+0000.239 (0) Testing: /usr/bin/zip
+0000.246 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.247 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.249 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.250 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.251 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.257 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.259 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.268 (0) Working binary zip found: /usr/bin/zip
+0000.271 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.272 (0) Creation of backups of directories: beginning
+0000.275 (0) Beginning creation of dump of plugins (split every: 500 MB)
+0000.557 (0) Total entities for the zip file: 634 directories, 3505 files (0 skipped as non-modified), 39.9 MB
+0000.564 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.569 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.574 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.579 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.584 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.585 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.7 MB, 3505 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.139 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: size is now: 3.40 MB
+0001.146 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 600 files added (on-disk size: 3523.9 KB)
+0001.152 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 700 files added (on-disk size: 3523.9 KB)
+0001.157 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 800 files added (on-disk size: 3523.9 KB)
+0001.162 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 900 files added (on-disk size: 3523.9 KB)
+0001.168 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 1000 files added (on-disk size: 3523.9 KB)
+0001.170 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.5 MB, 3505 files batched, 501 (1002) added so far); re-opening (prior size: 3523.9 KB)
+0001.344 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 1100 files added (on-disk size: 4194.1 KB)
+0001.350 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 1200 files added (on-disk size: 4194.1 KB)
+0001.355 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 1300 files added (on-disk size: 4194.1 KB)
+0001.361 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 1400 files added (on-disk size: 4194.1 KB)
+0001.367 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 1500 files added (on-disk size: 4194.1 KB)
+0001.369 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.5 MB, 3505 files batched, 501 (1503) added so far); re-opening (prior size: 4194.1 KB)
+0001.569 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 1600 files added (on-disk size: 4965.1 KB)
+0001.575 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 1700 files added (on-disk size: 4965.1 KB)
+0001.580 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 1800 files added (on-disk size: 4965.1 KB)
+0001.585 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 1900 files added (on-disk size: 4965.1 KB)
+0001.591 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 2000 files added (on-disk size: 4965.1 KB)
+0001.592 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.4 MB, 3505 files batched, 501 (2004) added so far); re-opening (prior size: 4965.1 KB)
+0001.772 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: size is now: 6.10 MB
+0001.781 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 2100 files added (on-disk size: 6225.4 KB)
+0001.786 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 2200 files added (on-disk size: 6225.4 KB)
+0001.792 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 2300 files added (on-disk size: 6225.4 KB)
+0001.797 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 2400 files added (on-disk size: 6225.4 KB)
+0001.802 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 2500 files added (on-disk size: 6225.4 KB)
+0001.803 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.9 MB, 3505 files batched, 501 (2505) added so far); re-opening (prior size: 6225.4 KB)
+0002.096 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: size is now: 7.40 MB
+0002.105 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 2600 files added (on-disk size: 7595.9 KB)
+0002.111 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 2700 files added (on-disk size: 7595.9 KB)
+0002.116 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 2800 files added (on-disk size: 7595.9 KB)
+0002.121 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 2900 files added (on-disk size: 7595.9 KB)
+0002.127 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 3000 files added (on-disk size: 7595.9 KB)
+0002.128 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (13.5 MB, 3505 files batched, 501 (3006) added so far); re-opening (prior size: 7595.9 KB)
+0003.787 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: size is now: 11.60 MB
+0003.795 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 3100 files added (on-disk size: 11877.4 KB)
+0003.800 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 3200 files added (on-disk size: 11877.4 KB)
+0003.806 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 3300 files added (on-disk size: 11877.4 KB)
+0003.810 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 3400 files added (on-disk size: 11877.4 KB)
+0003.815 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip.tmp: 3500 files added (on-disk size: 11877.4 KB)
+0006.761 (0) Created plugins zip (0) - 13944.2 KB in 6.3 s (2210.1 KB/s) (SHA1 checksum: ae4ac84d4d0d14cfa025c543f2ba80c8658998a6)
+0006.770 (0) Beginning creation of dump of themes (split every: 500 MB)
+0007.257 (0) Total entities for the zip file: 431 directories, 1910 files (0 skipped as non-modified), 14.1 MB
+0007.276 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0007.289 (0) File skipped due to unexpected name mismatch (locale: C): file=/home/unitycom/public_html/wp-content/themes/unity/vendor/phpmd/phpmd/src/bin/phpmd add_as=themes/unity/vendor/bin/phpmd
+0007.292 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0007.298 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0007.310 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0007.324 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0007.325 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.1 MB, 1910 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0007.625 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: size is now: 1.20 MB
+0007.635 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 600 files added (on-disk size: 1199.5 KB)
+0007.640 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 700 files added (on-disk size: 1199.5 KB)
+0007.645 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 800 files added (on-disk size: 1199.5 KB)
+0007.650 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 900 files added (on-disk size: 1199.5 KB)
+0007.656 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 1000 files added (on-disk size: 1199.5 KB)
+0007.657 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.7 MB, 1910 files batched, 501 (1002) added so far); re-opening (prior size: 1199.5 KB)
+0007.812 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: size is now: 1.70 MB
+0007.822 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 1100 files added (on-disk size: 1756.7 KB)
+0007.827 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 1200 files added (on-disk size: 1756.7 KB)
+0007.832 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 1300 files added (on-disk size: 1756.7 KB)
+0007.838 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 1400 files added (on-disk size: 1756.7 KB)
+0007.843 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 1500 files added (on-disk size: 1756.7 KB)
+0007.845 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.5 MB, 1910 files batched, 501 (1503) added so far); re-opening (prior size: 1756.7 KB)
+0008.036 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: size is now: 2.50 MB
+0008.045 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 1600 files added (on-disk size: 2604.4 KB)
+0008.050 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 1700 files added (on-disk size: 2604.4 KB)
+0008.055 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 1800 files added (on-disk size: 2604.4 KB)
+0008.060 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: 1900 files added (on-disk size: 2604.4 KB)
+0008.803 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip.tmp: size is now: 6.60 MB
+0008.848 (0) Created themes zip (0) - 6715.3 KB in 1.7 s (3922.9 KB/s) (SHA1 checksum: 670936ae9ec31f52d9beb10a1813755ee9c7d8ee)
+0008.852 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone
+0008.853 (0) Looking for candidates to back up in: /home/unitycom/public_html/wp-content/uploads
+0008.855 (0) finding files: wp-migrate-db: adding to list (1)
+0008.856 (0) finding files: mainwp: adding to list (2)
+0008.858 (0) finding files: 2017: adding to list (3)
+0008.859 (0) finding files: index.php: adding to list (4)
+0008.860 (0) finding files: cache: adding to list (5)
+0008.861 (0) finding files: 2016: adding to list (6)
+0008.862 (0) Beginning creation of dump of uploads (split every: 500 MB)
+0009.061 (0) Total entities for the zip file: 12 directories, 374 files (0 skipped as non-modified), 31.1 MB
+0009.066 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0009.073 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0009.078 (0) Zip: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0009.080 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (26.2 MB, 374 files batched, 308 (308) added so far); re-opening (prior size: 0 KB)
+0018.968 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-uploads.zip.tmp: size is now: 26.30 MB
+0018.975 (0) A useful amount of data was added after this amount of zip processing: 10.5 s (normalised: 10 s, rate: 2561 KB/s)
+0032.096 (0) Created uploads zip (0) - 31912.3 KB in 23 s (1384.7 KB/s) (SHA1 checksum: 3153dc64b34ce699e7e479aa9fee16fb17a20100)
+0032.100 (0) Beginning backup of other directories found in the content directory (index: 0)
+0032.101 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql
+0032.102 (0) Looking for candidates to back up in: /home/unitycom/public_html/wp-content
+0032.103 (0) finding files: upgrade: skipping: excluded by options
+0032.104 (0) finding files: themes: skipping: this is the themes directory
+0032.105 (0) finding files: plugins: skipping: this is the plugins directory
+0032.106 (0) finding files: updraft: skipping: this is the updraft directory
+0032.108 (0) finding files: index.php: adding to list (1)
+0032.109 (0) finding files: uploads: skipping: this is the uploads directory
+0032.290 (0) Total entities for the zip file: 0 directories, 1 files (0 skipped as non-modified), 0 MB
+0032.297 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-others.zip.tmp: size is now: 0.00 MB
+0032.302 (0) Created others zip (0) - 0.2 KB in 0 s (11.7 KB/s) (SHA1 checksum: 527350adee0265b60549a6031bbcc624f47e7cd1)
+0032.316 (0) Saving backup status to database (elements: 8)
+0032.325 (0) Beginning creation of database dump (WordPress DB)
+0032.328 (0) Testing: /usr/bin/mysqldump
+0032.369 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1188 bytes total)
+0032.372 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0032.379 (0) Table wp_options: Total expected rows (approximate): 313
+0032.447 (0) Table wp_options: Total rows added: 317 in 0.07 seconds
+0032.452 (0) Table wp_options: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_options.table.gz - 142.7 KB)
+0032.457 (0) Table wp_users: Total expected rows (approximate): 2
+0032.461 (0) Table wp_users: Total rows added: 2 in 0.00 seconds
+0032.462 (0) Table wp_users: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_users.table.gz - 0.6 KB)
+0032.467 (0) Table wp_usermeta: Total expected rows (approximate): 44
+0032.472 (0) Table wp_usermeta: Total rows added: 44 in 0.00 seconds
+0032.474 (0) Table wp_usermeta: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_usermeta.table.gz - 4.2 KB)
+0032.481 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0032.483 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0032.487 (0) Table wp_commentmeta: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0032.493 (0) Table wp_comments: Total expected rows (approximate): 0
+0032.496 (0) Table wp_comments: Total rows added: 1 in 0.00 seconds
+0032.498 (0) Table wp_comments: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_comments.table.gz - 0.7 KB)
+0032.504 (0) Table wp_links: Total expected rows (approximate): 0
+0032.507 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0032.509 (0) Table wp_links: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_links.table.gz - 0.4 KB)
+0032.514 (0) Table wp_postmeta: Total expected rows (approximate): 500
+0032.533 (0) Table wp_postmeta: Total rows added: 500 in 0.02 seconds
+0032.536 (0) Table wp_postmeta: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_postmeta.table.gz - 25.7 KB)
+0032.540 (0) Table wp_posts: Total expected rows (approximate): 196
+0032.604 (0) Table wp_posts: Total rows added: 216 in 0.06 seconds
+0032.607 (0) Table wp_posts: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_posts.table.gz - 91 KB)
+0032.613 (0) Table wp_term_relationships: Total expected rows (approximate): 29
+0032.616 (0) Table wp_term_relationships: Total rows added: 29 in 0.00 seconds
+0032.617 (0) Table wp_term_relationships: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_term_relationships.table.gz - 0.4 KB)
+0032.623 (0) Table wp_term_taxonomy: Total expected rows (approximate): 6
+0032.627 (0) Table wp_term_taxonomy: Total rows added: 6 in 0.00 seconds
+0032.628 (0) Table wp_term_taxonomy: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_term_taxonomy.table.gz - 0.5 KB)
+0032.635 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0032.638 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0032.640 (0) Table wp_termmeta: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_termmeta.table.gz - 0.4 KB)
+0032.646 (0) Table wp_terms: Total expected rows (approximate): 6
+0032.650 (0) Table wp_terms: Total rows added: 6 in 0.00 seconds
+0032.652 (0) Table wp_terms: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_terms.table.gz - 0.5 KB)
+0032.658 (0) Table wp_cf_form_entries: Total expected rows (approximate): 0
+0032.662 (0) Table wp_cf_form_entries: Total rows added: 0 in 0.00 seconds
+0032.663 (0) Table wp_cf_form_entries: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_cf_form_entries.table.gz - 0.4 KB)
+0032.670 (0) Table wp_cf_form_entry_meta: Total expected rows (approximate): 0
+0032.673 (0) Table wp_cf_form_entry_meta: Total rows added: 0 in 0.00 seconds
+0032.675 (0) Table wp_cf_form_entry_meta: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_cf_form_entry_meta.table.gz - 0.4 KB)
+0032.682 (0) Table wp_cf_form_entry_values: Total expected rows (approximate): 0
+0032.685 (0) Table wp_cf_form_entry_values: Total rows added: 0 in 0.00 seconds
+0032.687 (0) Table wp_cf_form_entry_values: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_cf_form_entry_values.table.gz - 0.4 KB)
+0032.694 (0) Table wp_cf_tracking: Total expected rows (approximate): 0
+0032.699 (0) Table wp_cf_tracking: Total rows added: 0 in 0.00 seconds
+0032.702 (0) Table wp_cf_tracking: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_cf_tracking.table.gz - 0.3 KB)
+0032.709 (0) Table wp_cf_tracking_meta: Total expected rows (approximate): 0
+0032.712 (0) Table wp_cf_tracking_meta: Total rows added: 0 in 0.00 seconds
+0032.714 (0) Table wp_cf_tracking_meta: finishing file (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_cf_tracking_meta.table.gz - 0.4 KB)
+0032.721 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_options.table.gz (1/17): adding to final database dump
+0032.764 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_users.table.gz (2/17): adding to final database dump
+0032.766 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_usermeta.table.gz (3/17): adding to final database dump
+0032.769 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_commentmeta.table.gz (4/17): adding to final database dump
+0032.771 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_comments.table.gz (5/17): adding to final database dump
+0032.774 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_links.table.gz (6/17): adding to final database dump
+0032.775 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_postmeta.table.gz (7/17): adding to final database dump
+0032.789 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_posts.table.gz (8/17): adding to final database dump
+0032.822 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_term_relationships.table.gz (9/17): adding to final database dump
+0032.825 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_term_taxonomy.table.gz (10/17): adding to final database dump
+0032.826 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_termmeta.table.gz (11/17): adding to final database dump
+0032.828 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_terms.table.gz (12/17): adding to final database dump
+0032.830 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_cf_form_entries.table.gz (13/17): adding to final database dump
+0032.831 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_cf_form_entry_meta.table.gz (14/17): adding to final database dump
+0032.833 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_cf_form_entry_values.table.gz (15/17): adding to final database dump
+0032.848 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_cf_tracking.table.gz (16/17): adding to final database dump
+0032.850 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db-table-wp_cf_tracking_meta.table.gz (17/17): adding to final database dump
+0032.851 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db.gz: finished writing out complete database file (224 KB)
+0032.859 (0) Total database tables backed up: 17 (backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db.gz, size: 272238, checksum (SHA1): a68f41e51e3a6a48083c883e5891d8d2e2c42665)
+0032.868 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0032.869 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0032.870 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0032.872 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-others.zip: others: This file has not yet been successfully uploaded: will queue
+0032.873 (0) backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db.gz: db: This file has not yet been successfully uploaded: will queue
+0032.874 (0) Saving backup history. Total backup size: 51.6 MB
+0032.879 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0032.884 (0) Cloud backup selection (1/1): ftp (last)
+0032.885 (0) Beginning dispatch of backup to remote (ftp)
+0032.945 (0) FTP upload attempt: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip -> ftp://updraft@wp.unitymakes.us@173.236.13.74//backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip
+0032.975 (0) Ftp chunked upload: 3.7 % uploaded
+0032.999 (0) Ftp chunked upload: 7.4 % uploaded
+0033.020 (0) Ftp chunked upload: 11.1 % uploaded
+0033.039 (0) Ftp chunked upload: 14.8 % uploaded
+0033.069 (0) Ftp chunked upload: 22.2 % uploaded
+0033.096 (0) Ftp chunked upload: 29.5 % uploaded
+0033.154 (0) Ftp chunked upload: 44.3 % uploaded
+0033.210 (0) Ftp chunked upload: 59 % uploaded
+0033.259 (0) Ftp chunked upload: 73.7 % uploaded
+0033.309 (0) Ftp chunked upload: 88.4 % uploaded
+0033.347 (0) FTP upload attempt successful (13944.2KB in 0.39s)
+0033.350 (0) Recording as successfully uploaded: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip (e91104300213d02c5af08e2ca1ef877e)
+0033.359 (0) Deleting local file: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-plugins.zip: OK
+0033.360 (0) FTP upload attempt: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip -> ftp://updraft@wp.unitymakes.us@173.236.13.74//backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip
+0033.375 (0) Ftp chunked upload: 7.7 % uploaded
+0033.393 (0) Ftp chunked upload: 15.4 % uploaded
+0033.411 (0) Ftp chunked upload: 23 % uploaded
+0033.430 (0) Ftp chunked upload: 30.7 % uploaded
+0033.456 (0) Ftp chunked upload: 46 % uploaded
+0033.484 (0) Ftp chunked upload: 61.3 % uploaded
+0033.535 (0) Ftp chunked upload: 91.9 % uploaded
+0033.550 (0) FTP upload attempt successful (6715.3KB in 0.19s)
+0033.553 (0) Recording as successfully uploaded: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip (a04d6edef4ff506cc700c75fbd21b177)
+0033.559 (0) Deleting local file: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-themes.zip: OK
+0033.561 (0) FTP upload attempt: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-uploads.zip -> ftp://updraft@wp.unitymakes.us@173.236.13.74//backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-uploads.zip
+0033.576 (0) Ftp chunked upload: 1.6 % uploaded
+0033.592 (0) Ftp chunked upload: 3.2 % uploaded
+0033.607 (0) Ftp chunked upload: 4.8 % uploaded
+0033.623 (0) Ftp chunked upload: 6.5 % uploaded
+0033.658 (0) Ftp chunked upload: 9.7 % uploaded
+0033.686 (0) Ftp chunked upload: 12.9 % uploaded
+0033.737 (0) Ftp chunked upload: 19.3 % uploaded
+0033.789 (0) Ftp chunked upload: 25.8 % uploaded
+0033.841 (0) Ftp chunked upload: 32.2 % uploaded
+0033.897 (0) Ftp chunked upload: 38.6 % uploaded
+0033.949 (0) Ftp chunked upload: 45 % uploaded
+0034.000 (0) Ftp chunked upload: 51.5 % uploaded
+0034.053 (0) Ftp chunked upload: 57.9 % uploaded
+0034.104 (0) Ftp chunked upload: 64.3 % uploaded
+0034.155 (0) Ftp chunked upload: 70.8 % uploaded
+0034.222 (0) Ftp chunked upload: 77.2 % uploaded
+0034.290 (0) Ftp chunked upload: 83.6 % uploaded
+0034.342 (0) Ftp chunked upload: 90 % uploaded
+0034.393 (0) Ftp chunked upload: 96.5 % uploaded
+0034.427 (0) FTP upload attempt successful (31912.3KB in 0.87s)
+0034.431 (0) Recording as successfully uploaded: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-uploads.zip (9cafee494aa01771707740b5fbb2f58f)
+0034.445 (0) Deleting local file: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-uploads.zip: OK
+0034.446 (0) FTP upload attempt: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-others.zip -> ftp://updraft@wp.unitymakes.us@173.236.13.74//backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-others.zip
+0034.448 (0) FTP upload attempt successful (0.2KB in 0s)
+0034.451 (0) Recording as successfully uploaded: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-others.zip (5239444228d5a1b688d3e0f5085b234f)
+0034.455 (0) Deleting local file: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-others.zip: OK
+0034.457 (0) FTP upload attempt: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db.gz -> ftp://updraft@wp.unitymakes.us@173.236.13.74//backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db.gz
+0034.465 (0) FTP upload attempt successful (265.9KB in 0.01s)
+0034.469 (0) Recording as successfully uploaded: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db.gz (788a6c1ce5843b1beccabfc6e1aa78d9)
+0034.473 (0) Deleting local file: backup_2017-01-04-0222_Unity_Digital_Agency_c1d35c88b129-db.gz: OK
+0034.477 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0034.478 (0) Number of backup sets in history: 1; groups (db): 1
+0034.480 (0) Examining (for databases) backup set with group_id=0, nonce=c1d35c88b129, datestamp=1483496532 (Jan 04 2017 02:22:12)
+0034.481 (0) This backup set is the backup set just made, so will not be deleted.
+0034.483 (0) Number of backup sets in history: 1; groups (files): 1
+0034.484 (0) Examining (for files) backup set with nonce=c1d35c88b129, datestamp=1483496532 (Jan 04 2017 02:22:12)
+0034.485 (0) This backup set is the backup set just made, so will not be deleted.
+0034.486 (0) This backup set is the backup set just made, so will not be deleted.
+0034.486 (0) This backup set is the backup set just made, so will not be deleted.
+0034.486 (0) This backup set is the backup set just made, so will not be deleted.
+0034.487 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0034.489 (0) Retain: saving new backup history (sets now: 1) and finishing retain operation
+0034.493 (0) Resume backup (c1d35c88b129, 0): finish run
+0034.498 (0) Decremented the semaphore (fd) by 1
+0034.501 (0) Semaphore (fd) unlocked
+0034.502 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0034.507 (0) No email will/can be sent - the user has not configured an email address.
+0034.512 (0) The backup apparently succeeded and is now complete

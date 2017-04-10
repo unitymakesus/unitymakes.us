@@ -12,7 +12,7 @@
         {!! __('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'sage') !!}
       </div>
     <![endif]-->
-    <a href="#main" class="screen-reader-shortcut">Skip to content</a>
+    <a href="#main" class="screen-reader-text">Skip to content</a>
     @php(do_action('get_header'))
     @include('partials.header')
     <div id="main" class="wrap" role="document">

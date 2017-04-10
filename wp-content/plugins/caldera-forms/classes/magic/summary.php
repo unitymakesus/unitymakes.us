@@ -78,10 +78,7 @@ class Caldera_Forms_Magic_Summary extends Caldera_Forms_Magic_Parser {
 					continue;
 				}
 
-				// filter the field to get field data
-				$field = apply_filters( 'caldera_forms_render_get_field', $field, $this->form );
-				$field = apply_filters( 'caldera_forms_render_get_field_type-' . $field[ 'type' ], $field, $this->form );
-				$field = apply_filters( 'caldera_forms_render_get_field_slug-' . $field[ 'slug' ], $field, $this->form );
+				$field = Caldera_Forms_Field_Util::apply_field_filters( $field, $this->form );
 
 				if (  null == $this->data ) {
 					$field_values = (array) Caldera_Forms::get_field_data( $field_id, $this->form );
@@ -96,14 +93,18 @@ class Caldera_Forms_Magic_Summary extends Caldera_Forms_Magic_Parser {
 					$field_values = $field_values[ 'value' ];
 				} else {
 					foreach ( $field_values as $field_key => $field_value ) {
-						if ( isset( $field_value[ 'label' ] ) && isset( $field_value[ 'value' ] ) ) {
+						if ( true === is_array( $field_value ) && true === array_key_exists( 'label', $field_value ) && true === array_key_exists( 'value', $field_value ) ) {
 							$field_values[ $field_key ] = $field_value[ 'value' ];
 						}
 
 					}
 				}
 
-				$should_use_label = $this->should_use_label( $field );
+				$should_use_label = false;
+				if ( is_array( $field ) ) {
+					$should_use_label = $this->should_use_label( $field );
+				}
+
 				if( $should_use_label ){
 					foreach ( $field_values as $field_key => $field_value ) {
 						$field_values[ $field_key ] = $this->option_value_to_label( $field_value, $field );

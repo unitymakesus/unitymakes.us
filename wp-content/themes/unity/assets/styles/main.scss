@@ -8,6 +8,7 @@ $roboto-font-path: "~materialize-sass-origin/font/roboto/";
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
 
+@import "common/a11y";
 @import "common/global";
 @import "components/buttons";
 @import "components/cards";

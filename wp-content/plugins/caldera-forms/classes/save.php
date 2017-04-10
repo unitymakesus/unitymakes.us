@@ -10,10 +10,6 @@
  */
 class Caldera_Forms_Save_Final {
 
-	public static function determine_type( $form, $_cf_frm_edt ) {
-
-	}
-
 	/**
 	 * Save form in database
 	 *
@@ -217,7 +213,7 @@ class Caldera_Forms_Save_Final {
 
 			// if added a bcc
 			$mail['bcc'] = false;
-			if ( isset( $form['mailer']['bcc_to'] ) ) {
+			if ( isset( $form['mailer']['bcc_to'] ) && ! empty( $form['mailer']['bcc_to'] ) ) {
 				$mail['bcc']       = $form['mailer']['bcc_to'];
 				$mail['headers'][] = Caldera_Forms::do_magic_tags( 'Bcc: ' . $form['mailer']['bcc_to'] );
 			}
@@ -225,18 +221,15 @@ class Caldera_Forms_Save_Final {
 			// if added a replyto
 			$mail['replyto'] = false;
 			if ( isset( $form['mailer']['reply_to'] ) ) {
-				$reply_to = trim( $form['mailer']['reply_to'] );
-				if ( ! empty( $reply_to ) ) {
-					$mail['replyto']   = $reply_to;
-					$mail['headers'][] = Caldera_Forms::do_magic_tags( 'Reply-To: <' . $reply_to . '>' );
-				}
+                                $mail['replyto']   = $form['mailer']['reply_to'];
+                                $mail['headers'][] = Caldera_Forms::do_magic_tags( 'Reply-To: ' . $form['mailer']['reply_to'] );
 			}
 			if ( ! $mail['replyto'] ) {
 				$mail['replyto'] = $mail['from'];
 			}
 
 			// Filter Mailer first as not to have user input be filtered
-			$mail['message'] = Caldera_Forms::do_magic_tags( $mail['message'], null, $data );
+			$mail['message'] = Caldera_Forms::do_magic_tags( $mail['message'], $entryid, $data );
 
 			if ( ! isset( $form['mailer']['email_type'] ) || $form['mailer']['email_type'] == 'html' ) {
 				$mail['headers'][] = "Content-type: text/html";
@@ -301,7 +294,10 @@ class Caldera_Forms_Save_Final {
 				$mail['recipients'][] = get_option( 'admin_email' );
 			}
 
-			$submission = array();
+
+
+
+			$submission = $labels = array();
 			foreach ( $data as $field_id => $row ) {
 				if ( $row === null || ! isset( $form['fields'][ $field_id ] ) ) {
 					continue;
@@ -331,16 +327,19 @@ class Caldera_Forms_Save_Final {
 						$row = null;
 					}
 				}
-				$mail['message'] = str_replace( '%' . $key . '%', $row, $mail['message'] );
-				$mail['subject'] = str_replace( '%' . $key . '%', $row, $mail['subject'] );
+
+				$tag =  '%' . $key . '%';
+				$parsed = Caldera_Forms_Magic_Doer::do_field_magic( $tag, $entryid, $form );
+				$mail['message'] = str_replace( $tag, $parsed, $mail['message'] );
+				$mail['subject'] = str_replace( $tag, $parsed, $mail['subject'] );
 
 				$submission[] = $row;
 				$labels[]     = $form['fields'][ $field_id ]['label'];
 			}
 
 			// final magic
-			$mail['message'] = Caldera_Forms::do_magic_tags( $mail['message'] );
-			$mail['subject'] = Caldera_Forms::do_magic_tags( $mail['subject'] );
+			$mail['message'] = Caldera_Forms::do_magic_tags( $mail['message'], $entryid, $form );
+			$mail['subject'] = Caldera_Forms::do_magic_tags( $mail['subject'], $entryid, $form );
 
 			// CSV
 			$mail['csv'] = $csvfile = false;
@@ -395,6 +394,10 @@ class Caldera_Forms_Save_Final {
 		if ( empty( $mail ) || ! is_array( $mail ) ) {
 			return;
 
+		}
+
+		if( ! $mail['html']     ){
+			$mail[ 'message' ] = strip_tags( $mail['message'] );
 		}
 
 		$headers = implode("\r\n", $mail['headers']);

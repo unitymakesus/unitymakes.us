@@ -1,0 +1,24 @@
+[07-Feb-2017 14:30:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function locate_template() in /home/unitycom/public_html/wp-content/themes/unity/functions.php:46
+Stack trace:
+#0 [internal function]: {closure}('src/helpers.php')
+#1 /home/unitycom/public_html/wp-content/themes/unity/functions.php(49): array_map(Object(Closure), Array)
+#2 {main}
+  thrown in /home/unitycom/public_html/wp-content/themes/unity/functions.php on line 46
+[07-Feb-2017 14:30:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function locate_template() in /home/unitycom/public_html/wp-content/themes/unity/functions.php:46
+Stack trace:
+#0 [internal function]: {closure}('src/helpers.php')
+#1 /home/unitycom/public_html/wp-content/themes/unity/functions.php(49): array_map(Object(Closure), Array)
+#2 {main}
+  thrown in /home/unitycom/public_html/wp-content/themes/unity/functions.php on line 46
+[07-Feb-2017 14:41:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function locate_template() in /home/unitycom/public_html/wp-content/themes/unity/functions.php:46
+Stack trace:
+#0 [internal function]: {closure}('src/helpers.php')
+#1 /home/unitycom/public_html/wp-content/themes/unity/functions.php(49): array_map(Object(Closure), Array)
+#2 {main}
+  thrown in /home/unitycom/public_html/wp-content/themes/unity/functions.php on line 46
+[07-Feb-2017 14:41:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function locate_template() in /home/unitycom/public_html/wp-content/themes/unity/functions.php:46
+Stack trace:
+#0 [internal function]: {closure}('src/helpers.php')
+#1 /home/unitycom/public_html/wp-content/themes/unity/functions.php(49): array_map(Object(Closure), Array)
+#2 {main}
+  thrown in /home/unitycom/public_html/wp-content/themes/unity/functions.php on line 46

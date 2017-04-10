@@ -115,18 +115,18 @@
     @include('partials.content-parallax', [
       'type'      => 'overlay',
       'img'       => '<img src="' . App\asset_path('images/succulents.jpg') . '" alt="">',
-      'content'   => '<div class="row valign-wrapper">
-                        <div class="col m6">
+      'content'   => '<div class="row valign-wrapper flex-wrap">
+                        <div class="col s12 m6">
                           <img src="' . App\asset_path('images/quote-kid-president.svg') . '" alt="Create something that will make the world awesome. Kid President" />
                         </div>
-                        <div class="col m6 valign center center-align">
+                        <div class="col s12 m6 valign center center-align">
                           <a href="' . get_permalink(get_page_by_path('mission-values')) . '" class="btn btn-ghost">See Our Core Values</a>
                         </div>
                       </div>'
     ])
 
     <section class="container vertical-padding-3">
-      <div class="valign-wrapper center-align">
+      <div class="valign-wrapper center-align flex-wrap">
         <a class="valign horizontal-padding-1" href="https://www.bcorporation.net/what-are-b-corps" target="_blank">
           <img class=""
                src="{{ App\asset_path('images/pending-b-corp.png') }}"
