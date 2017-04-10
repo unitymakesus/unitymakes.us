@@ -33,7 +33,7 @@
   </div>
   <div class="footer-copyright">
     <div class="container">
-    <i class="cc cc-by"></i> {{ the_time('Y') }} Unity Digital Agency. <a href="/privacy-policy/">Privacy Policy.</a> Photo credits <a href="http://www.wocintechchat.com/" target="_blank">#WOCinTech</a> and <a href="https://unsplash.com/" target="_blank">Unsplash</a>.
+    <i class="cc cc-by"></i> {{ current_time('Y') }} Unity Digital Agency. <a href="/privacy-policy/">Privacy Policy.</a> Photo credits <a href="http://www.wocintechchat.com/" target="_blank">#WOCinTech</a> and <a href="https://unsplash.com/" target="_blank">Unsplash</a>.
     </div>
   </div>
 </footer>
