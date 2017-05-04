@@ -40,38 +40,69 @@
     @include('partials.content-clients', [
       'clients'   => [
         [
-          'img'   => App\asset_path('images/clients/rtp.gif'),
-          'alt'   => 'Research Triangle Park'
+          'img'   => App\asset_path('images/client-logos/rtp.png'),
+          'img2x' => App\asset_path('images/client-logos/rtp@2x.png'),
+          'alt'   => 'Research Triangle Park',
+          'width' => '200'
         ],
         [
-          'img'   => App\asset_path('images/clients/transloc.png'),
-          'alt'   => 'TransLoc'
+          'img'   => App\asset_path('images/client-logos/nc-rural-center.png'),
+          'img2x' => App\asset_path('images/client-logos/nc-rural-center@2x.png'),
+          'alt'   => 'North Carolina Rural Center',
+          'width' => '151'
         ],
         [
-          'img'   => App\asset_path('images/clients/evh-logo.jpg'),
+          'img'   => App\asset_path('images/client-logos/clean-air-carolina.png'),
+          'img2x' => App\asset_path('images/client-logos/clean-air-carolina@2x.png'),
+          'alt'   => 'Clean Air Carolina',
+          'width' => '201'
+        ],
+        [
+          'img'   => App\asset_path('images/client-logos/evh-logo.png'),
+          'img2x' => App\asset_path('images/client-logos/evh-logo@2x.png'),
           'alt'   => 'The Hispanic Liaison El Vínculo Hispano',
-          'class' => 'evh'
+          'width' => '101'
         ],
         [
-          'img'   => App\asset_path('images/clients/nc-initiative.png'),
-          'alt'   => 'North Carolina Community Development Initiative'
+          'img'   => App\asset_path('images/client-logos/nc-initiative.png'),
+          'img2x' => App\asset_path('images/client-logos/nc-initiative@2x.png'),
+          'alt'   => 'North Carolina Community Development Initiative',
+          'width' => '201'
         ],
         [
-          'img'   => App\asset_path('images/clients/nc-housing-coalition.png'),
-          'alt'   => 'North Carolina Housing Coalition'
+          'img'   => App\asset_path('images/client-logos/nc-housing-coalition.png'),
+          'img2x' => App\asset_path('images/client-logos/nc-housing-coalition@2x.png'),
+          'alt'   => 'North Carolina Housing Coalition',
+          'width' => '200'
         ],
         [
-          'img'   => App\asset_path('images/clients/padgett-nc.png'),
-          'alt'   => 'Padgett Business Services North Carolina'
+          'img'   => App\asset_path('images/client-logos/miraclefeet.png'),
+          'img2x' => App\asset_path('images/client-logos/miraclefeet@2x.png'),
+          'alt'   => 'Miraclefeet',
+          'width' => '230'
         ],
         [
-          'img'   => App\asset_path('images/clients/everett-gaskins-hancock.jpg'),
-          'alt'   => 'Everett Gaskins Hancock LLP',
-          'class' => 'everett-gaskins-hancock'
-        ],
-        [
-          'img'   => App\asset_path('images/clients/my-friend-teresa.svg'),
+          'img'   => App\asset_path('images/client-logos/my-friend-teresa.png'),
+          'img2x' => App\asset_path('images/client-logos/my-friend-teresa@2x.png'),
           'alt'   => 'My Friend Teresa Studios',
+          'width' => '200'
+        ],
+        [
+          'img'   => App\asset_path('images/client-logos/padgett-nc.png'),
+          'img2x' => App\asset_path('images/client-logos/padgett-nc@2x.png'),
+          'alt'   => 'Padgett Business Services North Carolina',
+          'width' => '201'
+        ],
+        [
+          'img'   => App\asset_path('images/client-logos/everett-gaskins-hancock.png'),
+          'img2x' => App\asset_path('images/client-logos/everett-gaskins-hancock@2x.png'),
+          'alt'   => 'Everett Gaskins Hancock LLP',
+          'width' => '341'
+        ],
+        [
+          'img'   => App\asset_path('images/client-logos/transloc.png'),
+          'img2x' => App\asset_path('images/client-logos/transloc@2x.png'),
+          'alt'   => 'TransLoc',
           'width' => '200'
         ],
       ]
@@ -101,7 +132,7 @@
           'img'   => App\asset_path('images/accessibility.jpg'),
           'alt'   => 'We build accessible websites that are WCOG 2.0 compliant',
           'title' => 'Website Accessibility',
-          'link'  => '#'
+          'link'  => '//www.unitymakes.us/2017/05/web-accessibility-everyone/'
         ],
         [
           'img'   => App\asset_path('images/open-source.jpg'),

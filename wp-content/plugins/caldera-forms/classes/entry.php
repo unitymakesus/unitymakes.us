@@ -66,6 +66,15 @@ class Caldera_Forms_Entry {
 	 */
 	protected $found;
 
+	/**
+	 * Holds the map of field_id to index of $this->fields. Lazy loaded by $this->get_field_map()
+	 *
+	 * @since 1.5.0.7
+	 *
+	 * @var array
+	 */
+	private $field_map;
+
 
 	/**
 	 * Caldera_Forms_Entry constructor.
@@ -177,14 +186,16 @@ class Caldera_Forms_Entry {
 
 
 	/**
-	 * @param $id
+	 * Get a specific field
 	 *
-	 * @return Caldera_Forms_Entry_Field
+	 * @since 1.4.0
+	 *
+	 * @param string $id Field ID
+	 *
+	 * @return Caldera_Forms_Entry_Field|null
 	 */
 	public function get_field( $id ){
-		if( isset( $this->fields[ $id ] ) ){
-			return $this->fields[ $id ];
-		}
+		return $this->find_field_by_id( $id );
 	}
 
 	/**
@@ -284,7 +295,9 @@ class Caldera_Forms_Entry {
 		if( is_numeric( $this->entry_id   ) ){
 			if ( ! empty( $this->fields ) ) {
 				foreach ( $this->fields as $i =>  $field ) {
-					$this->fields[ $i ] = $this->save_field( $field );
+					if ( $field instanceof  Caldera_Forms_Entry_Field ) {
+						$this->fields[ $i ] = $this->save_field( $field );
+					}
 
 				}
 				
@@ -292,7 +305,9 @@ class Caldera_Forms_Entry {
 
 			if ( ! empty( $this->meta ) ) {
 				foreach ( $this->meta as $i => $meta ) {
-					$this->meta[ $i ] = $this->save_meta( $meta );
+					if ( $meta instanceof Caldera_Forms_Entry_Meta ) {
+						$this->meta[ $i ] = $this->save_meta( $meta );
+					}
 				}
 
 			}
@@ -329,7 +344,13 @@ class Caldera_Forms_Entry {
 	public function add_field( Caldera_Forms_Entry_Field $field ){
 
 		$field->entry_id = $this->entry_id;
-		$this->fields[] = $field;
+		$key = $this->find_field_index( $field->field_id );
+		if( ! is_null( $key ) ){
+			$this->fields[ $key ] = $field;
+		}else{
+			$this->fields[] = $field;
+		}
+
 
 	}
 
@@ -371,14 +392,21 @@ class Caldera_Forms_Entry {
 	 * @since 1.4.0
 	 *
 	 * @param \Caldera_Forms_Entry_Field $field
+	 *
+	 * @return  Caldera_Forms_Entry_Field
 	 */
 	protected function save_field( Caldera_Forms_Entry_Field $field ){
 		$field->entry_id = $this->entry_id;
 		global $wpdb;
 		$data = $field->to_array();
-		unset( $data[ 'id' ] );
-		$wpdb->insert( $wpdb->prefix . 'cf_form_entry_values', $data  );
-		$field->id = $wpdb->insert_id;
+		if (  ! isset( $data[ 'id' ] ) ) {
+			$wpdb->insert( $wpdb->prefix . 'cf_form_entry_values', $data );
+			$field->id = $wpdb->insert_id;
+		}else{
+			Caldera_Forms_Entry_Update::update_field( $field );
+		}
+
+
 		return $field;
 	}
 
@@ -388,6 +416,8 @@ class Caldera_Forms_Entry {
 	 * @since 1.4.0
 	 *
 	 * @param \Caldera_Forms_Entry_Meta $meta
+	 *
+	 * @return Caldera_Forms_Entry_Meta
 	 */
 	protected function save_meta( Caldera_Forms_Entry_Meta $meta ){
 		$meta->entry_id = $this->entry_id;
@@ -420,6 +450,50 @@ class Caldera_Forms_Entry {
 		return true;
 	}
 
+	/**
+	 * Find field object by field ID
+	 *
+	 * @since 1.5.0.7
+	 *
+	 * @param $field_id
+	 *
+	 * @return Caldera_Forms_Entry_Field|null
+	 */
+	protected function find_field_by_id( $field_id ){
+		$key = $this->find_field_index( $field_id );
+		if( ! is_null( $key ) ){
+			return $this->fields[ $key ];
+		}
+
+		return null;
+	}
+
+	/**
+	 * Lazy-loader for "field map" that provides field_id => index of $this->field
+	 *
+	 * @since 1.5.0.7
+	 *
+	 * @return array
+	 */
+	protected function get_field_map(){
+		$this->get_fields();
+		if( empty( $this->field_map ) && ! empty( $this->fields ) ){
+			//Wouldn't it be better to use array_column() ? Yes it would, but PHP 5.2 so :(
+			$this->field_map = array_combine( wp_list_pluck( $this->fields, 'field_id' ), array_keys( $this->fields ) );
+		}
+
+		return $this->field_map;
+
+	}
+
+	private function find_field_index( $field_id ){
+		$this->get_field_map();
+		if( ! empty( $this->field_map ) && isset( $this->field_map[ $field_id ] ) ){
+			return $this->field_map[ $field_id ];
+		}
+
+		return null;
+	}
 }
 
 

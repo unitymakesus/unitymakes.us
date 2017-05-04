@@ -52,6 +52,8 @@ class Caldera_Forms {
 	/**
 	 * Holds modal HTML to be loaded in footer
 	 *
+	 * @deprecated 1.5.0.7
+	 *
 	 * @since 1.4.2
 	 *
 	 * @var string
@@ -101,7 +103,11 @@ class Caldera_Forms {
 		add_shortcode( 'caldera_form', array( $this, 'shortcode_handler' ) );
 		// modal shortcode
 		add_shortcode( 'caldera_form_modal', array( $this, 'shortcode_handler' ) );
-		add_action( 'wp_footer', array( $this, 'render_footer_modals' ) );
+		add_action( 'wp_footer', array( 'Caldera_Forms_Render_Modals', 'render_footer_modals' ) );
+
+		//filter shortcode atts for defaults
+		add_filter( 'shortcode_atts_caldera_form', array( 'Caldera_Forms_Shortcode_Atts', 'allow_default_set' ), 5, 4 );
+		add_filter( 'shortcode_atts_caldera_form_modal', array( 'Caldera_Forms_Shortcode_Atts', 'allow_default_set' ), 5, 4 );
 
 		//emails
 		add_action( 'caldera_forms_core_init', array( 'Caldera_Forms_Email_Settings', 'maybe_add_hooks' ) );
@@ -163,6 +169,9 @@ class Caldera_Forms {
 
 		//clear syncer cache on form update
 		add_action( 'caldera_forms_save_form', array( 'Caldera_Forms_Sync_Factory', 'clear_cache' ) );
+
+
+
 		/**
 		 * Runs after Caldera Forms core is initialized
 		 *
@@ -278,6 +287,7 @@ class Caldera_Forms {
 	 * Create a modal button's HTML
 	 *
 	 * @since 1.5.0.4
+	 * @deprecated 1.5.0.7
 	 *
 	 * @param array $atts Form atts
 	 * @param string $content Content for opener
@@ -286,27 +296,8 @@ class Caldera_Forms {
 	 * @return string
 	 */
 	protected static function modal_button( $atts, $content, $form, $modal_id ){
-		if ( empty( $content ) ) {
-			$content = $form[ 'name' ];
-		}
-
-		$tag_atts = sprintf( 'data-form="%1s"', $form[ 'ID' ] );
-
-		if ( ! empty( $atts[ 'width' ] ) ) {
-			$tag_atts .= sprintf( ' data-width="%1s"', $atts[ 'width' ] );
-		}
-		if ( ! empty( $atts[ 'height' ] ) ) {
-			$tag_atts .= sprintf( ' data-height="%1s"', $atts[ 'height' ] );
-		}
-
-
-		$title = __( sprintf( 'Click to open the form %1s in a modal', $form[ 'name' ] ), 'caldera-forms' );
-		if ( ! empty( $atts[ 'type' ] ) && $atts[ 'type' ] == 'button' ) {
-			$tag_atts .= sprintf( 'data-remodal-target="%1s"', $modal_id );
-			return sprintf( '<button class="caldera-forms-modal" %s title="%s">%s</button>', $tag_atts, $title, $content );
-		} else {
-			return sprintf( '<a href="%s" class="caldera-forms-modal" %s title="%s">%s</a>', '#' . $modal_id, $tag_atts, esc_attr( $title ), $content );
-		}
+		_deprecated_function( __METHOD__, '1.5.0.7', 'Caldera_Forms_Render_Modals::modal_button' );
+		return Caldera_Forms_Render_Modals::modal_button( $atts, $content, $form, $modal_id );
 	}
 
 	/**
@@ -1060,6 +1051,10 @@ class Caldera_Forms {
 		// set header
 		$headers[] = 'From: ' . $config[ 'sender_name' ] . ' <' . $config[ 'sender_email' ] . '>';
 
+		if( empty( $message ) ){
+			$message = '  ';
+		}
+
 		$html = false;
 		if ( ! isset( $config[ 'html' ] ) || true == $config[ 'html' ] ) {
 			$headers[] = "Content-type: text/html";
@@ -1390,14 +1385,7 @@ class Caldera_Forms {
 			return new WP_Error( $field[ 'ID' ] . '-calculation', __( 'Calculation is invalid', 'caldera-forms' ) );
 		}
 
-		if ( isset( $field[ 'config' ][ 'fixed' ] ) ) {
-			if ( function_exists( 'money_format' ) ) {
-				return money_format( '%i', $total );
-			} else {
-				return sprintf( '%01.2f', $total );
-			}
-
-		}
+		$total = Caldera_Forms_Field_Util::format_calc_field( $field, $total );
 
 		return $total;
 	}
@@ -1691,7 +1679,6 @@ class Caldera_Forms {
 		if ( empty( $conditions[ 'group' ] ) ) {
 			return true;
 		}
-		//$data = self::get_submission_data($form);
 
 		foreach ( $conditions[ 'group' ] as $groupid => $lines ) {
 			$truelines = array();
@@ -2114,13 +2101,16 @@ class Caldera_Forms {
 	/**
 	 * Get a field's data.
 	 *
+	 * @since 1.5.0.8
+	 *
 	 * @param string $field_id ID of field.
 	 * @param string|array $form Form config array or ID of form.
 	 * @param bool|false $entry_id Optional. Entry ID to save in.
+	 * @param bool $check_conditionals. Optional. If conditionals should be checked. Default is true. @since 1.5.0.8
 	 *
 	 * @return bool
 	 */
-	static public function get_field_data( $field_id, $form, $entry_id = false ) {
+	static public function get_field_data( $field_id, $form, $entry_id = false, $check_conditionals = true ) {
 		global $processed_data;
 
 		if ( is_string( $form ) ) {
@@ -2131,7 +2121,7 @@ class Caldera_Forms {
 		}
 
 		$field = Caldera_Forms_Field_Util::get_field( $field_id, $form );
-		if( is_array( $field ) && false === Caldera_Forms_Field_Util::check_conditional( $field, $form ) ){
+		if( $check_conditionals && is_array( $field ) && false === Caldera_Forms_Field_Util::check_conditional( $field, $form ) ){
 			return;
 		}
 
@@ -2273,7 +2263,9 @@ class Caldera_Forms {
 						}
 					}
 				}else{
-					if ( ! empty( $entry ) ) {
+					if( '0' === $entry || 0 === $entry ){
+						$processed_data[ $indexkey ][ $field_id ] = $entry;
+					}elseif ( ! empty( $entry ) ) {
 						$processed_data[ $indexkey ][ $field_id ] = $entry;
 					} elseif( isset( $field[ 'config' ][ 'default' ] )) {
 						$processed_data[ $indexkey ][ $field_id ] = self::do_magic_tags( $field[ 'config' ][ 'default' ] );
@@ -2505,12 +2497,15 @@ class Caldera_Forms {
 	/**
 	 * Get submission data from a form being submitted or a saved entry
 	 *
+	 * @since unknown
+	 *
 	 * @param array $form Form Config.
 	 * @param bool|false $entry_id Optional. Entry ID to get data for, or if false, the default, get form current submission.
+	 * @param bool $check_conditionals. Optional. If conditionals should be checked. Default is true. @since 1.5.0.8
 	 *
 	 * @return array|\WP_Error
 	 */
-	static public function get_submission_data( $form, $entry_id = false ) {
+	static public function get_submission_data( $form, $entry_id = false, $check_conditionals = true ) {
 		global $processed_data;
 
 		if ( is_string( $form ) ) {
@@ -2537,12 +2532,12 @@ class Caldera_Forms {
 		foreach ( $form[ 'fields' ] as $field_id => $field ) {
 			// get data
 			if ( ! empty( $field[ 'conditions' ][ 'type' ] ) ) {
-				if ( ! self::check_condition( $field[ 'conditions' ], $form, $entry_id ) ) {
+				if ( $check_conditionals && ! self::check_condition( $field[ 'conditions' ], $form, $entry_id ) ) {
 					continue;
 				}
 			}
 
-			self::get_field_data( $field_id, $form, $entry_id );
+			self::get_field_data( $field_id, $form, $entry_id, $check_conditionals );
 		}
 
 		return $processed_data[ $indexkey ];
@@ -2638,7 +2633,7 @@ class Caldera_Forms {
 
 		if ( ! empty( $form[ 'fields' ] ) ) {
 			foreach ( $form[ 'fields' ] as $field_id => $field ) {
-				$field = Caldera_Forms_Field_Util::get_field( $field, $form );
+				$field = Caldera_Forms_Field_Util::get_field( $field, $form, true );
 				if ( ! is_array( $field ) || empty( $field ) ) {
 					unset( $form[ 'fields' ][ $field_id ] );
 				} else {
@@ -3174,7 +3169,7 @@ class Caldera_Forms {
 		 * @param string $process_id Unique ID for this processing
 		 * @param int|false $entryid Current entry ID or false if not set or being saved.
 		 */
-		do_action( 'caldera_forms_submit_process_end', $form, $referrer, $process_id );
+		do_action( 'caldera_forms_submit_process_end', $form, $referrer, $process_id, $entryid );
 		// AFTER PROCESS - do post process for any additional stuff
 
 		/**
@@ -3187,7 +3182,7 @@ class Caldera_Forms {
 		 * @param string $process_id Unique ID for this processing
 		 * @param int|false $entryid Current entry ID or false if not set or being saved.
 		 */
-		do_action( 'caldera_forms_submit_post_process', $form, $referrer, $process_id, $entry_id );
+		do_action( 'caldera_forms_submit_post_process', $form, $referrer, $process_id, $entryid );
 		// POST PROCESS
 		foreach ( $form[ 'processors' ] as $processor_id => $processor ) {
 			if ( isset( $form_processors[ $processor[ 'type' ] ] ) ) {
@@ -3244,7 +3239,7 @@ class Caldera_Forms {
 		 * @param string $process_id Unique ID for this processing
 		 * @param int|false $entryid Current entry ID or false if not set or being saved.
 		 */
-		do_action( 'caldera_forms_submit_post_process_end', $form, $referrer, $process_id );
+		do_action( 'caldera_forms_submit_post_process_end', $form, $referrer, $process_id, $entryid );
 
 		/**
 		 * Runs after all processing for form completes
@@ -3254,8 +3249,9 @@ class Caldera_Forms {
 		 * @param array $form Form config
 		 * @param array $referrer URL form was submitted via -- is passed through parse_url() before this point.
 		 * @param string $process_id Unique ID for this processing
+		 * @param int|false $entryid Current entry ID or false if not set or being saved.
 		 */
-		do_action( 'caldera_forms_submit_complete', $form, $referrer, $process_id );
+		do_action( 'caldera_forms_submit_complete', $form, $referrer, $process_id, $entryid );
 
 		// redirect back or to result page
 		$referrer[ 'query' ][ 'cf_su' ] = $form_instance_number;
@@ -3520,7 +3516,9 @@ class Caldera_Forms {
 		// get fields
 		$field_types = Caldera_Forms_Fields::get_all();
 
-		$entry = self::get_submission_data( $form, $entry_id );
+		//False for third arg added in 1.5.0.8 to prevent conditions from being shown
+		//See: https://github.com/CalderaWP/Caldera-Forms/issues/1494
+		$entry = self::get_submission_data( $form, $entry_id, false );
 		$data  = array(
 			'data' => array()
 		);
@@ -3651,6 +3649,7 @@ class Caldera_Forms {
 	 * Load a Caldera Form in a modal.
 	 *
 	 * @since unknown
+	 * @deprecated  1.5.0.7
 	 *
 	 * @param string|array $atts Shortcode atts or form ID
 	 * @param string $content Content to use in trigger link.
@@ -3658,49 +3657,8 @@ class Caldera_Forms {
 	 * @return string
 	 */
 	static public function render_modal_form( $atts, $content ) {
-
-		if ( empty( $atts[ 'id' ] ) ) {
-			return $content;
-		}
-		$form = Caldera_Forms_Forms::get_form( $atts[ 'id' ] );
-		if ( empty( $form[ 'ID' ] ) || $form[ 'ID' ] != $atts[ 'id' ] ) {
-			return $content;
-		}
-
-		$form_atts = array( 'id' => $form[ 'ID' ], 'ajax' => true );
-		if ( ! empty( $atts[ 'entry' ] ) ) {
-			$form_atts[ 'entry' ] = $atts[ 'entry' ];
-		}
-
-		$modal_id = 'cf-modal-' . uniqid( $form[ 'ID' ] );
-
-		$out = self::modal_button( $atts, $content, $form, $modal_id );
-
-		if(!empty($_GET['cf_er'])){
-			$transdata = Caldera_Forms_Transient::get_transient( $_GET[ 'cf_er' ] );
-			if($transdata['transient'] == $_GET['cf_er']){
-				$current_state = 'style="display:block;"';
-			}
-		}
-		if ( ! empty( $_GET[ 'cf_su' ] ) ) {
-			// disable notices
-			unset( $_GET[ 'cf_su' ] );
-		}
-
-		ob_start();
-		?>
-		<div data-remodal-id="<?php echo esc_attr( $modal_id ); ?>"  id="<?php echo esc_attr( $modal_id ); ?>" class="remodal caldera-front-modal-container" data-form-id="<?php echo esc_attr( $modal_id ); ?>"  data-remodal-options="hashTracking: true, closeOnOutsideClick: false">
-			<button data-remodal-action="close" class="remodal-close"></button>
-			<div class="caldera-modal-body caldera-front-modal-body" id="<?php echo $modal_id; ?>_modal_body">
-				<?php echo self::render_form( $form_atts ); ?>
-			</div>
-		</div>
-
-		<?php
-		Caldera_Forms_Render_Assets::enqueue_modals();
-		self::$footer_modals .= ob_get_clean();
-
-		return $out;
+		_deprecated_function( __METHOD__, '1.5.0.7', 'Caldera_Forms_Render_Modals::render_modal_form' );
+		return Caldera_Forms_Render_Modals::modal_form( $atts, $content );
 	}
 
 	/**
@@ -3711,11 +3669,8 @@ class Caldera_Forms {
 	 * @uses "wp_footer"
 	 */
 	static public function render_footer_modals() {
-		$footer_modals = self::$footer_modals;
-		if ( ! empty( $footer_modals ) && is_string( $footer_modals ) ) {
-			echo $footer_modals;
-		}
-
+		_deprecated_function( __METHOD__, '1.5.0.7', 'Caldera_Forms_Render_Modals::render_footer_modals' );
+		Caldera_Forms_Render_Modals::render_footer_modals();
 	}
 
 	/**
@@ -3757,7 +3712,7 @@ class Caldera_Forms {
 		}
 
 		if ( ! empty( $field[ 'hide_label' ] ) ) {
-			$field_classes[ 'field_label' ][] = 'screen-reader-text';
+			$field_classes[ 'field_label' ][] = 'screen-reader-text sr-only';
 		}
 
 		$field_structure = array(
@@ -3969,11 +3924,12 @@ class Caldera_Forms {
 		 *
 		 * @since 1.3.4
 		 *
-		 * @param null|string $html By defualt, null. If string is returned, method will immediately return that string.
+		 * @param null|string $html By default, null. If string is returned, method will immediately return that string.
 		 * @param int $entry_id The entry ID.
 		 * @param array $form Form config.
+		 * @param array $atts Shortcode/function atts
 		 */
-		$html = apply_filters( 'caldera_forms_pre_render_form', null, $entry_id, $form );
+		$html = apply_filters( 'caldera_forms_pre_render_form', null, $entry_id, $form, $atts );
 		if ( is_string( $html ) ) {
 			return $html;
 
@@ -4347,7 +4303,7 @@ class Caldera_Forms {
 		 */
 		$form_wrapper_classes = apply_filters( 'caldera_forms_render_form_wrapper_classes', $form_wrapper_classes, $form );
 
-		$form_wrap_id = Caldera_Forms_Render_Util::field_id_attribute( $current_form_count );
+		$form_wrap_id = Caldera_Forms_Render_Util::form_id_attr( $current_form_count );
 		$out          = sprintf( '<div class="%s" id="%s" data-cf-ver="%s" data-cf-form-id="%s">', esc_attr( implode( ' ', $form_wrapper_classes ) ), esc_attr( $form_wrap_id ), esc_attr( CFCORE_VER ), esc_attr( $form[ 'ID' ] ) );
 
 		$notices = Caldera_Forms_Render_Notices::prepare_notices( $notices, $form );
@@ -4622,17 +4578,37 @@ class Caldera_Forms {
 	 *
 	 * @param array $atts Array of shortcode attributes
 	 * @param string $content Enclosed content
-	 * @param string $shortcode Shortcode type caldera_forms|caldera_forms_modal
+	 * @param string $shortcode Shortcode type caldera_form|caldera_forms_modal
 	 *
 	 * @return string|void
 	 */
 	public static function shortcode_handler( $atts, $content, $shortcode ) {
+		if( ! in_array(  $shortcode, array(
+			'caldera_form',
+			'caldera_form_modal'
+
+		) ) ){
+			return;
+		}
+
+		$atts = shortcode_atts(array (
+			'id' => null,
+			'width' => null,
+			'height' => null,
+			'type' => 'link',
+			'entry' => null,
+			'ID' => null,
+		), $atts, $shortcode );
+
+		if( ! empty( $atts[ 'ID' ] ) && empty( $atts[ 'id' ] )){
+			$atts[ 'id' ] = $atts[ 'ID' ];
+		}
 		if ( ! isset( $atts[ 'id' ] ) ) {
 			return;
 		}
 
 		if ( $shortcode === 'caldera_form_modal' || ( ! empty( $atts[ 'modal' ] ) && $atts[ 'modal' ] ) ) {
-			return self::render_modal_form( $atts, $content );
+			return Caldera_Forms_Render_Modals::modal_form( $atts, $content );
 		}
 
 		$form = self::render_form( $atts );

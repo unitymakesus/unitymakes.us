@@ -1,4 +1,4 @@
-/*! GENERATED SOURCE FILE caldera-forms - v1.5.0.6 - 2017-03-14 *//*
+/*! GENERATED SOURCE FILE caldera-forms - v1.5.0.8 - 2017-04-10 *//*
  * jQuery miniColors: A small color selector
  *
  * Copyright 2011 Cory LaViska for A Beautiful Site, LLC. (http://abeautifulsite.net/)
@@ -4926,6 +4926,7 @@ function toggle_button_init(id, el){
          $submits.prop( 'disabled',false).attr( 'aria-disabled', false  );
      }
 
+
      /**
       * Handler for button fields
       *
@@ -4942,7 +4943,7 @@ function toggle_button_init(id, el){
 
 
      /**
-      * Handler for HTML fields
+      * Handler for HTML fields (and summary fields since this.summary is alias of this.html)
       *
       * @since 1.5.0
       *
@@ -4952,27 +4953,39 @@ function toggle_button_init(id, el){
          if( false == fieldConfig.sync ){
              return;
          }
-         function templateSystem() {
 
-             var template = $( document.getElementById( fieldConfig.tmplId ) ).html(),
-                 $target = $( document.getElementById( fieldConfig.contentId ) ),
-                 list = fieldConfig.binds;
+         var templates = {},
+             list = fieldConfig.binds;
+         /**
+          * The actual template system for HTML/summary fields
+          *
+          * @since 1.5.0
+          */
+         function templateSystem() {
+             if( undefined == templates[ fieldConfig.tmplId ] ){
+                 templates[ fieldConfig.tmplId ] = $( document.getElementById( fieldConfig.tmplId ) ).html()
+             }
+
+             var
+                 template = templates[ fieldConfig.tmplId ],
+                 $target = $( document.getElementById( fieldConfig.contentId ) );
+
              for (var i = 0; i < list.length; i++) {
 
-                 var field = $('[data-field="' + list[i] + '"]'),
+                 var $field = $('[data-field="' + list[i] + '"]'),
                      value = [];
-                 for (var f = 0; f < field.length; f++) {
-                     if ($(field[f]).is(':radio,:checkbox')) {
-                         if (!$(field[f]).prop('checked')) {
+                 for (var f = 0; f < $field.length; f++) {
+                     if ($($field[f]).is(':radio,:checkbox')) {
+                         if (!$($field[f]).prop('checked')) {
                              continue;
                          }
                      }
-                     if ($(field[f]).is('input:file')) {
-                         var file_parts = field[f].value.split('\\');
+                     if ($($field[f]).is('input:file')) {
+                         var file_parts = $field[f].value.split('\\');
                          value.push(file_parts[file_parts.length - 1]);
                      } else {
-                         if (field[f].value) {
-                             value.push(field[f].value);
+                         if ($field[f].value) {
+                             value.push($field[f].value);
                          }
                      }
                  }
@@ -4984,10 +4997,25 @@ function toggle_button_init(id, el){
 
          }
 
+         /**
+          * On change/keyup events of fields that are used by this field.
+          *
+          * @since 1.5.0.7 -based on legacy code
+          */
+         function bindFields() {
+             $.each(fieldConfig.bindFields, function (i, id) {
+                 $( document.getElementById(id) ).on( 'click keyup', templateSystem );
+             });
+         }
 
-         $.each( fieldConfig.bindFields, function( i, id ){
-             $( document.getElementById( id ) ).on( 'change keyup', templateSystem );
+         /**
+          * Rebind on conditional and page nav
+          */
+         $(document).on('cf.pagenav cf.add cf.disable', function () {
+             bindFields();
          });
+
+         bindFields();
 
          templateSystem();
 
@@ -5055,9 +5083,11 @@ function toggle_button_init(id, el){
          $(document).on('cf.pagenav cf.add cf.disable cf.modal', function () {
              var el = document.getElementById(field.id);
              if (null != el) {
-                 var $el = $(el);
+                 var $el = $(el),
+                     val = $el.val();
                  $el.rangeslider('destroy');
                  $el.rangeslider(rangeSliders[field.id].init);
+                 $el.val( val ).change();
              }
          });
 
@@ -5147,12 +5177,11 @@ function toggle_button_init(id, el){
              }
          };
 
-         var validation = function(){
+         var validation = function () {
              reset();
-             var x = $field.intlTelInput("isValidNumber" );
              var valid;
              if ($.trim($field.val())) {
-                 if ($field.intlTelInput("isValidNumber" )) {
+                 if ($field.intlTelInput("isValidNumber")) {
                      valid = true;
                  } else {
                      valid = false;
@@ -5161,31 +5190,47 @@ function toggle_button_init(id, el){
 
              var message;
              var errorCode = $field.intlTelInput("getValidationError");
-             if( 0 == errorCode ){
+             if (0 == errorCode) {
                  valid = true;
                  message = '';
-             }else{
-                 if( 'undefined' != field.messages[errorCode]  ) {
+             } else {
+                 if ('undefined' != field.messages[errorCode]) {
                      message = field.messages[errorCode]
-                 }else{
+                 } else {
                      message = field.messages.generic;
                  }
              }
 
 
-             handleValidationMarkup( valid, $field, message, 'help-block-phone_better' );
+             handleValidationMarkup(valid, $field, message, 'help-block-phone_better');
+             return valid;
+         };
+
+         var init = function() {
+             if( ! $field.length ){
+                 $field = $( document.getElementById( field.id ) );
+             }
+
+             $field.intlTelInput( field.options );
+             $field.on( 'keyup change', reset );
+
+             $field.blur(function() {
+                 reset();
+                 validation();
+             });
+
+             $field.on( 'change', validation );
+             $form.on( 'submit', function(){
+                 validation();
+             })
 
          };
 
-         $field.intlTelInput( field.options );
-         $field.on( 'keyup change', reset );
+         $(document).on('cf.pagenav cf.add cf.disable cf.modal', init );
 
-         $field.blur(function() {
-             reset();
-             validation();
-         });
+         init();
 
-         $field.on( 'change', validation );
+
 
      };
 
@@ -5250,8 +5295,12 @@ function toggle_button_init(id, el){
              var $cvcField = $( document.getElementById( fieldConfig.cvc ) ),
                  $expField = $( document.getElementById( fieldConfig.exp ) );
              $cvcField.blur( function(){
-                 self.creditCardUtil.validateCVC( $field, $cvcField );
-                 self.creditCardUtil.validateExp( $expField );
+                 if ( $cvcField.val() ) {
+                     self.creditCardUtil.validateCVC($field, $cvcField);
+                 }
+                 if ( $expField.val() ) {
+                     self.creditCardUtil.validateExp($expField);
+                 }
              });
          }
 
@@ -5345,12 +5394,18 @@ function toggle_button_init(id, el){
          },
          validateExp: function ($expField) {
              var val = $expField.val().split('/');
-             return $.payment.validateCardExpiry(val[0].trim(), val[1].trim());
+             if (  val && 2 == val.length ) {
+                 return $.payment.validateCardExpiry(val[0].trim(), val[1].trim());
+             }
          }
+
      };
      
      this.color_picker = function ( fieldConfig ) {
          $( document.getElementById( fieldConfig.id ) ).miniColors( fieldConfig.settings );
+         $(document).on('cf.pagenav cf.add cf.disable cf.modal', function () {
+             $(document.getElementById(fieldConfig.id)).miniColors(fieldConfig.settings);
+         });
      };
 
 
@@ -5369,12 +5424,23 @@ var cf_jsfields_init, cf_presubmit;
 			errorsContainer : function( field ){
 				return field.$element.closest('.form-group');
 			}					
-		}).on('field:error', function() {
-			this.$element.closest('.form-group').addClass('has-error');
-		}).on('field:success', function() {
+		}).on('field:error', function(fieldInstance) {
+            if ( 'number' == this.$element.attr( 'type' ) && 0 == this.$element.attr( 'min' )  ) {
+                var val = this.$element.val();
+                if( 0 <= val && ( undefined == this.$element.attr( 'max' ) || val <= this.$element.attr( 'max' )  ) ){
+                    fieldInstance.validationResult = true;
+                }
+
+                return;
+            }
+
+            this.$element.closest('.form-group').addClass('has-error');
+        }).on('field:success', function() {
 			this.$element.closest('.form-group').removeClass('has-error');
 		});
 	};
+
+
 
 	
 	// init sync
@@ -5405,12 +5471,9 @@ var cf_jsfields_init, cf_presubmit;
 		$( document ).trigger( 'cf.fieldsInit' );
 
 		function setLocale( locale ){
-
 			if ('undefined' != typeof window.Parsley._validatorRegistry.catalog[locale] ){
 				window.Parsley.setLocale( locale );
 			}
-				console.log( window.Parsley._validatorRegistry.catalog);
-
 
 		}
 

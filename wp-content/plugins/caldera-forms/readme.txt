@@ -1,19 +1,19 @@
-=== Caldera Forms - Drag and drop responsive WordPress form builder ===
+=== Caldera Forms - More Than Contact Forms ===
 Contributors: Shelob9, Desertsnowman, christiechirinos, andrewza
-Tags: forms, formbuilder, form builder, contact form, form, contact, custom form, custom forms, forms creator, caldera forms, calderawp, wp form, responsive, forms, form, drag and drop, email, awesome, wordpress free form builder, echecks, form builder plugin wordpress, wordpress builder plugin, wordpress forms builder, form builder wordpress, contact form builder wordpress, bootstrap, bootstrap form builder, bootstrap forms, login forms, drag and drop forms, responsive forms, mailchimp, mailchimp form, credit card form, braintree, braintree form, authorize.net, authorize.net form, eCheck,dwolla, dwolla form, paypal, paypal form, hi roy, search forms, pods, advanced custom fields, easy forms, contact form builder, gravity forms, contact, email, auto-responder, aweber, convertkit, builder, contact forms, search, ab testing, a/b testing, split testing, shortcode, wordpress, awesome plugin, plugin, easy, braintree form, dwolla form, authorize.net form, mailchimp form, mailchimp popup, aweber form, convertkit form, stripe form, stripe popup, eCheck form
+Tags: form builder, contact form,  contact me, custom form, forms, form, custom forms, forms creator, caldera forms, calderawp, wp form, responsive, forms, form, drag and drop, email, awesome, wordpress free form builder, echecks, form builder plugin wordpress, wordpress builder plugin, wordpress forms builder, form builder wordpress, contact form builder wordpress, bootstrap, bootstrap form builder, bootstrap forms, login forms, drag and drop forms, responsive forms, mailchimp, mailchimp form, credit card form, braintree, braintree form, authorize.net, authorize.net form, eCheck,dwolla, dwolla form, paypal, paypal form, hi roy, search forms, pods, advanced custom fields, easy forms, contact form builder, gravity forms, contact, email, auto-responder, aweber, convertkit, builder, contact forms, search, ab testing, a/b testing, split testing, shortcode, wordpress, awesome plugin, plugin, easy, braintree form, dwolla form, authorize.net form, mailchimp form, mailchimp popup, aweber form, convertkit form, stripe form, stripe popup, eCheck form, formbuilder
 Requires at least: 4.5
 Tested up to: 4.7.3
-Stable tag: 1.5.0.6
+Stable tag: 1.5.0.8
 License: GPLv2
 
-A different kind of WordPress form builder.
+Responsive form builder for contact forms, user registration and login forms, Mailchimp, and more.
 
 == Description ==
-Create beautiful, responsive forms with a simple drag and drop editor.
+Create beautiful, responsive forms with a simple drag and drop editor. Learn more about Caldera Forms at <a href="https://calderaforms.com?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms">CalderaForms.com</a>.
 
 Caldera Forms' visual editor simplifies form building for WordPress. Set up your form with multiple columns, add additional pages, and funnel user responses with conditional logic to get more robust data and relevant information from your customers and site visitors. Anti-spam, AJAX, notification emails, and database entry tracking are enabled by default.
 
-Caldera Forms is a free plugin by <a href="http://CalderaLabs.org?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms" title="Caldera : Makers of fine WordPress">Caldera Labs</a>. Learn more about Caldera Forms at <a href="https://calderaforms.com?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms">CalderaForms.com</a>
+Caldera Forms is a free plugin by <a href="http://CalderaLabs.org?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms" title="Caldera : Makers of fine WordPress">Caldera Labs</a>.
 
 > 5 Stars! "Exceptionally well thought out and executed."
 >
@@ -743,8 +743,39 @@ This could also be a sign of a more serious issue on your server, but is probabl
 5. **Go Further With Form Processors** - Auto-responders, redirects included! Go further with our add-ons!
 
 == Changelog ==
+= Caldera Forms 1.5.0.8 (April 10, 2017) The Earth Is Round, Contact Forms Are Good =
+See: [https://calderaforms.com/updates/caldera-forms-1-5-0-8](https://calderaforms.com/updates/caldera-forms-1-5-0-8?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms&utm_term=1.5.0.8)
+* FIXED: Calculations fields were rounded wrong in some cases.
+* FIXED: Fields that are shown with conditions did not always show up in entry viewer or CSV exports.
+* DEPRECATED: Caldera_Forms_Render_Util::field_id_attribute() since it gets form, not field ID attribute.
+* ADDED: Caldera_Forms_Render_Util::form_id_attr() to get form ID attribute.
+* ADDED: Utility methods for formatting inline JavaScript that were needed in add-ons.
+
+= Caldera Forms 1.5.0.7 ( April 4, 2017 ) %funny_name_for_release%
+See: [https://calderaforms.com/updates/caldera-forms-1-5-0-7](https://calderaforms.com/updates/caldera-forms-1-5-0-7?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms&utm_term=1.5.0.7)
+* FIXED: Checkbox fields were rendering as {"opt": "ccc" ... which is so bad. Fixed the crap out of that.
+* ADDED: [New Filter: caldera_forms_magic_file_use_link Allows for showing an image tag in email for file field](https://calderaforms.com/doc/caldera_forms_magic_file_use_link/?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms&utm_term=1.5.0.7)
+* ADDED: [Set field defaults with the shortcode](https://calderaforms.com/doc/set-field-defaults-shortcode/?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms&utm_term=1.5.0.7]
+* ADDED: Helpful New Class: Caldera_Forms_Render_Modals for all modal markup and logic. Makes it easier for developers to work with modals, no end-results changed.
+* IMPROVED: Contact form template
+* IMPROVED: Magic tags for calculations. Now shows before and after settings and formats numbers according to your settings.
+* FIXED: Entry navigation for admin entry viewer wasn't working in main admin page. Was in sub-menu entry viewer.
+* FIXED: Range slider fields in multi-page forms were not working right.
+* IMPROVED: Added a few helpful tooltips to form builder. Will add more soon.
+* FIXED: When "Use Country Code" option was checked required phone fields they could be submitted empty, now they can't.
+* ADDED: A double check to make sure validation translations were loaded. Will help with slow connections.
+* FIXED: Field sync wasn't working if field was hidden by conditional logic.
+* FIXED: Fields hidden by conditional logic were not keeping their values when unhidden.
+* FIXED: Credit card field validation was making JavaScript errors.
+* FIXED: %field_slug:label% magic tags were not showing label.
+* FIXED and Improved: Entry abstraction class.
+* FIXED: Calculation functions like tan() and atan() or sin() and cosin() that have same(ish) names caused JavaScript errors.
+* ADDED: $atts param on caldera_forms_pre_render_form filter.
+* FIXED: In some cases fields removed by conditional logic would still be validated and therefore trigger incorrect validation errors server-side.
+* FIXED: Shortcode wasn't using "shortcode_atts" filter.
+
 = Caldera Forms 1.5.0.6 ( March 13th, 2017 ) Apex Calculations =
-See: [https://calderaforms.com/updates/caldera-forms-1-5-0-6?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms](https://calderaforms.com/updates/caldera-forms-1-5-0-6)
+See: [https://calderaforms.com/updates/caldera-forms-1-5-0-6](https://calderaforms.com/updates/caldera-forms-1-5-0-6?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms)
 * FIXED: Fields hidden by conditional logic's values were being recorded. This was not the behavior in 1.4.x and was causing issues with calculations calculating the wrong amount.
 * FIXED: The "New Field" button,  that isn't really a button, had a confusing icon. It is now move, not hamburger.
 * FIXED: The text attribute for "New Field" button, that isn't really a button, was not useful enough. It is now 150% more useful.
@@ -755,7 +786,7 @@ See: [https://calderaforms.com/updates/caldera-forms-1-5-0-6?utm_source=dotOrg&u
 * ADDED: New method for more more reliable and performant meta-based magic tags like those from form processors.
 
 = Caldera Forms 1.5.0.5 ( March 6st, 2017 ) This Field Is Required =
-See: [https://calderaforms.com/updates/caldera-forms-1-5-0-5?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms](https://calderaforms.com/updates/caldera-forms-1-5-0-5)
+See: [https://calderaforms.com/updates/caldera-forms-1-5-0-5](https://calderaforms.com/updates/caldera-forms-1-5-0-5?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms)
 * FIXED: JavaScript error when validator (parsely) was loaded in the wrong order.
 * FIXED: Field validation messages like "This Field Is Required" were not translating properly.
 * FIXED: Datepickers were not translated when scripts were not minified.
@@ -763,7 +794,7 @@ See: [https://calderaforms.com/updates/caldera-forms-1-5-0-5?utm_source=dotOrg&u
 * FIXED: Reset buttons were not reset buttons.
 
 = Caldera Forms 1.5.0.4 ( March 1st, 2017 ) =
-* See: [https://calderaforms.com/updates/caldera-forms-1-5-0-4?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms](https://calderaforms.com/updates/caldera-forms-1-5-0-4)
+* See: [https://calderaforms.com/updates/caldera-forms-1-5-0-4](https://calderaforms.com/updates/caldera-forms-1-5-0-4?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms)
 * FIXED: When select field or radio or checkbox had 0 or '0' as default, default was ignored.
 * FIXED: An input with a placeholder of 0 or '0' did not receive a placeholder.
 * FIXED: When a label for an input was hidden, label was not used as placeholder.
@@ -777,7 +808,7 @@ See: [https://calderaforms.com/updates/caldera-forms-1-5-0-5?utm_source=dotOrg&u
 * FIXED: Conditional calculation fields that shouldn't have calculated were calcuating.
 
 = Caldera Forms 1.5.0.1-3 ( February 22st, 2017) Über Sorry About HTML Fields =
-* See: [https://calderaforms.com/updates/caldera-forms-1-5-0-1?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms](https://calderaforms.com/updates/caldera-forms-1-5-0-1)
+* See: [https://calderaforms.com/updates/caldera-forms-1-5-0-1](https://calderaforms.com/updates/caldera-forms-1-5-0-1?utm_source=dotOrg&utm_medium=plugins&utm_campaign=caldera-forms)
 * FIXED: HTML fields were super-broken with accents, cyrillic, non standard UTF-8, and lots of other things.
 * FIXED: Fields hidden by conditional logic, which should have not made server-side validation errors were, but errors didn't show and it looked broken.
 * FIXED: Entry export or view could cause an error.
@@ -1614,3 +1645,9 @@ See: https://calderaforms.com/updates/caldera-forms-1.5.0.5/
 
 = 1.5.0.6 =
 See: https://calderaforms.com/updates/caldera-forms-1.5.0.6/
+
+= 1.5.0.7 =
+See: https://calderaforms.com/updates/caldera-forms-1.5.0.7
+
+= 1.5.0.8 =
+See: https://calderaforms.com/updates/caldera-forms-1-5-0-8

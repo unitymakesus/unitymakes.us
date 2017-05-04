@@ -105,6 +105,7 @@ class Caldera_Forms_Admin {
 		add_action("wp_ajax_cf_get_form_preview", array( $this, 'get_form_preview') );
 
 		add_action( 'caldera_forms_admin_footer', array( $this, 'admin_alerts' ) );
+		//add_action( 'caldera_forms_admin_footer', array( 'Caldera_Forms_Entry_Viewer', 'print_triggers' ) );
 		add_action( 'admin_footer', array( $this, 'add_shortcode_inserter'));
 
 
@@ -473,7 +474,7 @@ class Caldera_Forms_Admin {
 			case 'export':
 
 				$transientid = uniqid('cfe');
-				set_transient( $transientid, $_POST['items'], 180 );
+				Caldera_Forms_Transient::set_transient(  $transientid, $_POST['items'], 180 );
 				$out['url'] = "admin.php?page=caldera-forms&export=" . $_POST['form'] . "&tid=" . $transientid;
 				wp_send_json( $out );
 				exit();
@@ -1167,10 +1168,14 @@ class Caldera_Forms_Admin {
 						$data[ 'name' ] = strip_tags( $_POST[ 'name' ] );
 
 						$new_form_id = Caldera_Forms_Forms::import_form( $data );
+						if( is_string( $new_form_id )  ){
 
-						if( is_string( $new_form_id ) ){
-							cf_redirect( 'admin.php?page=caldera-forms&edit=' . $new_form_id, 302 );
+							cf_redirect( add_query_arg(array(
+								'page' => 'caldera-forms',
+								'edit' => $new_form_id
+							), admin_url( 'admin.php' ) ), 302 );
 							exit;
+
 						}else{
 							wp_die( esc_html__( 'Form could not be imported.', 'caldera-forms' ) );
 						}
@@ -1267,8 +1272,10 @@ class Caldera_Forms_Admin {
 			$filter = null;
 			// export set - transient
 			if(!empty($_GET['tid'])){
-				$items = Caldera_Forms_Transient::get_transient( $_GET['tid'] );
+				$items = Caldera_Forms_Transient::get_transient( $_GET[ 'tid' ] );
+
 				if(!empty($items)){
+					Caldera_Forms_Transient::delete_transient( $_GET[ 'tid' ] );
 					$filter = ' AND `entry`.`id` IN (' . implode(',', $items) . ') ';
 				}else{
 					wp_die( __('Export selection has expired', 'caldera-forms' ) , __('Export Expired', 'caldera-forms' ) );
@@ -1303,7 +1310,7 @@ class Caldera_Forms_Admin {
 			}
 
 			if( empty( $headers ) ){
-				wp_die( esc_html_e( 'Could not process export. This is most likely due to a problem with the form configuration.', 'caldera-forms' ) );
+				wp_die( esc_html__( 'Could not process export. This is most likely due to a problem with the form configuration.', 'caldera-forms' ) );
 			}
 			$encoding = Caldera_Forms_CSV_Util::character_encoding( $form );
 

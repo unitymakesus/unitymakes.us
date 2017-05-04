@@ -2,8 +2,6 @@
 /**
  * Utility functions for use when rendering form
  *
- * Will be placed in added to DOM as CDATA
- *
  * @package Caldera_Forms
  * @author    Josh Pollock <Josh@CalderaWP.com>
  * @license   GPL-2.0+
@@ -58,14 +56,32 @@ class Caldera_Forms_Render_Util {
 	/**
 	 * Get ID attribute for a form
 	 *
+	 * @since 1.5.8
+	 *
+	 * @param int $current_form_count Current form count on page
+	 *
+	 * @return string
+	 */
+	public static function form_id_attr( $current_form_count ){
+		//JOSH - Don't put a filter here SO MANY things assume this is the way it is
+		$form_wrap_id = "caldera_form_" . $current_form_count;
+		return $form_wrap_id;
+	}
+
+	/**
+	 * Get ID attribute for a form
+	 *
 	 * @since 1.5.0
+	 * @deprecated 1.5.0.8
 	 *
 	 * @param int $current_form_count Current form count on page
 	 *
 	 * @return string
 	 */
 	public static function field_id_attribute( $current_form_count ){
-		//JOSH - Don't put a filter here SO MANY things assume this is the way it is
+		//Deprecated beacuse naming was wrong
+		//See: https://github.com/CalderaWP/Caldera-Forms/issues/1489
+		_deprecated_function( 'Caldera_Forms_Render_Util::field_id_attribute', 'Caldera_Forms_Render_Util::form_id_attr', '1.5.0.8');
 		$form_wrap_id = "caldera_form_" . $current_form_count;
 		return $form_wrap_id;
 	}
@@ -98,5 +114,72 @@ class Caldera_Forms_Render_Util {
 		return self::$footer_objects[ $form_id ]->add_data( $data );
 
 	}
+
+	/**
+	 * Add an inline script to footer scripts
+	 *
+	 * @since 1.5.0.8
+	 *
+	 * @param string $script JavaScript with not <script> tags
+	 * @param array $form Form config
+	 *
+	 * @return bool
+	 */
+	public static function add_inline_script( $script, array  $form ){
+		$script = self::create_inline_script( $script );
+
+		return self::add_inline_data( $script, $form );
+	}
+
+	/**
+	 * Add CData markup to footer scripts
+	 *
+	 * @since 1.5.0.8
+	 *
+	 * @param $script
+	 * @param array $form
+	 *
+	 * @return bool
+	 */
+	public static function add_cdata( $script, array $form ){
+		$output = self::create_cdata( $script );
+		return self::add_inline_data(  $output, $form );
+
+	}
+
+	/**
+	 * Create inline script markup
+	 *
+	 * @since 1.5.0.8
+	 *
+	 * @param string $script JavaScript with not <script> tags
+	 *
+	 * @return string
+	 */
+	protected static function create_inline_script( $script ){
+		$script = sprintf( "<script type='text/javascript'>\n%s\n</script>\n", $script );
+
+		return $script;
+	}
+
+	/**
+	 * Create CData markup
+	 *
+	 * @since 1.5.0.8
+	 *
+	 * @param string $script JavaScript with not <script> tags
+	 *
+	 * @return string
+	 */
+	public static function create_cdata( $script ){
+		$output = "<script type='text/javascript'>\n"; // CDATA and type='text/javascript' is not needed for HTML 5
+		$output .= "/* <![CDATA[ */\n";
+		$output .= "$script\n";
+		$output .= "/* ]]> */\n";
+		$output .= "</script>\n";
+
+		return $output;
+	}
+
 
 }

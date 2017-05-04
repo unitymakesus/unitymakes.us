@@ -185,6 +185,15 @@ class Caldera_Forms_Field_Util {
 		return $field_structure;
 	}
 
+	/**
+	 * Get allowed math functions with ability to filter allowed function
+	 *
+	 * @since 1.5.0
+	 *
+	 * @param array $form
+	 *
+	 * @return array
+	 */
 	public static function get_math_functions( array $form ){
 		$math_functions =  array(
 			'pow',
@@ -399,5 +408,35 @@ class Caldera_Forms_Field_Util {
 		return true;
 	}
 
+	/**
+	 * Apply formatting, such as money formatting to a calculation field value
+	 *
+	 * @since 1.5.0.7
+	 *
+	 * @param array $field Field config
+	 * @param string|float|int $value Value
+	 *
+	 * @return string
+	 */
+	public static function format_calc_field( $field, $value ){
+		if ( isset( $field[ 'config' ][ 'fixed' ] ) ) {
+			$money = true;
+		}else{
+			$money = false;
+
+		}
+
+		if ( $money ) {
+			if ( function_exists( 'money_format' ) ) {
+				$value = money_format( '%i', $value );
+			} else {
+				$value = sprintf( '%01.2f', $value );
+			}
+
+		}
+
+		return $value;
+
+	}
 }
 

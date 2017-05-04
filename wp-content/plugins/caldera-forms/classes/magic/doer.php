@@ -35,6 +35,10 @@ class Caldera_Forms_Magic_Doer {
 		$matches = Caldera_Forms_Magic_Util::explode_field_magic( $value );
 
 		if ( ! empty( $matches[ 1 ] ) ) {
+			if( ! is_array( $form  ) ){
+				global  $form;
+			}
+
 			/**
 			 * Early entry point for custom parsing of field magic tags
 			 *
@@ -66,11 +70,35 @@ class Caldera_Forms_Magic_Doer {
 					$field = Caldera_Forms_Field_Util::get_field_by_slug( $tag, $form );
 				}
 
+				if( Caldera_Forms_Field_Util::is_file_field( $field, $form ) ){
+					$_value = self::magic_image( $field, $entry, $form );
+					if( false !== $_value ){
+						$value = $_value;
+					}
+
+					continue;
+
+
+				}
+
+
+				if( is_string( $entry ) ){
+					if( ! empty( $field ) && ! empty( $part_tags[ 1 ] ) && $part_tags[ 1 ] == 'label' ) {
+						$_entry = json_decode( $entry );
+						if( is_object( $_entry ) ){
+							$entry = $_entry;
+						}
+					}else{
+						$entry = self::maybe_implode_opts( $entry );
+
+					}
+				}
 
 				if ( ! empty( $field ) && ! empty( $part_tags[ 1 ] ) && $part_tags[ 1 ] == 'label' ) {
 					if ( ! is_array( $entry ) ) {
 						$entry = (array) $entry;
 					}
+
 					foreach ( (array) $entry as $entry_key => $entry_line ) {
 						if ( ! empty( $field[ 'config' ][ 'option' ] ) ) {
 							foreach ( $field[ 'config' ][ 'option' ] as $option ) {
@@ -480,5 +508,85 @@ class Caldera_Forms_Magic_Doer {
 		return self::$entry_details[ $entry_id ];
 
 	}
+
+	/**
+	 * Implode "opts" -- IE checkboxes stored as "opts" as needed
+	 *
+	 * @since 1.5.0.7
+	 *
+	 * @param string $value Value to check and possibly convert
+	 *
+	 * @return string
+	 */
+	public static function maybe_implode_opts( $value ){
+		if( is_string( $value ) && '{"opt' == substr( $value, 0, 5 ) ){
+			$_value = json_decode( $value );
+			if( is_object( $_value ) ){
+				$value = implode( ', ', (array) $_value );
+			}
+
+		}
+
+		return $value;
+
+	}
+
+	/**
+	 * Create image magic
+	 *
+	 * @since 1.5.0.7
+	 *
+	 * @param array $field Field config
+	 * @param array|null $form Form config
+	 *
+	 * @return bool|string Returns false if field is private.
+	 */
+	public static function magic_image( array $field, $url, array $form = null ){
+		if( Caldera_Forms_Files::is_private( $field ) || ! filter_var( $url, FILTER_VALIDATE_URL ) ){
+			return false;
+		}
+
+		if( null === $form ){
+			global  $form;
+		}
+
+		/**
+		 * Switch from link markup to image markup for imag magic tag
+		 *
+		 * @since 1.5.0.7
+		 *
+		 * @param bool $use_link If true link markup is used. If false image markup is used
+		 * @param array $field Field config
+		 * @param array $form Form config
+		 */
+		$use_link = apply_filters( 'caldera_forms_magic_file_use_link', true, $field, $form );
+		if( $use_link ){
+			return sprintf( '<a href="%s">%s</a>', esc_url( $url ), esc_url( $url ) );
+		}
+
+		return sprintf( '<img src="%s" class="%s" />', esc_url( $url ), esc_attr( 'cf-image-magic-tag cf-image-magic-tag-' . $form[ 'ID' ]  ) );
+
+
+	}
+
+	/**
+	 * Format calculation field
+	 *
+	 * @since 1.5.0.7
+	 *
+	 * @param array  $field Array field config
+	 * @param string|int|float $value Field value
+	 *
+	 * @return string
+	 */
+	public static function calculation_magic( array $field, $value ){
+		foreach ( array( 'before', 'after' ) as $config_field ) {
+			if( ! isset( $field[ 'config' ][ $config_field ] ) || ! is_string( $field[ 'config' ][ $config_field ] ) ){
+				$field[ 'config' ][ $config_field ] = '';
+			}
+		}
+		return $field[ 'config' ][ 'before' ]  . $value . $field[ 'config' ][ 'after' ];
+	}
+
 
 }

@@ -64,10 +64,11 @@ class Caldera_Forms_Field_Input extends Caldera_Forms_Field_HTML{
 				'max',
 				'step'
 			) as $index ){
-				if( isset( $field[ 'config' ][ $index ] ) ){
+				if( isset( $field[ 'config' ][ $index ] ) && ( 0 === $field[ 'config' ][ $index ] || '0' === $field[ 'config' ][ $index ] || ! empty( $field[ 'config' ][ $index ] ) )){
 					$attrs[ $index ] = $field[ 'config' ][ $index ];
 				}
 			}
+			$attrs[ 'data-parsley-type' ] = 'number';
 		}elseif ( 'phone_better' == $type ){
 			$attrs[ 'type' ] = 'tel';
 		}elseif ( 'credit_card_number' == $type ){
