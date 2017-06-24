@@ -9,14 +9,14 @@
     @foreach ($cards as $card)
       <div class="col s12 m4">
         <div class="card primary-color hoverable">
-          <!-- <a href="{{ $card['link'] }}"> -->
+          <a href="{{ $card['link'] }}">
             <div class="card-image">
               <img src="{{ $card['img'] }}" alt="{{ $card['alt'] }}" />
             </div>
             <div class="card-action">
               {!! $card['title'] !!}
             </div>
-          <!-- </a> -->
+          </a>
         </div>
       </div>
     @endforeach

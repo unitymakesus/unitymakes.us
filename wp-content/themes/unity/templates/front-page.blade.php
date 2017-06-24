@@ -4,35 +4,32 @@
   @while(have_posts()) @php(the_post())
     @include('partials.content-parallax', [
       'type'    => 'hero',
-      'img'     => '<img src="' . App\asset_path('images/WOCbanner.jpg') . '" alt="">',
-      'content' => '<h1>
-                      <img src="' . App\asset_path('images/together.svg') . '" alt="Together"><br />
-                      we can do <strong>so much</strong>
-                    </h1>'
+      'img'     => '<img src="' . App\asset_path('images/hero-banner.jpg') . '" alt="Potted mum flowers carpeting the street in front of small business in North Carolina">',
+      'content' => '<h1>Working together to <span>spark vibrancy</span> in our community</h1>'
     ])
 
     @include('partials.content-home-section', [
       'type'      => 'audience',
       'title'     => 'Partnering For Good',
-      'content'   => 'You are an inspiration and our goal is to help you succeed. Striving for sustainability and equity, we specialize in building beautiful, dynamic websites and providing thoughtful technical support for social enterprises and women owned businesses.',
+      'content'   => 'We elevate small businesses and nonprofits through beautiful design, clear messaging, and smart code.',
       'cards'     => [
         [
-          'img'   => App\asset_path('images/nonprofits.jpg'),
-          'alt'   => 'We build websites for nonprofits',
-          'title' => 'Nonprofits &amp;<br />Foundations',
-          'link'  => '#'
+          'img'   => App\asset_path('images/open-source.jpg'),
+          'alt'   => 'We are an open source shop, in code and in practice',
+          'title' => 'Open Source',
+          'link'  => '//www.unitymakes.us/2017/06/unity-open-source-agency/'
         ],
         [
-          'img'   => App\asset_path('images/socially-responsible.jpg'),
-          'alt'   => 'We build websites for socially responsible businesses',
-          'title' => 'Socially Responsible<br />Businesses',
-          'link'  => '#'
+          'img'   => App\asset_path('images/human-centered.jpg'),
+          'alt'   => 'You are an inspiration and our goal is to help you succeed',
+          'title' => 'Human Centered',
+          'link'  => '//www.unitymakes.us/mission-values/'
         ],
         [
-          'img'   => App\asset_path('images/woman-podcast.jpg'),
-          'alt'   => 'We build websites for women owned businesses',
-          'title' => 'Women Owned<br />Businesses',
-          'link'  => '#'
+          'img'   => App\asset_path('images/accessibility.jpg'),
+          'alt'   => 'We build accessible websites that are WCOG 2.0 compliant',
+          'title' => 'Accessible websites',
+          'link'  => '//www.unitymakes.us/2017/05/web-accessibility-everyone/'
         ],
       ]
     ])
@@ -110,60 +107,21 @@
 
     @include('partials.content-parallax', [
       'type'    => 'testimonial',
-      'img'     => '<img src="' . App\asset_path('images/FVNC-banner.jpg') . '" alt="">',
+      'img'     => '<img src="' . App\asset_path('images/testimonial-banner.jpg') . '" alt="">',
       'content' => '<blockquote class="flow-text">
-                      <p>"If your organization needs technology to enhance your mission, look no further than Unity."</p>
-                      <cite>&mdash; Hunter Buxton, Executive Director of First Vote NC</cite>
+                      <p>"Unity is more than just a digital agency, they are the best kind of partners — they get to the root of my business, help me identify my value, and continue to suggest strategy for how to dominate our virtual presence. When services provided are beyond your own scope of knowledge it can be scary to trust someone to take care of you ... Alisa and her team are people you can trust."</p>
+                      <cite>&mdash; Teresa Porter, <a href="https://myfriendteresa.com/" target="_blank">My Friend Teresa Studios</a></cite>
                     </blockquote>'
-    ])
-
-    @include('partials.content-home-section', [
-      'type'      => 'difference',
-      'title'     => 'The Unity Difference',
-      'content'   => 'We\'re not your typical web agency, and we are on a mission to build a better world through our work.',
-      'cards'     => [
-        [
-          'img'   => App\asset_path('images/human-centered.jpg'),
-          'alt'   => 'The most important element of your website is your audience',
-          'title' => 'Human Centered',
-          'link'  => '#'
-        ],
-        [
-          'img'   => App\asset_path('images/accessibility.jpg'),
-          'alt'   => 'We build accessible websites that are WCOG 2.0 compliant',
-          'title' => 'Website Accessibility',
-          'link'  => '//www.unitymakes.us/2017/05/web-accessibility-everyone/'
-        ],
-        [
-          'img'   => App\asset_path('images/open-source.jpg'),
-          'alt'   => 'We are an open source shop, in code and in practice',
-          'title' => 'Open Source',
-          'link'  => '#'
-        ],
-      ]
-    ])
-
-    @include('partials.content-parallax', [
-      'type'      => 'overlay',
-      'img'       => '<img src="' . App\asset_path('images/succulents.jpg') . '" alt="">',
-      'content'   => '<div class="row valign-wrapper flex-wrap">
-                        <div class="col s12 m6">
-                          <img src="' . App\asset_path('images/quote-kid-president.svg') . '" alt="Create something that will make the world awesome. Kid President" />
-                        </div>
-                        <div class="col s12 m6 valign center center-align">
-                          <a href="' . get_permalink(get_page_by_path('mission-values')) . '" class="btn btn-ghost">See Our Core Values</a>
-                        </div>
-                      </div>'
     ])
 
     <section class="container vertical-padding-3">
       <div class="valign-wrapper center-align flex-wrap">
-        <a class="valign horizontal-padding-1" href="https://www.bcorporation.net/what-are-b-corps" target="_blank">
+        <a class="valign horizontal-padding-1" href="http://summitawards.com/summit-creative-award/sca-winners/sca-winner-profiles/website/unity-digital-agency" target="_blank">
           <img class=""
-               src="{{ App\asset_path('images/pending-b-corp.png') }}"
-               srcset="{{ App\asset_path('images/pending-b-corp.png') }} 1x, {{ App\asset_path('images/pending-b-corp@2x.png') }} 2x"
-               alt="B Corporation - Pending"
-               width="59" height="104" />
+               src="{{ App\asset_path('images/summit-2017.png') }}"
+               srcset="{{ App\asset_path('images/summit-2017.png') }} 1x, {{ App\asset_path('images/summit-2017@2x.png') }} 2x"
+               alt="Summit Creative Award 2017 Winner"
+               width="104" height="104" />
         </a>
         <a class="valign horizontal-padding-1" href="{{ get_permalink(get_page_by_path('hosting')) }}">
           <img class=""
@@ -172,6 +130,13 @@
                alt="300% eco-friendly website"
                width="160" height="103" />
         </a>
+        <a class="valign horizontal-padding-1" href="https://www.bcorporation.net/what-are-b-corps" target="_blank">
+          <img class=""
+               src="{{ App\asset_path('images/pending-b-corp.png') }}"
+               srcset="{{ App\asset_path('images/pending-b-corp.png') }} 1x, {{ App\asset_path('images/pending-b-corp@2x.png') }} 2x"
+               alt="B Corporation - Pending"
+               width="59" height="104" />
+        </a>
         <span class="valign horizontal-padding-1">
           <img class=""
                src="{{ App\asset_path('images/wcag.png') }}"
@@ -179,18 +144,12 @@
                alt="WCAG version 2.0 level AA"
                width="110" height="80" />
         </span>
-        <a class="valign horizontal-padding-1" href="http://www.supplier-connection.net" target="_blank">
-          <img class=""
-               src="{{ App\asset_path('images/nc-newsroom-logo.png') }}"
-               alt="North Carolina Newsroom Cooperative Member Organization"
-               width="140" height="100" />
-        </a>
-        <a class="valign horizontal-padding-1" href="https://ncnewsroom.org/" target="_blank">
+        <!-- <a class="valign horizontal-padding-1" href="http://www.supplier-connection.net" target="_blank">
           <img class=""
                src="{{ App\asset_path('images/sc_badge_supporter.png') }}"
                alt="Supplier Collection. Connect with this growing network"
                width="160" height="100" />
-        </a>
+        </a> -->
       </div>
     </section>
   @endwhile

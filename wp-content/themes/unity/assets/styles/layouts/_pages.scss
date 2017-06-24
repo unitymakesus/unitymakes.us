@@ -1,6 +1,10 @@
 .parallax-container {
   height: 400px;
 
+  body.home & {
+    height: 600px;
+  }
+
   img {
     height: auto;
   }
@@ -15,10 +19,19 @@
 .hero {
   h1 {
     color: white;
-    line-height: .6em;
+    line-height: 1em;
+
+    body.home & span {
+      display: block;
+      font-family: "Satisfy";
+      color: $primary-color;
+      font-size: 1.5em;
+      line-height: 1;
+      text-shadow: 0 0 5px $black;
+      margin-bottom: -.1em;
+    }
 
     body:not(.home) & {
-      line-height: 1em;
       text-transform: uppercase;
       font-style: italic;
     }
