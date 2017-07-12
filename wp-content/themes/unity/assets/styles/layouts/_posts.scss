@@ -38,6 +38,16 @@
     max-width: 750px;
   }
 
+  blockquote {
+    background: $primary-color;
+    padding: 20px 40px;
+    font-size: 1.5em;
+
+    strong {
+      font-family: "Satisfy";
+    }
+  }
+
   .parallax {
     &::before {
       content: '';
@@ -54,58 +64,6 @@
   .parallax-container {
     h1 {
       color: white;
-    }
-  }
-}
-
-.card {
-  .card-image {
-    position: relative;
-
-    img {
-      height: auto;
-    }
-  }
-
-  .card-content {
-    .card-title {
-      margin: 0;
-      font-weight: bold;
-      line-height: inherit;
-
-      a {
-        color: color("grey", "darken-4");
-      }
-    }
-
-    .entry-meta {
-      font-style: italic;
-    }
-  }
-
-  &.horizontal {
-    .card-image {
-      width: 30%;
-      overflow: hidden;
-
-      img {
-        position: absolute;
-        width: auto;
-        max-width: none;
-        min-width: 100%;
-        min-height: 100%;
-        top: 50%;
-        left: 50%;
-        transform: translate3d(-50%, -50%, 0);
-      }
-    }
-
-    .card-action {
-      text-align: left;
-
-      a {
-        color: $primary-color-dark !important;
-      }
     }
   }
 }
