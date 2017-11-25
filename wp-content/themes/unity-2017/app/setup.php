@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Roots\Sage\Container;
 use Roots\Sage\Assets\JsonManifest;
 use Roots\Sage\Template\Blade;
 use Roots\Sage\Template\BladeProvider;
@@ -10,8 +11,7 @@ use Roots\Sage\Template\BladeProvider;
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, '2');
-    wp_enqueue_style('material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false, null);
+    wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
 }, 100);
 
@@ -28,7 +28,6 @@ add_action('after_setup_theme', function () {
     add_theme_support('soil-nav-walker');
     add_theme_support('soil-nice-search');
     add_theme_support('soil-relative-urls');
-    // add_theme_support('soil-google-analytics', 'UA-82394427-1');
 
     /**
      * Enable plugins to manage the document title
@@ -63,19 +62,10 @@ add_action('after_setup_theme', function () {
     add_theme_support('customize-selective-refresh-widgets');
 
     /**
-     * Enable logo uploader in customizer
-     */
-     add_image_size('unity-logo', 189, 90, false);
-     add_image_size('unity-logo-2x', 378, 180, false);
-     add_theme_support('custom-logo', array(
-       'size' => 'unity-logo-2x'
-     ));
-
-    /**
      * Use main stylesheet for visual editor
-     * @see assets/styles/layouts/_tinymce.scss
+     * @see resources/assets/styles/layouts/_tinymce.scss
      */
-    // add_editor_style(asset_path('styles/main.css'));
+    add_editor_style(asset_path('styles/main.css'));
 }, 20);
 
 /**
@@ -85,25 +75,25 @@ add_action('widgets_init', function () {
     $config = [
         'before_widget' => '<section class="widget %1$s %2$s">',
         'after_widget'  => '</section>',
-        'before_title'  => '<h5>',
-        'after_title'   => '</h5>'
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>'
     ];
     register_sidebar([
         'name'          => __('Primary', 'sage'),
         'id'            => 'sidebar-primary'
     ] + $config);
     register_sidebar([
-        'name'          => __('Footer 1', 'sage'),
-        'id'            => 'sidebar-footer-1'
+        'name'          => __('Footer', 'sage'),
+        'id'            => 'sidebar-footer'
     ] + $config);
-    register_sidebar([
-        'name'          => __('Footer 2', 'sage'),
-        'id'            => 'sidebar-footer-2'
-    ] + $config);
-    register_sidebar([
-        'name'          => __('Footer 3', 'sage'),
-        'id'            => 'sidebar-footer-3'
-    ] + $config);
+});
+
+/**
+ * Updates the `$post` variable on each iteration of the loop.
+ * Note: updated value is only available for subsequently loaded views, such as partials
+ */
+add_action('the_post', function ($post) {
+    sage('blade')->share('post', $post);
 });
 
 /**
@@ -111,43 +101,28 @@ add_action('widgets_init', function () {
  */
 add_action('after_setup_theme', function () {
     /**
-     * Sage config
-     */
-    sage()->bindIf('config', function () {
-        return [
-            'view.paths'      => [TEMPLATEPATH, STYLESHEETPATH],
-            'view.compiled'   => wp_upload_dir()['basedir'].'/cache/compiled',
-            'view.namespaces' => ['App' => WP_CONTENT_DIR],
-            'assets.manifest' => get_stylesheet_directory().'/dist/assets.json',
-            'assets.uri'      => get_stylesheet_directory_uri().'/dist'
-        ];
-    });
-
-    /**
      * Add JsonManifest to Sage container
      */
-    sage()->singleton('sage.assets', function ($app) {
-        $config = $app['config'];
-        return new JsonManifest($config['assets.manifest'], $config['assets.uri']);
+    sage()->singleton('sage.assets', function () {
+        return new JsonManifest(config('assets.manifest'), config('assets.uri'));
     });
 
     /**
      * Add Blade to Sage container
      */
-    sage()->singleton('sage.blade', function ($app) {
-        $config = $app['config'];
-        $cachePath = $config['view.compiled'];
+    sage()->singleton('sage.blade', function (Container $app) {
+        $cachePath = config('view.compiled');
         if (!file_exists($cachePath)) {
             wp_mkdir_p($cachePath);
         }
         (new BladeProvider($app))->register();
-        return new Blade($app['view'], $app);
+        return new Blade($app['view']);
     });
 
     /**
      * Create @asset() Blade directive
      */
     sage('blade')->compiler()->directive('asset', function ($asset) {
-        return '<?= App\\asset_path(\''.trim($asset, '\'"').'\'); ?>';
+        return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
     });
 });

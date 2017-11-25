@@ -36,23 +36,6 @@ nav {
   }
 }
 
-.side-nav {
-  li {
-    &:hover, &:active {
-      background: none;
-    }
-
-    a {
-      font-size: 16px;
-    }
-
-    .collapsible-header {
-      color: #444;
-      margin: 0;
-    }
-  }
-}
-
 .menu-item-has-children {
   overflow: visible;
 
