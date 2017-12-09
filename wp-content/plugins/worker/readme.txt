@@ -3,7 +3,7 @@ Contributors: managewp,freediver
 Donate link: https://www.networkforgood.org/donation/MakeDonation.aspx?ORGID2=520781390
 Tags: manage multiple sites, backup, security, migrate, performance, analytics, Manage WordPress, Managed WordPress, WordPress management, WordPress manager, WordPress management, site management, control multiple sites, WordPress management dashboard, administration, automate, automatic, comments, clone, dashboard, duplicate, google analytics, login, manage, managewp, multiple, multisite, remote, seo, spam
 Requires at least: 3.1
-Tested up to: 4.7
+Tested up to: 4.8
 Stable tag: trunk
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/quick-guide-gplv3.html
@@ -52,6 +52,39 @@ Check out the [ManageWP promo video](https://vimeo.com/120034595).
 https://vimeo.com/120034595
 
 == Changelog ==
+
+= 4.2.25 =
+
+- Improvement: When managing 500+ users. they are no longer sorted by roles.
+- Improvement: The Worker plugin will no longer automatically deactivate in specific cases.
+
+= 4.2.24 =
+
+- Improvement: ManageWP Worker plugin can now automatically connect to another account even if the plugin is hidden by our white label feature.
+
+= 4.2.23 =
+
+- Improvement: We can now display whether a site is connected to a GoDaddy Pro or ManageWP account.
+
+= 4.2.22 =
+
+- Fix: Detecting real upload path when using symbolic links.
+
+= 4.2.21 =
+
+- Fix: We can now always detect the parent site correctly on multisite networks.
+- Fix: Fixed an issue where a website could not be backed up in specific permission setups on Windows.
+- Fix: The parent site in the multisite network is now always going to list all super admins correctly.
+
+= 4.2.20 =
+
+- Improvement: Fixed multisite not showing theme updates correctly in some cases.
+
+= 4.2.19 =
+
+- New: Ability to turn off ManageWP analytics.
+- Improvement: Multisite compatibility.
+- Fix: Plugin installations falsely marked as failed.
 
 = 4.2.18 =
 

@@ -238,7 +238,8 @@ if (!function_exists('untrailingslashit') || !defined('WP_PLUGIN_DIR')) {
 }
 
 if (file_exists(untrailingslashit(WP_PLUGIN_DIR).'/$pluginBasename')) {
-    if (in_array('$pluginBasename', (array) get_option('active_plugins'))) {
+    if (in_array('$pluginBasename', (array) get_option('active_plugins')) ||
+        (function_exists('get_site_option') && array_key_exists('worker/init.php', (array) get_site_option('active_sitewide_plugins')))) {
         \$GLOBALS['mwp_is_mu'] = true;
         include_once untrailingslashit(WP_PLUGIN_DIR).'/$pluginBasename';
     }
@@ -307,8 +308,9 @@ EOF;
             if (!empty($network_blogs)) {
                 if (is_network_admin()) {
                     update_option('mmb_network_admin_install', 1);
+                    $mainBlogId = defined( 'BLOG_ID_CURRENT_SITE' ) ? BLOG_ID_CURRENT_SITE : false;
                     foreach ($network_blogs as $details) {
-                        if ($details->site_id == $details->blog_id) {
+                        if (($mainBlogId !== false && $details->blog_id == $mainBlogId) || ($mainBlogId === false && $details->site_id == $details->blog_id)) {
                             update_blog_option($details->blog_id, 'mmb_network_admin_install', 1);
                         } else {
                             update_blog_option($details->blog_id, 'mmb_network_admin_install', -1);

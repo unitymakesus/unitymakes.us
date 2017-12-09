@@ -105,7 +105,7 @@ class MMB_Installer extends MMB_Core
             );
         }
 
-        if (!empty($activate) && defined('WP_ADMIN') && WP_ADMIN) {
+        if (defined('WP_ADMIN') && WP_ADMIN) {
             global $wp_current_filter;
             $wp_current_filter[] = 'load-update-core.php';
 
@@ -163,23 +163,25 @@ class MMB_Installer extends MMB_Core
 
                 $wp_themes = null;
                 unset($wp_themes); //prevent theme data caching
-                if (function_exists('wp_get_themes')) {
-                    $all_themes = wp_get_themes();
-                    foreach ($all_themes as $theme_name => $theme_data) {
-                        foreach ($install_info as $key => $install) {
-                            if (!$install || is_wp_error($install)) {
-                                continue;
-                            }
-
-                            if ($theme_data->Template == $install['destination_name']) {
-                                $wrongFileType = false;
-                                if ($activate) {
-                                    $install_info[$key]['activated'] = switch_theme($theme_data->Template, $theme_data->Stylesheet);
-                                }
-                                $install_info[$key]['full_name'] = $theme_data->name;
-                                $install_info[$key]['version']   = $theme_data->version;
-                            }
+                if (function_exists('wp_get_theme')) {
+                    foreach ($install_info as $key => $install) {
+                        if (!$install || is_wp_error($install)) {
+                            continue;
                         }
+
+                        $theme = wp_get_theme($install['destination_name']);
+                        if ($theme->errors() !== false) {
+                            $install_info[$key] = $theme->errors();
+                            continue;
+                        }
+
+                        $wrongFileType = false;
+                        if ($activate) {
+                            $install_info[$key]['activated'] = switch_theme($theme->Template, $theme->Stylesheet);
+                        }
+
+                        $install_info[$key]['full_name'] = $theme->name;
+                        $install_info[$key]['version']   = $theme->version;
                     }
                 } else {
                     $all_themes = get_themes();
@@ -189,7 +191,7 @@ class MMB_Installer extends MMB_Core
                                 continue;
                             }
 
-                            if ($theme_data['Template'] == $install['destination_name']) {
+                            if ($theme_data['Template'] == $install['destination_name'] || $theme_data['Stylesheet'] == $install['destination_name']) {
                                 $wrongFileType = false;
                                 if ($activate) {
                                     $install_info[$key]['activated'] = switch_theme($theme_data['Template'], $theme_data['Stylesheet']);
@@ -562,7 +564,7 @@ class MMB_Installer extends MMB_Core
             $upgrader = new Theme_Upgrader(mwp_container()->getUpdaterSkin());
             $result   = $upgrader->bulk_upgrade($themes);
 
-            $return  = array();
+            $return = array();
             if (!empty($result)) {
                 foreach ($result as $theme_tmp => $theme_info) {
                     if (is_wp_error($theme_info) || empty($theme_info)) {
@@ -595,14 +597,17 @@ class MMB_Installer extends MMB_Core
         if (class_exists('Language_Pack_Upgrader')) {
             /** @handled class */
             $upgrader = new Language_Pack_Upgrader(mwp_container()->getUpdaterSkin());
-            $result = $upgrader->bulk_upgrade();
+            $result   = $upgrader->bulk_upgrade();
 
             if (!empty($result)) {
                 $return = 1;
-                foreach ($result as $translate_tmp => $translate_info) {
-                    if (is_wp_error($translate_info) || empty($translate_info)) {
-                        $return = $this->mmb_get_error($translate_info);
-                        break;
+
+                if (is_array($result)) {
+                    foreach ($result as $translate_tmp => $translate_info) {
+                        if (is_wp_error($translate_info) || empty($translate_info)) {
+                            $return = $this->mmb_get_error($translate_info);
+                            break;
+                        }
                     }
                 }
 
