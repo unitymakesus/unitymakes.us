@@ -1,5 +1,61 @@
 /** Colors */
-$brand-primary:         #27ae60;
+$color-brand-lighter:         #FFE482;
+$color-brand-primary:         #FAC338;
+$color-brand-darker:          #FF8C23;
+$color-brand-darkest:         #DC5F17;
+$color-black:                 #0D151A;
+$color-white:                 #FFF;
+$color-gray-lightest:         #F2F6F7;
+$color-gray-lighter:          #9CAAB1;
+$color-gray-medium:           #70828D;
+$color-gray-darker:           #2F4858;
+$color-gray-darkest:          #1B2B34;
+
+$color-green:                 #489762;
+$color-red:                   #D42E38;
+$color-blue:                  #364FC7;
+
+$primary-color:               $color-brand-primary;
+$primary-color-light:         $color-brand-lighter;
+$primary-color-dark:          $color-brand-darker;
+
+$secondary-color:             $color-blue;
+$success-color:               $color-green;
+$error-color:                 $color-red;
+$link-color:                  $color-blue;
+
+/** Buttons */
+// Shared styles
+$button-border: 2px solid $color-brand-primary;
+$button-background-focus: $color-brand-darker;
+$button-height: 48px;
+$button-padding: 0 3rem;
+$button-radius: 0;
+
+// Disabled styles
+$button-disabled-background: $color-gray-lighter;
+$button-disabled-color: $color-gray-darker;
+
+// Raised buttons
+$button-raised-background: $color-brand-primary;
+$button-raised-background-hover: $color-brand-darker;
+$button-raised-color: $color-black;
+
+// Flat buttons
+$button-flat-color: $color-gray-darkest;
+$button-flat-disabled-color: $color-gray-medium;
+
+// Floating buttons
+$button-floating-background: $color-brand-darkest;
+$button-floating-background-hover: $color-brand-darker;
+
+/** Navigation Bar */
+$navbar-font-color: $color-gray-darkest;
 
 /** Box Model  */
 $spacer:                2rem;
+
+/** Fonts */
+$roboto-font-path: "~materialize-css/dist/fonts/roboto/";
+$font-family-sans-serif: "Muli", Muli, Verdana, sans-serif;
+$font-family-serif: "Unna", Unna, Garamond, serif;

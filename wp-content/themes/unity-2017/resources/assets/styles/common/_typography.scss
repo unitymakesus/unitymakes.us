@@ -1,0 +1,55 @@
+$font-size: (
+  "h1": $h1-fontsize,
+  "h2": $h2-fontsize,
+  "h3": $h3-fontsize,
+  "h4": $h4-fontsize,
+  "h5": $h5-fontsize,
+  "h6": $h6-fontsize
+);
+
+@function font-size($key) {
+  @if not map-has-key($font-size, $key) {
+    @warn "Key not found.";
+  }
+
+  @return map-get($font-size, $key);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $color-gray-darkest;
+}
+
+h1, h2, h4 {
+  font-family: $font-family-serif;
+}
+
+h3, h5, h6 {
+  font-family: $font-family-sans-serif;
+  font-weight: bold;
+}
+
+@for $i from 1 through 6 {
+  .h#{$i} {
+    @extend h#{$i};
+  }
+
+  .font-size-h#{$i} {
+    font-size: font-size(h#{$i});
+    line-height: 1.1em;
+  }
+}
+
+ul {
+  li {
+    list-style: none;
+    position: relative;
+    padding-left: 15px;
+
+    &::before {
+      content: '\2022';
+      color: $color-brand-primary;
+      position: absolute;
+      left: 0;
+    }
+  }
+}

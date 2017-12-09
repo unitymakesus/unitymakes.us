@@ -1,0 +1,132 @@
+html {
+  font-family: $font-family-sans-serif;
+  height: 100%;
+  overflow: hidden;
+
+  &.wf-active {
+    margin-top: 0 !important;
+  }
+}
+
+body {
+  transform-style: preserve-3d;
+  perspective: 1px;
+  height: 100%;
+  width: 100vw;
+  overflow-y: scroll;
+  font-size: 18px;
+  background-color: $color-gray-lightest;
+
+  &.admin-bar {
+    padding-top: 32px;
+    height: calc(100% - 32px);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Flex grid
+.flex-grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+
+  .col.col {
+    flex: 0 0 auto;
+    margin-right: 0;
+
+    &:not([class*="offset"]) {
+      margin-left: 0;
+    }
+  }
+}
+
+.collapse > .col {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ratio-4-3.ratio-4-3 {
+  height: 0;
+  padding-bottom: 75%;
+  position: relative;
+
+  & > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.background-dark {
+  background: $color-gray-darker;
+  color: $color-white;
+  box-shadow: inset 0 0 13px 0 rgba(0, 0, 0, 0.5);
+}
+
+.background-darker {
+  background: $color-gray-darkest;
+  color: $color-white;
+  box-shadow: inset 0 0 13px 0 rgba(0, 0, 0, 0.5);
+
+  &.pattern {
+    background-image: url('../images/dark-pattern@2x.png');
+    background-repeat: no-repeat;
+    background-size: 100vw auto;
+    background-position: bottom center;
+  }
+}
+
+.col.align-center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mega-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.underline {
+  border-bottom: 2px solid $color-brand-primary;
+  display: inline-block;
+}
+
+@for $i from 1 through 3 {
+  .vertical-padding-#{$i} {
+    padding-top: #{$i}em;
+    padding-bottom: #{$i}em;
+  }
+
+  .horizontal-padding-#{$i} {
+    padding-left: #{$i}em;
+    padding-right: #{$i}em;
+  }
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.center {
+  vertical-align: middle;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}

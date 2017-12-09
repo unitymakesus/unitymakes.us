@@ -62,6 +62,15 @@ add_action('after_setup_theme', function () {
     add_theme_support('customize-selective-refresh-widgets');
 
     /**
+     * Enable logo uploader in customizer
+     */
+     add_image_size('unity-logo', 108, 36, false);
+     add_image_size('unity-logo-2x', 216, 72, false);
+     add_theme_support('custom-logo', array(
+       'size' => 'unity-logo-2x'
+     ));
+
+    /**
      * Use main stylesheet for visual editor
      * @see resources/assets/styles/layouts/_tinymce.scss
      */

@@ -1,2 +1,78 @@
-// TODO: .banner .nav li {}
-// TODO: .banner .nav a {}
+nav {
+  .brand-logo {
+    padding: 14px 20px;
+
+    img {
+      vertical-align: -5px;
+    }
+  }
+
+  ul.nav {
+    padding-right: 20px;
+
+    li {
+      float: left;
+      position: relative;
+
+      a {
+        text-transform: uppercase;
+        font-weight: bold;
+
+        &:hover {
+          background: none;
+        }
+      }
+
+      &:hover, &.hover {
+        z-index: 100;
+
+        ul {
+          left: 0;
+        }
+      }
+    }
+
+    ul {
+      position: absolute;
+      top: 100%;
+      left: -9999em;
+      width: 180px;
+
+      li {
+        float: none;
+        position: static;
+      }
+    }
+  }
+
+  .nav-btn {
+    padding-left: 15px;
+
+    a {
+      color: $color-white;
+      font-weight: normal;
+      position: relative;
+      z-index: 1;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 7px;
+        height: 48px;
+        width: 100%;
+        background: $color-gray-darker;
+        z-index: -1;
+        transition: background 0.2s ease;
+      }
+
+      &:hover {
+        &::before {
+          background: $color-gray-medium;
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+}

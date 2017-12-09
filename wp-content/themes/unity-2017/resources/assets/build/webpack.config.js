@@ -94,7 +94,7 @@ let webpackConfig = {
         }),
       },
       {
-        test: /\.(ttf|eot|woff2?|png|jpe?g|gif|svg|ico)$/,
+        test: /\.(ttf|eot|woff2?|png|jpe?g|gif|svg|ico|otf)$/,
         include: config.paths.assets,
         loader: 'url',
         options: {
@@ -103,7 +103,7 @@ let webpackConfig = {
         },
       },
       {
-        test: /\.(ttf|eot|woff2?|png|jpe?g|gif|svg|ico)$/,
+        test: /\.(ttf|eot|woff2?|png|jpe?g|gif|svg|ico|otf)$/,
         include: /node_modules|bower_components/,
         loader: 'url',
         options: {
@@ -174,6 +174,8 @@ let webpackConfig = {
     }),
     new StyleLintPlugin({
       failOnError: !config.enabled.watcher,
+      emitErrors: true,
+      quiet: false,
       syntax: 'scss',
     }),
     new FriendlyErrorsWebpackPlugin(),

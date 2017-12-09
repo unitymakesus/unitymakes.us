@@ -1,0 +1,19 @@
+.btn {
+  font-weight: bold;
+  transform: all 0.3s ease;
+
+  &:hover, &:focus {
+    border-color: $color-brand-darker;
+  }
+
+  &.floating {
+    background: none;
+    border-color: $color-gray-lighter;
+    color: $color-white;
+  }
+}
+
+.btn-large {
+  font-size: 20px;
+  padding: 0 5rem;
+}

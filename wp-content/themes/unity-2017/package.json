@@ -65,33 +65,35 @@
           "exports": "always-multiline",
           "functions": "ignore"
         }
-      ]
+      ],
+      "no-console": 0
     }
   },
   "stylelint": {
     "extends": "stylelint-config-standard",
     "rules": {
       "no-empty-source": null,
-      "at-rule-no-unknown": [
-        true,
+      "color-hex-case": "upper",
+      "selector-list-comma-newline-after": null,
+      "at-rule-no-unknown": null,
+      "at-rule-empty-line-before": [
+        "always",
         {
-          "ignoreAtRules": [
-            "extend",
-            "at-root",
-            "debug",
-            "warn",
-            "error",
-            "if",
-            "else",
-            "for",
-            "each",
-            "while",
-            "mixin",
-            "include",
-            "content",
-            "return",
-            "function"
+          "except": [
+            "blockless-after-same-name-blockless",
+            "first-nested",
+            "after-same-name"
+          ],
+          "ignore": [
+            "after-comment",
+            "blockless-after-blockless"
           ]
+        }
+      ],
+      "function-name-case": [
+        "lower",
+        {
+          "ignoreFunctions": [ "/^DXImageTransform.Microsoft.*$/" ]
         }
       ]
     }
@@ -151,6 +153,6 @@
   "dependencies": {
     "jquery": "1.12.4 - 3",
     "materialize-css": "^0.100.2",
-    "neat": "^1.2.2"
+    "webfontloader": "^1.6.28"
   }
 }
