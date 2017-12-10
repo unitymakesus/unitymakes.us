@@ -3,13 +3,13 @@
 @section('content')
   <section class="hero yellow-swish" role="region" aria-labelledby="hero1">
     <div class="row parallax-container">
-      <div class="col m8 push-m4">
+      <div class="col m3">
+        <p id="hero1">Working together to spark vibrancy in our community.</p>
+      </div>
+      <div class="col m8">
         <div class="parallax-faster right-align">
           <img class="z-depth-2" src="{{ App\asset_path('images/vibrancy.jpg') }}" alt="Woman with orange hair and clothing standing in front of a brightly painted mural.">
         </div>
-      </div>
-      <div class="col m3 pull-m7">
-        <p id="hero1">Working together to spark vibrancy in our community.</p>
       </div>
     </div>
   </section>

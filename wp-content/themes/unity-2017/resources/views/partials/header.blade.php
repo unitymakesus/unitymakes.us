@@ -1,13 +1,3 @@
-@if (!is_user_logged_in())
-  <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WWVMGLG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-@endif
-<!--[if IE]>
-  <div class="alert alert-warning">
-    {!! __('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'sage') !!}
-  </div>
-<![endif]-->
 <a href="#main" class="screen-reader-text">Skip to content</a>
 <header class="banner" role="banner">
   <nav role="navigation">
@@ -27,7 +17,9 @@
     </a>
 
     @if (has_nav_menu('primary_navigation'))
-      {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav right']) !!}
+      <a href="#" class="right menu-trigger hide-on-med-and-up"><i class="material-icons">menu</i></a>
+      {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav right', 'menu_id' => 'sidenav']) !!}
+      <div class="sidenav-overlay"></div>
     @endif
   </nav>
 </header>

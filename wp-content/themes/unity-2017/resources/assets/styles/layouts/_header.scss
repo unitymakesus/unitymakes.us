@@ -1,48 +1,114 @@
 nav {
   .brand-logo {
     padding: 14px 20px;
+    left: 0;
+    transform: translateX(0);
 
     img {
       vertical-align: -5px;
     }
   }
 
-  ul.nav {
-    padding-right: 20px;
+  .menu-trigger {
+    text-decoration: none;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    margin-right: 20px;
 
-    li {
-      float: left;
-      position: relative;
+    i {
+      font-size: 2em;
+    }
+  }
+}
 
-      &::before {
-        display: none;
-      }
+ul.nav {
+  padding-right: 20px;
 
-      a {
-        text-transform: uppercase;
-        text-decoration: none;
-        font-weight: bold;
+  li {
+    float: left;
+    position: relative;
 
-        &:hover {
-          background: none;
-        }
-      }
+    &::before {
+      display: none;
+    }
 
-      &:hover, &:focus, &.hover {
-        z-index: 100;
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: bold;
 
-        &:not(.nav-btn) {
-          a::before {
-            height: 100%;
-          }
-        }
-
-        ul {
-          left: 0;
-        }
+      &:hover {
+        background: none;
       }
     }
 
+    &:hover, &:focus, &.hover {
+      z-index: 100;
+
+      &:not(.nav-btn) {
+        a::before {
+          height: 100%;
+        }
+      }
+
+      ul {
+        left: 0;
+        height: auto;
+        opacity: 1;
+      }
+    }
+  }
+
+  @media #{$small-and-down} {
+    position: fixed;
+    width: 300px;
+    left: auto;
+    right: 0;
+    top: 0;
+    margin: 0;
+    transform: translateX(100%);
+    height: 100%;
+    height: calc(100% + 60px);
+    height: -moz-calc(100%); //Temporary Firefox Fix
+    padding-bottom: 60px;
+    padding-right: 0;
+    background-color: $color-brand-primary;
+    z-index: 999;
+    will-change: transform;
+    backface-visibility: hidden;
+    transition: transform 0.3s ease;
+
+    &.active {
+      transform: translateX(0);
+
+      & + .sidenav-overlay {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+    li {
+      display: block;
+      float: none;
+
+      a {
+        font-size: 1.1em;
+        text-align: center;
+      }
+
+      &.nav-btn {
+        padding-right: 15px;
+      }
+    }
+
+    ul {
+      height: 0;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+  }
+  @media #{$medium-and-up} {
     ul {
       position: absolute;
       top: 100%;
@@ -65,36 +131,40 @@ nav {
       }
     }
   }
+}
 
-  .nav-btn {
-    padding-left: 15px;
+.nav-btn {
+  padding-left: 15px;
 
-    a {
-      color: $color-white;
-      font-weight: normal;
-      position: relative;
-      z-index: 1;
+  a {
+    color: $color-white;
+    font-weight: normal;
+    position: relative;
+    z-index: 1;
 
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 7px;
+      height: 48px;
+      width: 100%;
+      background: $color-gray-darker;
+      transition: background 0.2s ease;
+      z-index: -1;
+    }
+
+    &:hover, &:focus {
       &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 7px;
+        background: $color-gray-medium;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
         height: 48px;
-        width: 100%;
-        background: $color-gray-darker;
-        z-index: -1;
-        transition: background 0.2s ease;
-      }
-
-      &:hover, &:focus {
-        &::before {
-          background: $color-gray-medium;
-          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-          height: 48px;
-        }
       }
     }
   }
+}
+
+.sidenav-overlay {
+  transition: opacity 0.3s ease;
 }
