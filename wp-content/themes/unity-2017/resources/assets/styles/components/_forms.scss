@@ -1,5 +1,37 @@
-/** Search form */
-// TODO: .search-form {}
-// TODO: .search-form label {}
-// TODO: .search-form .search-field {}
-// TODO: .search-form .search-submit {}
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+
+  .newsletter & {
+    width: 380px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+label {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.wpcf7-form-control-wrap {
+  display: block;
+  margin-bottom: 1em;
+}
+
+input {
+  padding: 15px 10px;
+  width: 100%;
+}
+
+.wpcf7-submit {
+  width: 100%;
+  margin: 0.5em auto;
+
+  .newsletter & {
+    width: 380px;
+    max-width: 100%;
+  }
+}

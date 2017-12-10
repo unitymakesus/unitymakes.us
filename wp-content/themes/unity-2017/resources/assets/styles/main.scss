@@ -9,16 +9,32 @@
  * Prefix your imports with `~` to grab from node_modules/
  * @see https://github.com/webpack-contrib/sass-loader#imports
  */
-@import "~materialize-css/sass/materialize";
+// Materialize
+@import "~materialize-css/sass/components/color";
+@import "~materialize-css/sass/components/variables";
+@import "~materialize-css/sass/components/normalize";
+@import "~materialize-css/sass/components/global";
+@import "~materialize-css/sass/components/grid";
+@import "~materialize-css/sass/components/navbar";
+@import "~materialize-css/sass/components/typography";
+@import "~materialize-css/sass/components/buttons";
+@import "~materialize-css/sass/components/dropdown";
+@import "~materialize-css/sass/components/materialbox";
+@import "~materialize-css/sass/components/sidenav";
+@import "~materialize-css/sass/components/preloader";
 
 /** Import theme styles */
+@import "common/backgrounds";
 @import "common/global";
+@import "common/grid";
 @import "common/typography";
 @import "components/buttons";
 @import "components/cc-icons";
 @import "components/comments";
 @import "components/forms";
+@import "components/media";
 @import "components/parallax";
+@import "components/social-media-icons";
 @import "components/wp-classes";
 @import "layouts/header";
 @import "layouts/sidebar";

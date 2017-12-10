@@ -1,27 +1,49 @@
+@mixin parallax($distance: 0, $perspective: 1) {
+  transform: translateZ($distance * $perspective * 1px) scale(abs($distance - 1));
+}
+
 .parallax-container {
   transform-style: inherit;
   position: relative;
   overflow: visible;
+  height: auto;
+
+  .parallax-faster, .parallax-slower {
+    z-index: 1;
+    transform-origin: bottom right;
+  }
 
   .parallax-faster {
-    transform: translateZ(0.15px) scale(0.85);
-    z-index: 1;
-
-    img {
-      position: relative;
-      display: block;
-      width: 100%;
-    }
+    @include parallax(0.15);
   }
 
   .parallax-slower {
-    transform: translateZ(-0.15px) scale(1.15);
-    z-index: 1;
+    @include parallax(-0.15);
+  }
 
-    img {
-      position: relative;
-      display: block;
-      width: 100%;
-    }
+  .parallax-wayback {
+    @include parallax(-1);
+
+    top: calc(50% - 50vh);
+    left: calc(50% - 50vw);
+    transform-origin: bottom right;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.mega-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+
+  & + * {
+    position: relative;
+    z-index: 1;
   }
 }

@@ -9,7 +9,7 @@
   </div>
 <![endif]-->
 <a href="#main" class="screen-reader-text">Skip to content</a>
-<header class="banner">
+<header class="banner" role="banner">
   <nav role="navigation">
     <a class="brand-logo" href="{{ home_url('/') }}" rel="home">
       @if (has_custom_logo())

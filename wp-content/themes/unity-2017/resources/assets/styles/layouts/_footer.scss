@@ -1,0 +1,25 @@
+footer {
+  font-size: 16px;
+
+  h4 {
+    color: $color-white;
+  }
+
+  a {
+    color: $color-white;
+
+    &::before {
+      display: none;
+    }
+
+    &.cc {
+      text-decoration: none;
+    }
+  }
+
+  p {
+    a::before {
+      display: block;
+    }
+  }
+}

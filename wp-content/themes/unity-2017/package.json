@@ -93,7 +93,9 @@
       "function-name-case": [
         "lower",
         {
-          "ignoreFunctions": [ "/^DXImageTransform.Microsoft.*$/" ]
+          "ignoreFunctions": [
+            "/^DXImageTransform.Microsoft.*$/"
+          ]
         }
       ]
     }
@@ -152,7 +154,7 @@
   },
   "dependencies": {
     "jquery": "1.12.4 - 3",
-    "materialize-css": "^0.100.2",
+    "materialize-css": "1.0.0-alpha.1",
     "webfontloader": "^1.6.28"
   }
 }

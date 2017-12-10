@@ -3,13 +3,35 @@
   transform: all 0.3s ease;
 
   &:hover, &:focus {
+    background-color: $color-brand-darker;
     border-color: $color-brand-darker;
+    color: $color-black;
   }
 
   &.floating {
     background: none;
     border-color: $color-gray-lighter;
     color: $color-white;
+  }
+
+  &.icon-appear-right {
+    position: relative;
+
+    i.material-icons {
+      position: absolute;
+      left: 70%;
+      height: 100%;
+      top: 0;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    &:hover, &:focus {
+      i.material-icons {
+        left: 80%;
+        opacity: 1;
+      }
+    }
   }
 }
 

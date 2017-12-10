@@ -1,19 +1,24 @@
 .hero {
-  background-image: url('../images/yellow-swish@2x.png');
-  background-size: 100vw auto;
-  background-position: bottom center;
-  background-color: $color-brand-primary;
-  background-repeat: no-repeat;
+  height: 500px;
+
+  .col.push-m4 {
+    padding-right: 0;
+  }
+
+  .parallax-faster {
+    margin-top: 80px;
+  }
+
+  img {
+    display: inline-block;
+    max-width: 900px;
+  }
 
   p {
     color: $color-gray-darkest;
     font-family: $font-family-serif;
     font-size: $h3-fontsize;
     line-height: 1.1em;
-    margin: 2em 0 4em;
-  }
-
-  .parallax-faster {
-    transform-origin: center bottom;
+    margin: 3.5em 0 3em;
   }
 }
