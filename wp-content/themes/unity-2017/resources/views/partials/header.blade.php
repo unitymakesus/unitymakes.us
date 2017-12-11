@@ -17,7 +17,7 @@
     </a>
 
     @if (has_nav_menu('primary_navigation'))
-      <a href="#" class="right menu-trigger hide-on-med-and-up"><i class="material-icons">menu</i></a>
+      <a href="#" class="right menu-trigger show-on-medium-and-down"><i class="material-icons">menu</i></a>
       {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav right', 'menu_id' => 'sidenav']) !!}
       <div class="sidenav-overlay"></div>
     @endif

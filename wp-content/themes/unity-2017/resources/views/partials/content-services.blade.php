@@ -1,5 +1,5 @@
 @foreach ($columns as $column)
-  <div class="col m3">
+  <div class="col s12 m6 l3">
     <div class="center">
       <div class="flex-height-115">
         {!! file_get_contents($column['img']) !!}

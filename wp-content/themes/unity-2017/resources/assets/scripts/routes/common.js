@@ -12,7 +12,7 @@ export default {
 
         setTimeout(function () {
           if ($(':focus').closest('#sidenav').length > 0) {
-            $('#sidenav').addClass('active');
+            $('body').addClass('sidenav-active');
           }
         }, 200);
       }).on('focusout', function() {
@@ -20,7 +20,7 @@ export default {
 
         setTimeout(function () {
           if ($(':focus').closest('#sidenav').length == 0) {
-            $('#sidenav').removeClass('active');
+            $('body').removeClass('sidenav-active');
           }
         }, 200);
       });
@@ -29,12 +29,12 @@ export default {
     // Show sidenav
     $('.menu-trigger').on('focus click', function(e) {
       e.preventDefault();
-      $('#sidenav').addClass('active');
+      $('body').addClass('sidenav-active');
     });
 
     // Hide sidenav
     $('.sidenav-overlay').on('click', function() {
-      $('#sidenav').removeClass('active');
+      $('body').removeClass('sidenav-active');
     });
   },
 };

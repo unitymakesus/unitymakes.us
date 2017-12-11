@@ -8,17 +8,16 @@
   overflow: visible;
   height: auto;
 
-  .parallax-faster, .parallax-slower {
-    z-index: 1;
-    transform-origin: bottom right;
-  }
-
   .parallax-faster {
-    @include parallax(0.15);
-  }
+    position: relative;
+    transform-origin: top right;
+    z-index: 1;
 
-  .parallax-slower {
-    @include parallax(-0.15);
+    @media #{$medium-and-up} {
+      top: 15vh;
+
+      @include parallax(0.15);
+    }
   }
 
   .parallax-wayback {

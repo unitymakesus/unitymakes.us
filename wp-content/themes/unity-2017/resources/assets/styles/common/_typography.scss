@@ -4,7 +4,8 @@ $font-size: (
   "h3": $h3-fontsize,
   "h4": $h4-fontsize,
   "h5": $h5-fontsize,
-  "h6": $h6-fontsize
+  "h6": $h6-fontsize,
+  "h7": $h6-fontsize
 );
 
 @function font-size($key) {
@@ -36,6 +37,20 @@ h3, h5, h6 {
   .font-size-h#{$i} {
     font-size: font-size(h#{$i});
     line-height: 1.1em;
+  }
+}
+
+@media #{$small-and-down} {
+  h1, .h1, .font-size-h1 {
+    font-size: $h2-fontsize;
+  }
+
+  h2, .h2, .font-size-h2 {
+    font-size: $h3-fontsize;
+  }
+
+  h3, .h3, .font-size-h3 {
+    font-size: $h4-fontsize;
   }
 }
 

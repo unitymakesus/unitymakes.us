@@ -1,6 +1,6 @@
 <section class="newsletter vertical-padding-2" role="region" aria-labelledby="community1">
   <div class="row center">
-    <div class="col m6 push-m3">
+    <div class="col s12 m6 push-m3">
       <h2 class="h3" id="community1">Join the Unity Community</h2>
       <p>Get free tips, inspiration, & updates in our monthly newsletter.</p>
       {!! do_shortcode( '[contact-form-7 id="588" title="Newsletter"]' ) !!}
@@ -12,34 +12,36 @@
   <div class="dark-swish mega-back parallax-wayback"></div>
   <div>
     <div class="row center-align vertical-padding-2">
-      <h2 class="h4">United in our mission. Driven by our values.</h2>
-      <div class="valign-wrapper flex-wrap flex-center">
-        <a class="valign horizontal-padding-1" href="https://www.bcorporation.net/what-are-b-corps" target="_blank" rel="noopener">
-          <img class=""
-               src="{{ App\asset_path('images/Certified_B_Corporation_PENDING_White.png') }}"
-               srcset="{{ App\asset_path('images/Certified_B_Corporation_PENDING_White.png') }} 1x, {{ App\asset_path('images/Certified_B_Corporation_PENDING_White@2x.png') }} 2x"
-               alt="B Corporation - Pending"
-               width="56" height="100" />
-        </a>
-        <a class="valign" href="{{ get_permalink(get_page_by_path('hosting')) }}">
-          <img class=""
-               src="{{ App\asset_path('images/eco-friendly-website.png') }}"
-               srcset="{{ App\asset_path('images/eco-friendly-website.png') }} 1x, {{ App\asset_path('images/eco-friendly-website@2x.png') }} 2x"
-               alt="300% eco-friendly website"
-               width="110" height="70" />
-        </a>
-        <a class="valign horizontal-padding-1" href="http://www.durhamlivingwage.org/" target="_blank" rel="noopener">
-          <img class=""
-               src="{{ App\asset_path('images/dlwp-sticker.png') }}"
-               srcset="{{ App\asset_path('images/dlwp-sticker.png') }} 1x, {{ App\asset_path('images/dlwp-sticker@2x.png') }} 2x"
-               alt="Living Wages Paid Here. Certified by the Durham Living Wage Project"
-               width="84" height="100" />
-        </a>
+      <div class="col s12">
+        <h2 class="h4">United in our mission. Driven by our values.</h2>
+        <div class="valign-wrapper flex-center">
+          <a class="valign horizontal-padding-1" href="https://www.bcorporation.net/what-are-b-corps" target="_blank" rel="noopener">
+            <img class=""
+                 src="{{ App\asset_path('images/Certified_B_Corporation_PENDING_White.png') }}"
+                 srcset="{{ App\asset_path('images/Certified_B_Corporation_PENDING_White.png') }} 1x, {{ App\asset_path('images/Certified_B_Corporation_PENDING_White@2x.png') }} 2x"
+                 alt="B Corporation - Pending"
+                 width="56" height="100" />
+          </a>
+          <a class="valign" href="{{ get_permalink(get_page_by_path('hosting')) }}">
+            <img class=""
+                 src="{{ App\asset_path('images/eco-friendly-website.png') }}"
+                 srcset="{{ App\asset_path('images/eco-friendly-website.png') }} 1x, {{ App\asset_path('images/eco-friendly-website@2x.png') }} 2x"
+                 alt="300% eco-friendly website"
+                 width="110" height="70" />
+          </a>
+          <a class="valign horizontal-padding-1" href="http://www.durhamlivingwage.org/" target="_blank" rel="noopener">
+            <img class=""
+                 src="{{ App\asset_path('images/dlwp-sticker.png') }}"
+                 srcset="{{ App\asset_path('images/dlwp-sticker.png') }} 1x, {{ App\asset_path('images/dlwp-sticker@2x.png') }} 2x"
+                 alt="Living Wages Paid Here. Certified by the Durham Living Wage Project"
+                 width="84" height="100" />
+          </a>
+        </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col m6">
+      <div class="col s12 m4">
         <p>
           <span class="strong bigger">Connect with us:</span>
           <br />
@@ -54,7 +56,7 @@
           </a>
         </p>
       </div>
-      <div class="col m6 right-align">
+      <div class="col s12 m8 right-align">
         <p>
           <a href="tel:+1-919-391-4961">
             919-391-4961
@@ -74,7 +76,7 @@
           <span class="bullet">&bull;</span>
           {{ current_time('Y') }} Unity Digital Agency
           <span class="bullet">&bull;</span>
-          <a href="/privacy-policy/">Privacy Policy</a>
+          <a class="privacy-policy" href="/privacy-policy/">Privacy Policy</a>
         </p>
       </div>
     </div>

@@ -60,3 +60,9 @@ img {
 .overflow-hidden.overflow-hidden {
   overflow: hidden;
 }
+
+@media #{$small-and-down} {
+  .small-center {
+    text-align: center;
+  }
+}

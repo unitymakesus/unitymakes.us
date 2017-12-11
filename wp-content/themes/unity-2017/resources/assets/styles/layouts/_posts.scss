@@ -48,6 +48,10 @@
     .entry-title {
       font-size: $h4-fontsize;
       margin-top: 0.25em;
+
+      @media #{$medium-and-down} {
+        font-size: $h5-fontsize;
+      }
     }
 
     &:hover, &:focus, &:active {

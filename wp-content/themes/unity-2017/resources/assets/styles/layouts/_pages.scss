@@ -1,12 +1,9 @@
+// Home page
 .hero {
-  height: 500px;
+  height: 400px;
 
   .col.push-m4 {
     padding-right: 0;
-  }
-
-  .parallax-faster {
-    margin-top: 80px;
   }
 
   img {
@@ -19,6 +16,38 @@
     font-family: $font-family-serif;
     font-size: $h3-fontsize;
     line-height: 1.1em;
-    margin: 3.5em 0 3em;
+  }
+
+  @media #{$small-and-down} {
+    img {
+      width: 90%;
+    }
+
+    p {
+      margin-left: 10%;
+    }
+  }
+  @media #{$large-and-up} {
+    height: 500px;
+
+    p {
+      margin: 3.5em 0 3em;
+    }
+  }
+}
+
+@media #{$medium-and-down} {
+  .client-logos {
+    padding-top: 0;
+  }
+
+  .services {
+    ul {
+      padding-left: 15%;
+    }
+
+    li {
+      font-size: 1.1em;
+    }
   }
 }

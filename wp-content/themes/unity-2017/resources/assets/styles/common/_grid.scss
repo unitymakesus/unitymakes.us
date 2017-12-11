@@ -5,8 +5,13 @@
   flex-flow: row wrap;
   justify-content: flex-start;
 
+  .row {
+    max-width: 100%;
+    flex-flow: row wrap;
+  }
+
   .col.col {
-    flex: 0 0 auto;
+    flex: 1 0 auto;
     margin-right: 0;
     position: relative;
 

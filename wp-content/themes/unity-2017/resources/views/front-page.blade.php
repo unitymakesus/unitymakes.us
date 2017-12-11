@@ -3,10 +3,10 @@
 @section('content')
   <section class="hero yellow-swish" role="region" aria-labelledby="hero1">
     <div class="row parallax-container">
-      <div class="col m3">
+      <div class="col s12 m4 l3 push-l1">
         <p id="hero1">Working together to spark vibrancy in our community.</p>
       </div>
-      <div class="col m8">
+      <div class="col 12 m8 push-l1">
         <div class="parallax-faster right-align">
           <img class="z-depth-2" src="{{ App\asset_path('images/vibrancy.jpg') }}" alt="Woman with orange hair and clothing standing in front of a brightly painted mural.">
         </div>
@@ -67,19 +67,19 @@
     ]
   ])
 
-  <section class="background-dark parallax-container overflow-hidden vertical-padding-3 flex-grid" role="region" aria-labelledby="awesome1">
+  <section class="background-dark parallax-container overflow-hidden vertical-padding-3 flex-grid small-center" role="region" aria-labelledby="awesome1">
     <div class="low-poly-dark mega-back parallax-wayback"></div>
     <div class="row valign-wrapper flex-center">
-      <div class="col m6 push-l1">
+      <div class="col s12 m6 push-l1">
         <p class="strong font-size-h2" id="awesome1">Together, we make awesome happen.</p>
       </div>
-      <div class="col m5 push-l1">
+      <div class="col s12 m5 push-l1">
         <a class="btn btn-large icon-appear-right" href="#">Let's Do It <i class="material-icons">arrow_forward</i></a>
       </div>
     </div>
   </section>
 
-  <section class="vertical-padding-3" role="region" aria-labelledby="services1">
+  <section class="vertical-padding-3 services" role="region" aria-labelledby="services1">
     <p class="center" id="services1"><span class="strong underline">Leading our clients to inspire action with:</span></p>
     <div class="row vertical-padding-2">
       @include('partials.content-services', [
@@ -151,7 +151,7 @@
         ])
       )
       @if ($blog->have_posts()) @while ($blog->have_posts()) @php($blog->the_post())
-        <div class="col m6">
+        <div class="col s12 m6">
           <div class="ratio-4-3">
             @include ('partials.content-'.(get_post_type() !== 'post' ? get_post_type() : get_post_format()))
           </div>
