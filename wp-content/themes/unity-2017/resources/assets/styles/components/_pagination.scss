@@ -1,0 +1,33 @@
+.pagination {
+  @extend .background-dark;
+
+  .nav-links {
+    @extend .container;
+
+    text-align: center;
+
+    .page-numbers {
+      display: inline-block;
+      min-width: 40px;
+      padding: 0 15px;
+      height: 40px;
+      line-height: 40px;
+      font-weight: 300;
+      font-size: 1.2em;
+
+      &.current {
+        background: $color-brand-primary;
+        color: $color-black;
+        font-weight: bold;
+      }
+    }
+
+    a {
+      color: $color-white;
+
+      &:hover, &:focus {
+        color: $color-brand-darkest;
+      }
+    }
+  }
+}

@@ -139,24 +139,40 @@ add_action('after_setup_theme', function () {
 /**
  * Extras
  */
- function reformat_auto_p_tags($content) {
-     $new_content = '';
-     $pattern_full = '{(\[raw\].*?\[/raw\])}is';
-     $pattern_contents = '{\[raw\](.*?)\[/raw\]}is';
-     $pieces = preg_split($pattern_full, $content, -1, PREG_SPLIT_DELIM_CAPTURE);
-     foreach ($pieces as $piece) {
-         if (preg_match($pattern_contents, $piece, $matches)) {
-             $new_content .= $matches[1];
-         } else {
-             $new_content .= wptexturize(wpautop($piece));
-         }
-     }
 
-     return $new_content;
- }
+/**
+ * Custom [share] shortcode template
+ */
+add_action('roots/share_template', function() {
+  return get_template_directory() . '/views/partials/shortcode-share.php';
+});
 
- remove_filter('the_content', 'wpautop');
- remove_filter('the_content', 'wptexturize');
+/**
+ * Remove Roots Share Buttons assets
+ */
+add_action('wp_enqueue_scripts', function() {
+  wp_dequeue_style('roots-share-buttons');
+});
 
- // add_filter('the_content', __NAMESPACE__ . '\\reformat_auto_p_tags', 99);
- // add_filter('widget_text', __NAMESPACE__ . '\\reformat_auto_p_tags', 99);
+//
+// function reformat_auto_p_tags($content) {
+//    $new_content = '';
+//    $pattern_full = '{(\[raw\].*?\[/raw\])}is';
+//    $pattern_contents = '{\[raw\](.*?)\[/raw\]}is';
+//    $pieces = preg_split($pattern_full, $content, -1, PREG_SPLIT_DELIM_CAPTURE);
+//    foreach ($pieces as $piece) {
+//        if (preg_match($pattern_contents, $piece, $matches)) {
+//            $new_content .= $matches[1];
+//        } else {
+//            $new_content .= wptexturize(wpautop($piece));
+//        }
+//    }
+//
+//    return $new_content;
+// }
+
+// remove_filter('the_content', 'wpautop');
+// remove_filter('the_content', 'wptexturize');
+
+// add_filter('the_content', __NAMESPACE__ . '\\reformat_auto_p_tags', 99);
+// add_filter('widget_text', __NAMESPACE__ . '\\reformat_auto_p_tags', 99);

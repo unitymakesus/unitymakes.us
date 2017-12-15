@@ -4,9 +4,14 @@
     font-size: $h6-fontsize;
   }
 
+  .author {
+    font-family: $font-family-sans-serif;
+    margin: 0;
+  }
+
   .entry-title {
     font-size: $h4-fontsize;
-    margin-top: 0.25em;
+    margin: 0.25em 0;
 
     @media #{$medium-and-down} {
       font-size: $h5-fontsize;
@@ -149,36 +154,12 @@
   }
 }
 
-.pagination {
-  @extend .background-dark;
-
-  .nav-links {
+.single {
+  .entry-content {
     @extend .container;
 
-    text-align: center;
-
-    .page-numbers {
-      display: inline-block;
-      min-width: 40px;
-      padding: 0 15px;
-      height: 40px;
-      line-height: 40px;
-      font-weight: 300;
-      font-size: 1.2em;
-
-      &.current {
-        background: $color-brand-primary;
-        color: $color-black;
-        font-weight: bold;
-      }
-    }
-
-    a {
-      color: $color-white;
-
-      &:hover, &:focus {
-        color: $color-brand-darkest;
-      }
-    }
+    max-width: 750px;
+    padding: 2em 0 3em;
+    clear: both;
   }
 }

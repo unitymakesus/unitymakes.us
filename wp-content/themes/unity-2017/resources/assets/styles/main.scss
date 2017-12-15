@@ -25,15 +25,16 @@
 @import "~materialize-css/sass/components/preloader";
 
 /** Import theme styles */
-@import "common/backgrounds";
 @import "common/global";
 @import "common/grid";
 @import "common/typography";
+@import "components/backgrounds";
 @import "components/buttons";
 @import "components/cc-icons";
 @import "components/comments";
 @import "components/forms";
 @import "components/media";
+@import "components/pagination";
 @import "components/parallax";
 @import "components/social-media-icons";
 @import "components/wp-classes";

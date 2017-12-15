@@ -103,7 +103,7 @@ a {
   }
 }
 
-.strong {
+.strong, strong {
   font-weight: bold;
 }
 
@@ -118,4 +118,9 @@ a {
 
 .bullet {
   color: $color-brand-primary;
+}
+
+strong em, em strong {
+  font-family: $font-family-serif;
+  font-size: 1.15em;
 }

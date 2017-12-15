@@ -1,9 +1,7 @@
 // Home page
 .hero {
-  height: 400px;
-
-  .col.push-m4 {
-    padding-right: 0;
+  &, .valign-wrapper {
+    height: 400px;
   }
 
   img {
@@ -12,10 +10,8 @@
   }
 
   p {
-    color: $color-gray-darkest;
     font-family: $font-family-serif;
-    font-size: $h3-fontsize;
-    line-height: 1.1em;
+    font-weight: normal;
   }
 
   @media #{$small-and-down} {
@@ -28,10 +24,8 @@
     }
   }
   @media #{$large-and-up} {
-    height: 500px;
-
-    p {
-      margin: 3.5em 0 3em;
+    &, .valign-wrapper {
+      height: 500px;
     }
   }
 }

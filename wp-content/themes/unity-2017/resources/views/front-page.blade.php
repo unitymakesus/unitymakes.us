@@ -3,8 +3,8 @@
 @section('content')
   <section class="hero yellow-swish" role="region" aria-labelledby="hero1">
     <div class="row parallax-container">
-      <div class="col s12 m4 l3 push-l1">
-        <p id="hero1">Working together to spark vibrancy in our community.</p>
+      <div class="col s12 m4 l3 push-l1 valign-wrapper">
+        <p id="hero1" class="h3">Working together to spark vibrancy in our community.</p>
       </div>
       <div class="col s12 m8 push-l1">
         <div class="parallax-faster right-align">

@@ -2,12 +2,20 @@
   background: $color-gray-darker;
   color: $color-white;
   box-shadow: inset 0 0 13px 0 rgba(0, 0, 0, 0.5);
+
+  * {
+    color: $color-white;
+  }
 }
 
 .background-darker {
   background: $color-gray-darkest;
   color: $color-white;
   box-shadow: inset 0 0 13px 0 rgba(0, 0, 0, 0.5);
+
+  * {
+    color: $color-white;
+  }
 }
 
 .low-poly-dark {
