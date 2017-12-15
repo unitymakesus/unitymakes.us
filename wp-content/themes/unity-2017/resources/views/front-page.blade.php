@@ -6,7 +6,7 @@
       <div class="col s12 m4 l3 push-l1">
         <p id="hero1">Working together to spark vibrancy in our community.</p>
       </div>
-      <div class="col 12 m8 push-l1">
+      <div class="col s12 m8 push-l1">
         <div class="parallax-faster right-align">
           <img class="z-depth-2" src="{{ App\asset_path('images/vibrancy.jpg') }}" alt="Woman with orange hair and clothing standing in front of a brightly painted mural.">
         </div>

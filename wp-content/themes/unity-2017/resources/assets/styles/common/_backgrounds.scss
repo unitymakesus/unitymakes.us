@@ -38,5 +38,9 @@
   @media #{$small-and-down} {
     background-size: auto;
     background-position: 10% 100%;
+
+    &.featured {
+      background-position: 50% 90%;
+    }
   }
 }

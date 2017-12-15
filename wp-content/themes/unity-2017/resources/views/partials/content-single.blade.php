@@ -1,13 +1,26 @@
-<article @php(post_class())>
-  <header>
-    <h1 class="entry-title">{{ get_the_title() }}</h1>
-    @include('partials/entry-meta')
+<article @php(post_class()) role="article" aria-labelledby="title-{{ get_the_id() }}">
+  <header class="hero yellow-swish">
+    <div class="row parallax-container">
+      <div class="col s12 m8 push-m4">
+        <div class="parallax-faster right-align">
+          {!! get_the_post_thumbnail(get_the_id(), 'large', ['class' => "z-depth-2"]) !!}
+        </div>
+      </div>
+      <div class="col s12 m4 l3 pull-m8 pull-l7">
+        <time class="updated" datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F j, Y') }}</time>
+        <h1 class="entry-title" id="title-{{ get_the_id() }}">{{ get_the_title() }}</h1>
+        <p class="byline author vcard">
+          {{ __('By', 'sage') }} <a href="{{ get_author_posts_url(get_the_author_meta('ID')) }}" rel="author" class="fn">
+            {{ get_the_author() }}
+          </a>
+        </p>
+      </div>
+    </div>
   </header>
   <div class="entry-content">
     @php(the_content())
   </div>
   <footer>
-    {!! wp_link_pages(['echo' => 0, 'before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']) !!}
+    {!! do_shortcode('[share]') !!}
   </footer>
-  @php(comments_template('/partials/comments.blade.php'))
 </article>

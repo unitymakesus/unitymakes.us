@@ -17,6 +17,10 @@
       top: 15vh;
 
       @include parallax(0.15);
+
+      &.left-align {
+        left: 8vw;
+      }
     }
   }
 

@@ -79,6 +79,7 @@ a {
   color: $color-brand-darkest;
   font-weight: bold;
   position: relative;
+  z-index: 2;
 
   &::before {
     content: '';

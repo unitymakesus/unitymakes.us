@@ -1,3 +1,95 @@
+.post {
+  time {
+    text-transform: uppercase;
+    font-size: $h6-fontsize;
+  }
+
+  .entry-title {
+    font-size: $h4-fontsize;
+    margin-top: 0.25em;
+
+    @media #{$medium-and-down} {
+      font-size: $h5-fontsize;
+    }
+
+    a {
+      text-decoration: none;
+      color: $color-black;
+      display: block;
+
+      &:hover, &:focus {
+        color: $color-brand-darkest;
+      }
+    }
+  }
+
+  &.featured {
+    padding-top: 1em;
+
+    .row {
+      padding-bottom: 1em;
+    }
+
+    header {
+      padding-top: 1em;
+    }
+
+    @media #{$large-and-up} {
+      height: 400px;
+    }
+  }
+
+  &.card {
+    margin: 4em 0;
+    flex-wrap: wrap;
+
+    .card-image {
+      flex: auto;
+      max-width: 100%;
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .card-stacked {
+      flex: auto;
+    }
+
+    @media #{$large-and-up} {
+      flex-wrap: nowrap;
+
+      .card-image {
+        order: 2;
+        width: 30%;
+        overflow: hidden;
+
+        img {
+          position: absolute;
+          width: auto;
+          height: auto;
+          max-width: none;
+          min-width: 100%;
+          min-height: 100%;
+          top: 50%;
+          left: 50%;
+          transform: translate3d(-50%, -50%, 0);
+        }
+      }
+
+      .card-stacked {
+        width: 70%;
+      }
+    }
+  }
+}
+
 .blog-grid {
   .post {
     background-size: cover;
@@ -40,20 +132,6 @@
       transition: color 0.3s ease;
     }
 
-    time {
-      text-transform: uppercase;
-      font-size: $h6-fontsize;
-    }
-
-    .entry-title {
-      font-size: $h4-fontsize;
-      margin-top: 0.25em;
-
-      @media #{$medium-and-down} {
-        font-size: $h5-fontsize;
-      }
-    }
-
     &:hover, &:focus, &:active {
       &::after {
         opacity: 1;
@@ -66,6 +144,40 @@
       .btn.floating {
         background: $color-gray-darker;
         border-color: $color-gray-darker;
+      }
+    }
+  }
+}
+
+.pagination {
+  @extend .background-dark;
+
+  .nav-links {
+    @extend .container;
+
+    text-align: center;
+
+    .page-numbers {
+      display: inline-block;
+      min-width: 40px;
+      padding: 0 15px;
+      height: 40px;
+      line-height: 40px;
+      font-weight: 300;
+      font-size: 1.2em;
+
+      &.current {
+        background: $color-brand-primary;
+        color: $color-black;
+        font-weight: bold;
+      }
+    }
+
+    a {
+      color: $color-white;
+
+      &:hover, &:focus {
+        color: $color-brand-darkest;
       }
     }
   }
