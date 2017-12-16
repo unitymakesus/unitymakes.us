@@ -1,4 +1,3 @@
-// Home page
 .hero {
   &, .valign-wrapper {
     height: 400px;
@@ -9,12 +8,24 @@
     max-width: 900px;
   }
 
+  h1 {
+    font-size: $h3-fontsize;
+  }
+
   p {
     font-family: $font-family-serif;
     font-weight: normal;
+
+    &.subtitle {
+      font-size: 1.2em;
+    }
   }
 
   @media #{$small-and-down} {
+    .valign-wrapper {
+      height: auto;
+    }
+
     img {
       width: 90%;
     }
@@ -24,8 +35,10 @@
     }
   }
   @media #{$large-and-up} {
-    &, .valign-wrapper {
-      height: 500px;
+    .home & {
+      &, .valign-wrapper {
+        height: 500px;
+      }
     }
   }
 }

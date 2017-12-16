@@ -39,7 +39,7 @@
 .yellow-swish {
   background-image: url('../images/yellow-swish@2x.png');
   background-size: 100vw auto;
-  background-position: bottom center;
+  background-position: 50% 85%;
   background-color: $color-brand-primary;
   background-repeat: no-repeat;
 
@@ -47,7 +47,8 @@
     background-size: auto;
     background-position: 10% 100%;
 
-    &.featured {
+    &.post {
+      height: auto;
       background-position: 50% 90%;
     }
   }

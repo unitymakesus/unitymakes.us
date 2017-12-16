@@ -1,5 +1,5 @@
 @if ($i == 1)
-  <article {{ post_class('featured yellow-swish') }} role="article" aria-labelledby="title-{{ get_the_id() }}">
+  <article {{ post_class('hero yellow-swish') }} role="article" aria-labelledby="title-{{ get_the_id() }}">
     <div class="row parallax-container">
       <div class="col s12 m6">
         <div class="parallax-faster left-align">

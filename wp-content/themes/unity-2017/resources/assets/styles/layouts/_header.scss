@@ -44,6 +44,10 @@ ul.nav {
       }
     }
 
+    &.active {
+      background: none;
+    }
+
     &:hover, &:focus, &.hover {
       z-index: 100;
 

@@ -1,3 +1,4 @@
+@if (!is_page('contact'))
 <section class="newsletter vertical-padding-2" role="region" aria-labelledby="community1">
   <div class="row center">
     <div class="col s12 m6 push-m3">
@@ -7,6 +8,7 @@
     </div>
   </div>
 </section>
+@endif
 
 <footer class="content-info background-darker parallax-container overflow-hidden" role="contentinfo">
   <div class="dark-swish mega-back parallax-wayback"></div>
@@ -46,13 +48,13 @@
           <span class="strong bigger">Connect with us:</span>
           <br />
           <a class="social-media-icon circle z-depth-2" href="https://twitter.com/unitymakesus">
-            {!! file_get_contents(App\asset_path('images/twitter.svg')) !!}
+            @svg('twitter')
           </a>
           <a class="social-media-icon circle z-depth-2" href="https://www.facebook.com/unitymakesus/">
-            {!! file_get_contents(App\asset_path('images/facebook.svg')) !!}
+            @svg('facebook')
           </a>
           <a class="social-media-icon circle z-depth-2" href="https://www.linkedin.com/company/unity-digital-agency">
-            {!! file_get_contents(App\asset_path('images/linkedin.svg')) !!}
+            @svg('linkedin')
           </a>
         </p>
       </div>

@@ -9,6 +9,12 @@ fieldset {
     max-width: 100%;
     margin: 0 auto;
   }
+
+  legend {
+    @media #{$medium-and-up} {
+      display: none;
+    }
+  }
 }
 
 label {
@@ -21,9 +27,19 @@ label {
   margin-bottom: 1em;
 }
 
-input {
+input, textarea {
   padding: 15px 10px;
   width: 100%;
+  border: 1px solid $color-gray-lighter;
+
+  &.wpcf7-not-valid {
+    border-color: $color-red;
+  }
+}
+
+.wpcf7-not-valid-tip {
+  color: $color-red;
+  font-weight: bold;
 }
 
 .wpcf7-submit {
@@ -33,5 +49,47 @@ input {
   .newsletter & {
     width: 380px;
     max-width: 100%;
+  }
+}
+
+.wpcf7-response-output {
+  margin: 1em 0 !important;
+  padding: 20px !important;
+
+  @extend .z-depth-1;
+
+  &.wpcf7-validation-errors {
+    background: $color-blue;
+    border: none;
+    color: $color-white;
+  }
+
+  &.wpcf7-mail-sent-ok {
+    background: $color-green;
+    border: none;
+    color: $color-black;
+  }
+}
+
+div.wpcf7 .ajax-loader.ajax-loader {
+  background-color: $color-white;
+  background-image: url('../images/unity-logo-circle.svg');
+  background-size: 100%;
+  border-radius: 100%;
+  display: block;
+  width: 54px;
+  height: 54px;
+  position: relative;
+  left: calc(50% - 27px);
+  animation: spin 1.25s ease-in-out infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }

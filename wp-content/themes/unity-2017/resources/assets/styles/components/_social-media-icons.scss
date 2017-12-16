@@ -24,6 +24,6 @@ a.social-media-icon {
   }
 
   &::before {
-    display: none;
+    display: none !important;
   }
 }

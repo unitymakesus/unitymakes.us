@@ -85,6 +85,7 @@
       @include('partials.content-services', [
       'columns'   => [
           [
+            'svg'     => 'research-icon',
             'img'     => App\asset_path('images/research-icon.svg'),
             'title'   => 'Research',
             'items'   => [
@@ -98,6 +99,7 @@
             ]
           ],
           [
+            'svg'     => 'strategy-icon',
             'img'     => App\asset_path('images/strategy-icon.svg'),
             'title'   => 'Strategy',
             'items'   => [
@@ -111,6 +113,7 @@
             ]
           ],
           [
+            'svg'     => 'design-icon',
             'img'     => App\asset_path('images/design-icon.svg'),
             'title'   => 'Design',
             'items'   => [
@@ -125,6 +128,7 @@
             ]
           ],
           [
+            'svg'     => 'support-icon',
             'img'     => App\asset_path('images/support-icon.svg'),
             'title'   => 'Support',
             'items'   => [

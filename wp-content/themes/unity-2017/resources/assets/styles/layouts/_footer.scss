@@ -12,6 +12,12 @@ footer.content-info {
       display: none;
     }
 
+    &:hover, &:focus {
+      &, i {
+        color: $color-brand-darkest;
+      }
+    }
+
     &.cc {
       text-decoration: none;
     }

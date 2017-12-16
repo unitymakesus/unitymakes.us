@@ -25,6 +25,7 @@
 @import "~materialize-css/sass/components/preloader";
 
 /** Import theme styles */
+@import "common/a11y";
 @import "common/global";
 @import "common/grid";
 @import "common/typography";

@@ -1,6 +1,7 @@
 .btn {
   font-weight: bold;
   transform: all 0.3s ease;
+  color: $color-black;
 
   &::before {
     display: none;
