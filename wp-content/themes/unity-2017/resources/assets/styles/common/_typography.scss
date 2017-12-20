@@ -111,7 +111,8 @@ a {
   font-size: 1.2em;
 }
 
-.underline {
+.underline, span[style*="underline"] {
+  text-decoration: none !important;
   border-bottom: 2px solid $color-brand-primary;
   display: inline-block;
 }
@@ -123,4 +124,28 @@ a {
 strong em, em strong {
   font-family: $font-family-serif;
   font-size: 1.15em;
+}
+
+blockquote, .blockquote {
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  p {
+    padding: 10px 0 10px 1.5rem;
+    border-left: 5px solid $color-brand-primary;
+
+    &[style*="center"] {
+      font-family: $font-family-serif;
+      font-size: $h4-fontsize;
+      line-height: 1.2em;
+      padding: 0;
+      border-left: 0;
+
+      @media #{$medium-and-up} {
+        margin-left: -8.33333%;
+        margin-right: -8.33333%;
+      }
+    }
+  }
 }

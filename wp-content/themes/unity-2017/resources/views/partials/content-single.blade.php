@@ -19,7 +19,7 @@
       </div>
     </div>
   </header>
-  <div class="entry-content">
+  <div class="entry-content clearfix">
     @php(the_content())
   </div>
   <footer class="background-dark parallax-container overflow-hidden vertical-padding-3 flex-grid small-center">

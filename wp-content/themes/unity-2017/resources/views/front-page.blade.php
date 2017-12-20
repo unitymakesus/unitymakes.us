@@ -20,60 +20,18 @@
     </div>
   </section>
 
-  @include('partials.content-clients', [
-    'clients'   => [
-      [
-        'img'    => App\asset_path('images/rtp.png'),
-        'img2x'  => App\asset_path('images/rtp@2x.png'),
-        'alt'    => 'Research Triangle Park',
-        'width'  => '100',
-        'height' => '55'
-      ],
-      [
-        'img'    => App\asset_path('images/nc-rural-center.png'),
-        'img2x'  => App\asset_path('images/nc-rural-center@2x.png'),
-        'alt'    => 'North Carolina Rural Center',
-        'width'  => '113',
-        'height' => '48'
-      ],
-      [
-        'img'    => App\asset_path('images/redhat.png'),
-        'img2x'  => App\asset_path('images/redhat@2x.png'),
-        'alt'    => 'Red Hat',
-        'width'  => '126',
-        'height' => '40'
-      ],
-      [
-        'img'    => App\asset_path('images/unc.png'),
-        'img2x'  => App\asset_path('images/unc@2x.png'),
-        'alt'    => 'University of North Carolina at Chapel Hill',
-        'width'  => '140',
-        'height' => '40'
-      ],
-      [
-        'img'    => App\asset_path('images/tnca.png'),
-        'img2x'  => App\asset_path('images/tnca@2x.png'),
-        'alt'    => 'The NC Arboretum',
-        'width'  => '140',
-        'height' => '37'
-      ],
-      [
-        'img'    => App\asset_path('images/padgett-nc.png'),
-        'img2x'  => App\asset_path('images/padgett-nc@2x.png'),
-        'alt'    => 'Padgett Business Services North Carolina',
-        'width'  => '100',
-        'height' => '50'
-      ],
-    ]
-  ])
+  <section class="client-logos vertical-padding-3">
+    <p class="center"><span class="strong underline">Elevating businesses as diverse as</span></p>
+    @include ('partials.client-icons')
+  </section>
 
   <section class="background-dark parallax-container overflow-hidden vertical-padding-3 flex-grid small-center" role="region" aria-labelledby="awesome1">
     <div class="low-poly-dark mega-back parallax-wayback"></div>
-    <div class="row valign-wrapper flex-center">
-      <div class="col s12 m6 push-l1">
+    <div class="row valign-wrapper flex-center flex-grow-0">
+      <div class="col s12 m6 l5">
         <p class="strong font-size-h2" id="awesome1">Together, we make awesome happen.</p>
       </div>
-      <div class="col s12 m5 push-l1">
+      <div class="col s12 m5 l5 push-l1">
         <a class="btn btn-large icon-appear-right" href="#">Let's Do It <i class="material-icons">arrow_forward</i></a>
       </div>
     </div>

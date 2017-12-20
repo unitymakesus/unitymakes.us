@@ -42,12 +42,13 @@
 // TODO: .wp-caption-text {}
 
 /** Admin Bar */
-html {
+html[lang] {
   margin-top: 0 !important;
 }
 
 body.admin-bar .viewport {
-  margin-top: 32px !important;
+  padding-top: 32px !important;
+  // height: calc(100% - 32px) !important;
 }
 
 #wpadminbar a::before {

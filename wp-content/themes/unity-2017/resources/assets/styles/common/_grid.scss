@@ -8,6 +8,12 @@
   .row {
     max-width: 100%;
     flex-flow: row wrap;
+
+    &.flex-grow-0 {
+      .col.col {
+        flex: 0 0 auto;
+      }
+    }
   }
 
   .col.col {

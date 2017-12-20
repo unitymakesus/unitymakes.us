@@ -1,0 +1,13 @@
+.person-card {
+  background: $color-brand-primary;
+  left: -20px;
+  padding: 10px 20px;
+  position: relative;
+  width: calc(100% + 40px);
+
+  @extend .z-depth-2;
+
+  * {
+    margin: 0;
+  }
+}

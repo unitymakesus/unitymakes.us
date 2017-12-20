@@ -1,4 +1,4 @@
-html, body {
+html, body:not(#tinymce) {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -9,7 +9,7 @@ html {
   font-family: $font-family-sans-serif;
 }
 
-body {
+body:not(#tinymce) {
   transform: translateZ(0);
   font-size: 18px;
 }
