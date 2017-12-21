@@ -8,9 +8,7 @@
     </div>
     <div class="col s12 m6 push-m1 push-l2">
       <div class="parallax-faster right-align">
-        <a href="{{ get_permalink() }}">
-          {!! get_the_post_thumbnail(get_the_id(), 'large', ['class' => "z-depth-2"]) !!}
-        </a>
+        {!! get_the_post_thumbnail(get_the_id(), 'large', ['class' => "z-depth-2"]) !!}
       </div>
     </div>
   </div>
