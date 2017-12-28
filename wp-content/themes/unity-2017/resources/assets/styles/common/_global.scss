@@ -61,6 +61,10 @@ img {
   overflow: hidden;
 }
 
+.no-margin {
+  margin: 0;
+}
+
 @media #{$small-and-down} {
   .small-center {
     text-align: center;

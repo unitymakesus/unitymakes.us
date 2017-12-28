@@ -111,6 +111,10 @@ a {
   font-size: 1.2em;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .underline, span[style*="underline"] {
   text-decoration: none !important;
   border-bottom: 2px solid $color-brand-primary;

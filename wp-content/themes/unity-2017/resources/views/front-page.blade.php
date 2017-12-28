@@ -8,7 +8,7 @@
       </div>
       <div class="col s12 m8 push-l1">
         <div class="parallax-faster right-align">
-          <img class="z-depth-2" src="{{ App\asset_path('images/vibrancy.jpg') }}" alt="Woman with orange hair and clothing standing in front of a brightly painted mural.">
+          <img class="z-depth-2" src="@asset('images/vibrancy.jpg')" alt="Woman with orange hair and clothing standing in front of a brightly painted mural.">
         </div>
       </div>
     </div>
@@ -44,7 +44,6 @@
       'columns'   => [
           [
             'svg'     => 'research-icon',
-            'img'     => App\asset_path('images/research-icon.svg'),
             'title'   => 'Research',
             'items'   => [
               'Mission immersion',
@@ -58,7 +57,6 @@
           ],
           [
             'svg'     => 'strategy-icon',
-            'img'     => App\asset_path('images/strategy-icon.svg'),
             'title'   => 'Strategy',
             'items'   => [
               'Digital strategy',
@@ -72,7 +70,6 @@
           ],
           [
             'svg'     => 'design-icon',
-            'img'     => App\asset_path('images/design-icon.svg'),
             'title'   => 'Design',
             'items'   => [
               'Logo and brand design',
@@ -87,7 +84,6 @@
           ],
           [
             'svg'     => 'support-icon',
-            'img'     => App\asset_path('images/support-icon.svg'),
             'title'   => 'Support',
             'items'   => [
               'Eco-friendly web hosting',

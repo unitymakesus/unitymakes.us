@@ -29,9 +29,8 @@ add_action( 'init', function() {
 			'menu_position' => 38,
 			'menu_icon' => 'dashicons-groups',
 			'capability_type' => 'page',
-			'hierarchical' => true,
+			'hierarchical' => false,
 			'supports' => array( 'title', 'thumbnail'),
-			'public' => false,
 			'has_archive' => false,
 			'rewrite' => false,
 			'query_var' => true

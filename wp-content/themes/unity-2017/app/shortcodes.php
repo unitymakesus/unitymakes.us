@@ -64,12 +64,33 @@ add_shortcode('clients', function($atts, $content = null) {
 
 // Client logos shortcode
 add_shortcode('team', function($atts, $content = null) {
+  extract( shortcode_atts([
+    'section' => ''
+  ], $atts ) );
 
-  $output = '</div></section><section class="container ' . $classes . '">';
+  $team_query = new \WP_User_Query([
+    'number' => -1,
+    'orderby' => 'meta_value_num',
+    'meta_key' => 'display_order',
+  ]);
+
+  $team = $team_query->get_results();
+
+  $output = '</div></section><section class="flex-grid ' . $classes . '"><div class="row people">';
   ob_start();
-  include(get_template_directory() . '/views/partials/team-members.php');
+
+  $i = 0;
+  if (!empty($team)) : foreach ($team as $member) :
+    if ($i > 0 && $i % 2 == 0) echo '</div><div class="row people">';
+    include(get_template_directory() . '/views/partials/content-team-member.php');
+    $i ++;
+  endforeach; endif;
+
   $output .= ob_get_clean();
-  $output .= '</section><section class="vertical-padding-2"><div class="container">';
+
+  if ($section !== 'last') {
+    $output .= '</div></section><section class="vertical-padding-2"><div class="container">';
+  }
 
   return $output;
 });
