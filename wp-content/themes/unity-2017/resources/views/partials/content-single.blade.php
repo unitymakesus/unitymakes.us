@@ -3,13 +3,9 @@
     <div class="row parallax-container">
       <div class="col s12 m5 l3 push-l1 valign-wrapper">
         <div>
-          <time class="updated" datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F j, Y') }}</time>
+          @include('partials/entry-meta-date')
           <h1 class="entry-title" id="title-{{ get_the_id() }}">{{ get_the_title() }}</h1>
-          <p class="byline author vcard">
-            {{ __('By', 'sage') }} <a href="{{ get_author_posts_url(get_the_author_meta('ID')) }}" rel="author" class="fn">
-              {{ get_the_author() }}
-            </a>
-          </p>
+          @include('partials/entry-meta-byline')
         </div>
       </div>
       <div class="col s12 m7 push-l2">

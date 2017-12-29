@@ -1,0 +1,5 @@
+<p class="byline">
+  {{ __('By', 'sage') }} <a href="{{ get_author_posts_url(get_the_author_meta('ID')) }}" rel="author" class="fn author vcard">
+    {{ get_the_author() }}
+  </a>
+</p>

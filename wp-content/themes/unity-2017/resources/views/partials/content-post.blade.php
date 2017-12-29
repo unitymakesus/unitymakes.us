@@ -10,8 +10,9 @@
       </div>
       <div class="col s12 m6">
         <header>
-          <time class="updated" datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F j, Y') }}</time>
+          @include('partials/entry-meta-date')
           <h2 class="entry-title" id="title-{{ get_the_id() }}"><a href="{{ get_permalink() }}">{{ get_the_title() }}</a></h2>
+          @include('partials/entry-meta-byline')
         </header>
         <p>
           @php(the_excerpt())
@@ -30,8 +31,9 @@
     <div class="card-stacked">
       <div class="card-content">
         <header>
-          <time class="updated" datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F j, Y') }}</time>
+          @include('partials/entry-meta-date')
           <h2 class="card-title entry-title" id="title-{{ get_the_id() }}"><a href="{{ get_permalink() }}">{{ get_the_title() }}</a></h2>
+          @include('partials/entry-meta-byline')
         </header>
         @php(the_excerpt())
       </div>
