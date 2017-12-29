@@ -32,7 +32,7 @@
         <p class="strong font-size-h2" id="awesome1">Together, we make awesome happen.</p>
       </div>
       <div class="col s12 m5 l5 push-l1">
-        <a class="btn btn-large icon-appear-right" href="#">Let's Do It <i class="material-icons">arrow_forward</i></a>
+        <a class="btn btn-large icon-appear-right" href="/contact/">Let's Do It <i class="material-icons">arrow_forward</i></a>
       </div>
     </div>
   </section>
@@ -89,6 +89,7 @@
               'Eco-friendly web hosting',
               'Website maintenance',
               'Website security',
+              'Page speed optimization',
               'Analytics reporting',
               'WordPress training',
               'Search engine optimization'
@@ -109,7 +110,7 @@
         ])
       )
       @if ($blog->have_posts()) @while ($blog->have_posts()) @php($blog->the_post())
-        <div class="col s12 m6">
+        <div class="col s12 l6">
           <div class="ratio-4-3">
             @include ('partials.content-'.(get_post_type() !== 'post' ? get_post_type() : get_post_format()))
           </div>

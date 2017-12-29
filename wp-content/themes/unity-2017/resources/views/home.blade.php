@@ -14,7 +14,7 @@
   @php ($i = 1)
   @while (have_posts()) @php(the_post())
     @if ($i == 2)
-      <div class="container">
+      <div class="container clearfix">
     @endif
     @include('partials.content-'.get_post_type())
     @php ($i++)

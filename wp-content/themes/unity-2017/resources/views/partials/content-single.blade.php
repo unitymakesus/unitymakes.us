@@ -1,12 +1,7 @@
 <article @php(post_class()) role="article" aria-labelledby="title-{{ get_the_id() }}">
   <header class="hero yellow-swish">
     <div class="row parallax-container">
-      <div class="col s12 m8 push-m4">
-        <div class="parallax-faster right-align">
-          {!! get_the_post_thumbnail(get_the_id(), 'large', ['class' => "z-depth-2"]) !!}
-        </div>
-      </div>
-      <div class="col s12 m4 l3 pull-m8 pull-l7 valign-wrapper">
+      <div class="col s12 m5 l3 push-l1 valign-wrapper">
         <div>
           <time class="updated" datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F j, Y') }}</time>
           <h1 class="entry-title" id="title-{{ get_the_id() }}">{{ get_the_title() }}</h1>
@@ -15,6 +10,11 @@
               {{ get_the_author() }}
             </a>
           </p>
+        </div>
+      </div>
+      <div class="col s12 m7 push-l2">
+        <div class="parallax-faster right-align">
+          {!! get_the_post_thumbnail(get_the_id(), 'large', ['class' => "z-depth-2"]) !!}
         </div>
       </div>
     </div>

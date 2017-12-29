@@ -53,6 +53,30 @@ add_shortcode('col', function($atts, $content = null) {
   return $output;
 });
 
+// Card shortcode
+add_shortcode('card', function($atts, $content = null) {
+  extract( shortcode_atts([
+    'class' => ''
+  ], $atts ) );
+
+  $output = '<div class="card square z-depth-2 ' . $class . '"><div class="card-inner">';
+  $output .= do_shortcode($content);
+  $output .= '</div></div>';
+
+  return $output;
+});
+
+// SVG shortcode
+add_shortcode('svg', function($atts, $content = null) {
+  extract( shortcode_atts([
+    'icon' => ''
+  ], $atts ) );
+
+  $output = file_get_contents(asset_path('images/' . $icon. '-icon.svg'));
+
+  return $output;
+});
+
 // Client logos shortcode
 add_shortcode('clients', function($atts, $content = null) {
   ob_start();

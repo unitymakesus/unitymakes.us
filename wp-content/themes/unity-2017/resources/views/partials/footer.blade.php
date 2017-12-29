@@ -24,7 +24,7 @@
                  alt="B Corporation - Pending"
                  width="56" height="100" />
           </a>
-          <a class="valign" href="{{ get_permalink(get_page_by_path('hosting')) }}">
+          <a class="valign" href="/2017/12/why-we-provide-free-web-hosting/">
             <img class=""
                  src="@asset('images/eco-friendly-website.png')"
                  srcset="@asset('images/eco-friendly-website.png') 1x, @asset('images/eco-friendly-website@2x.png') 2x"

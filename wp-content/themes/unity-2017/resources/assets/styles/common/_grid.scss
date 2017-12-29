@@ -46,6 +46,12 @@
   }
 }
 
+.square {
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+}
+
 .col.align-center {
   float: none;
   margin-left: auto;

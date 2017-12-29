@@ -59,8 +59,38 @@
   }
 }
 
-.page {
+.page.company {
   div.container {
     max-width: 750px;
+  }
+}
+
+.page.process {
+  .card {
+    margin: 0;
+    width: 100%;
+
+    h2 {
+      font-size: $h3-fontsize;
+      color: $color-gray-darkest;
+    }
+  }
+
+  .card-inner {
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  strong {
+    font-family: $font-family-serif;
+    font-size: $h4-fontsize;
+    font-weight: normal;
+  }
+
+  h3 {
+    font-size: $h4-fontsize;
+    margin-top: 0;
   }
 }

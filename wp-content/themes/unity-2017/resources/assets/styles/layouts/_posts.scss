@@ -13,10 +13,6 @@
     font-size: $h4-fontsize;
     margin: 0.25em 0;
 
-    @media #{$medium-and-down} {
-      font-size: $h5-fontsize;
-    }
-
     a {
       text-decoration: none;
       color: $color-black;
@@ -41,6 +37,15 @@
 
     @media #{$large-and-up} {
       height: 400px;
+    }
+    @media #{$small-and-down} {
+      .valign-wrapper {
+        margin: 2.8rem 0 1.68rem;
+      }
+
+      p {
+        margin-left: 0;
+      }
     }
   }
 
@@ -137,6 +142,12 @@
       transition: color 0.3s ease;
     }
 
+    .entry-title {
+      @media #{$small-and-down} {
+        font-size: $h5-fontsize;
+      }
+    }
+
     &:hover, &:focus, &:active {
       &::after {
         opacity: 1;
@@ -160,5 +171,20 @@
 
     max-width: 750px;
     padding: 2em 0 3em;
+
+    h2 {
+      font-size: $h3-fontsize;
+      margin: 3rem 0;
+      text-align: center;
+
+      @media #{$medium-and-up} {
+        margin-left: -8.33333%;
+        margin-right: -8.33333%;
+      }
+    }
+
+    h3 {
+      font-size: $h5-fontsize;
+    }
   }
 }
