@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use BladeSVGSage;
 
 // Section shortcode
 add_shortcode('section', function($atts, $content = null) {
@@ -72,7 +73,7 @@ add_shortcode('svg', function($atts, $content = null) {
     'icon' => ''
   ], $atts ) );
 
-  $output = file_get_contents(asset_path('images/' . $icon. '-icon.svg'));
+  $output = e(\BladeSvgSage\svg_image($icon . '-icon'));
 
   return $output;
 });
