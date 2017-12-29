@@ -54,13 +54,13 @@
           <span class="strong bigger">Connect with us:</span>
           <br />
           <a class="social-media-icon circle z-depth-2" href="https://twitter.com/unitymakesus">
-            @svg('twitter')
+            {{ App\svg_image('twitter') }}
           </a>
           <a class="social-media-icon circle z-depth-2" href="https://www.facebook.com/unitymakesus/">
-            @svg('facebook')
+            {{ App\svg_image('facebook') }}
           </a>
           <a class="social-media-icon circle z-depth-2" href="https://www.linkedin.com/company/unity-digital-agency">
-            @svg('linkedin')
+            {{ App\svg_image('twitter') }}
           </a>
         </p>
       </div>
