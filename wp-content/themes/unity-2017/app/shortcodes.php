@@ -73,7 +73,7 @@ add_shortcode('svg', function($atts, $content = null) {
     'icon' => ''
   ], $atts ) );
 
-  $output = e(\BladeSvgSage\svg_image($icon . '-icon'));
+  $output = e(\App\svg_image($icon . '-icon'));
 
   return $output;
 });
