@@ -79,13 +79,13 @@ add_shortcode('svg', function($atts, $content = null) {
 });
 
 // Client logos shortcode
-add_shortcode('clients', function($atts, $content = null) {
-  ob_start();
-
-  include(get_template_directory() . '/views/partials/client-icons.php');
-
-  return ob_get_clean();
-});
+// add_shortcode('clients', function($atts, $content = null) {
+//   ob_start();
+//
+//   include(get_template_directory() . '/views/partials/client-icons.php');
+//
+//   return ob_get_clean();
+// });
 
 // Client logos shortcode
 add_shortcode('team', function($atts, $content = null) {

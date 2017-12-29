@@ -2,25 +2,6 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Organization",
-    "url": "https://www.unitymakes.us",
-    "logo": "http://www.example.com/logo.png",  //TODO: Add square logo
-    "sameAs": [
-      "https://www.facebook.com/unitymakesus",
-      "https://twitter.com/unitymakesus",
-      "https://www.linkedin.com/company/unity-digital-agency",
-      "https://plus.google.com/+UnitymakesUs1"
-    ],
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "telephone": "+1-919-391-4961",
-      "contactType": "customer service"
-    }]
-  }
-  </script>
   @if (!is_user_logged_in())
     <!-- Google Tag Manager -->
       <script>

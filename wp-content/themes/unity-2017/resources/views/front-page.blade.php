@@ -8,7 +8,9 @@
       </div>
       <div class="col s12 m8 push-l1">
         <div class="parallax-faster right-align">
-          <img class="z-depth-2" src="@asset('images/vibrancy.jpg')" alt="Woman with orange hair and clothing standing in front of a brightly painted mural.">
+          <img src="@asset('images/vibrancy.jpg')"
+               alt="Woman with orange hair and clothing standing in front of a brightly painted mural."
+               class="z-depth-2" />
         </div>
       </div>
     </div>
@@ -22,7 +24,21 @@
 
   <section class="client-logos vertical-padding-3">
     <p class="center"><span class="strong underline">Elevating businesses as diverse as</span></p>
-    @include ('partials.client-icons')
+    @php(
+      $clients = new WP_Query([
+        'post_type' => 'client',
+        'posts_per_page' => -1,
+        'orderby' => 'menu-order',
+        'order' => 'ASC'
+      ])
+    )
+    @if ($clients->have_posts())
+      <div class="valign-wrapper flex-center flex-wrap">
+        @while ($clients->have_posts()) @php($clients->the_post())
+          @include ('partials.content-client')
+        @endwhile
+      </div>
+    @endif @php (wp_reset_postdata())
   </section>
 
   <section class="background-dark parallax-container overflow-hidden vertical-padding-3 flex-grid small-center" role="region" aria-labelledby="awesome1">

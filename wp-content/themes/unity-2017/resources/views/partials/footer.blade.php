@@ -18,25 +18,31 @@
         <h2 class="h4">United in our mission. Driven by our values.</h2>
         <div class="valign-wrapper flex-center">
           <a class="valign horizontal-padding-1" href="https://www.bcorporation.net/what-are-b-corps" target="_blank" rel="noopener">
-            <img class=""
-                 src="@asset('images/Certified_B_Corporation_PENDING_White.png')"
-                 srcset="@asset('images/Certified_B_Corporation_PENDING_White.png') 1x, @asset('images/Certified_B_Corporation_PENDING_White@2x.png') 2x"
-                 alt="B Corporation - Pending"
-                 width="56" height="100" />
+            @include('partials.lazy-image', [
+              'alt'     => 'B Corporation - Pending',
+              'src'     => App\asset_path('images/Certified_B_Corporation_PENDING_White.png'),
+              'srcset'  => App\asset_path('images/Certified_B_Corporation_PENDING_White.png') . ' 1x, ' . App\asset_path('images/Certified_B_Corporation_PENDING_White@2x.png') . ' 2x',
+              'width'   => 56,
+              'height'  => 100
+            ])
           </a>
           <a class="valign" href="/2017/12/why-we-provide-free-web-hosting/">
-            <img class=""
-                 src="@asset('images/eco-friendly-website.png')"
-                 srcset="@asset('images/eco-friendly-website.png') 1x, @asset('images/eco-friendly-website@2x.png') 2x"
-                 alt="300% eco-friendly website"
-                 width="110" height="70" />
+            @include('partials.lazy-image', [
+              'alt'     => '300% eco-friendly website',
+              'src'     => App\asset_path('images/eco-friendly-website.png'),
+              'srcset'  => App\asset_path('images/eco-friendly-website.png') . ' 1x, ' . App\asset_path('images/eco-friendly-website@2x.png') . ' 2x',
+              'width'   => 110,
+              'height'  => 70
+            ])
           </a>
           <a class="valign horizontal-padding-1" href="http://www.durhamlivingwage.org/" target="_blank" rel="noopener">
-            <img class=""
-                 src="@asset('images/dlwp-sticker.png')"
-                 srcset="@asset('images/dlwp-sticker.png') 1x, @asset('images/dlwp-sticker@2x.png') 2x"
-                 alt="Living Wages Paid Here. Certified by the Durham Living Wage Project"
-                 width="84" height="100" />
+            @include('partials.lazy-image', [
+              'alt'     => 'Living Wages Paid Here. Certified by the Durham Living Wage Project',
+              'src'     => App\asset_path('images/dlwp-sticker.png'),
+              'srcset'  => App\asset_path('images/dlwp-sticker.png') . ' 1x, ' . App\asset_path('images/dlwp-sticker@2x.png') . ' 2x',
+              'width'   => 84,
+              'height'  => 100
+            ])
           </a>
         </div>
       </div>

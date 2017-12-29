@@ -36,5 +36,26 @@ export default {
     $('.sidenav-overlay').on('click', function() {
       $('body').removeClass('sidenav-active');
     });
+
+    // Lazy load images a la David Walsh
+    // https://davidwalsh.name/lazyload-image-fade
+    $('noscript').each(function() {
+      if (!$(this).hasClass('gtm')) {
+        var img = new Image();
+        img.setAttribute('data-src', '');
+        $(this).before(img);
+        img.onload = function() {
+          img.removeAttribute('data-src');
+        };
+        img.src = $(this).attr('data-src');
+        img.alt = $(this).attr('alt');
+        img.height = $(this).attr('height');
+        img.width = $(this).attr('width');
+        img.setAttribute('class', $(this).attr('class'));
+        if (typeof $(this).attr('srcset') !== typeof undefined && $(this).attr('srcset') !== false) {
+          img.setAttribute('srcset', $(this).attr('srcset'));
+        }
+      }
+    });
   },
 };

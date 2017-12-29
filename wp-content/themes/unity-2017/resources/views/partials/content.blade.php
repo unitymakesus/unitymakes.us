@@ -4,5 +4,5 @@
     <h2 class="entry-title">{{ get_the_title() }}</h2>
     <a class="btn floating" href="{{ get_permalink() }}">Read More</a>
   </header>
-  <a class="mega-link" href="{{ get_permalink() }}" aria-hidden="hidden"></a>
+  <a class="mega-link" href="{{ get_permalink() }}" aria-hidden="true"></a>
 </article>
