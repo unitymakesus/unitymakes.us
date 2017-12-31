@@ -137,7 +137,7 @@
       z-index: 5;
     }
 
-    time, .entry-title {
+    time, .entry-title, .byline {
       color: $color-white;
       transition: color 0.3s ease;
     }
@@ -148,12 +148,22 @@
       }
     }
 
+    .byline {
+      margin: 0 0 1em;
+
+      a {
+        text-decoration: none;
+        color: $color-white;
+        font-weight: normal;
+      }
+    }
+
     &:hover, &:focus, &:active {
       &::after {
         opacity: 1;
       }
 
-      time, .entry-title {
+      time, .entry-title, .byline, .byline a {
         color: $color-black;
       }
 

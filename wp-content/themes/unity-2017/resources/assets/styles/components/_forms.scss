@@ -93,3 +93,11 @@ div.wpcf7 .ajax-loader.ajax-loader {
     transform: rotate(360deg);
   }
 }
+
+.search-field {
+  margin: 1em 0;
+}
+
+.search-submit {
+  @extend .btn;
+}

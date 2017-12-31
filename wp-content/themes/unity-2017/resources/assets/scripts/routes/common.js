@@ -39,7 +39,7 @@ export default {
 
     // Lazy load images a la David Walsh
     // https://davidwalsh.name/lazyload-image-fade
-    $('noscript').each(function() {
+    $('.viewport noscript').each(function() {
       if (!$(this).hasClass('gtm')) {
         var img = new Image();
         img.setAttribute('data-src', '');
