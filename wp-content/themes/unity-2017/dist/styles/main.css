@@ -7110,6 +7110,11 @@ h6,
   }
 }
 
+.m4 h2,
+.m4 .h2 {
+  font-size: 2.92rem;
+}
+
 .serif {
   font-family: "Unna", Unna, Garamond, serif;
 }
@@ -7133,6 +7138,7 @@ a {
   -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
   color: #DC5F17;
+  display: inline-block;
   font-weight: bold;
   position: relative;
   z-index: 2;
@@ -7141,6 +7147,7 @@ a {
 a::before {
   content: '';
   background-color: #FFE482;
+  display: block;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -8116,6 +8123,44 @@ img {
 .mega-back + * {
   position: relative;
   z-index: 1;
+}
+
+@supports (-ms-ime-align: auto) {
+  .has-mega-back {
+    overflow: hidden;
+  }
+
+  .parallax-wayback,
+  .parallax-faster {
+    -webkit-transform: none !important;
+         -o-transform: none !important;
+            transform: none !important;
+    top: 0 !important;
+  }
+
+  .parallax-wayback.left-align,
+  .parallax-faster.left-align {
+    left: 0 !important;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .has-mega-back {
+    overflow: hidden;
+  }
+
+  .parallax-wayback,
+  .parallax-faster {
+    -webkit-transform: none !important;
+         -o-transform: none !important;
+            transform: none !important;
+    top: 0 !important;
+  }
+
+  .parallax-wayback.left-align,
+  .parallax-faster.left-align {
+    left: 0 !important;
+  }
 }
 
 a.social-media-icon {

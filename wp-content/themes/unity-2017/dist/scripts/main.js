@@ -273,10 +273,10 @@ Router.prototype.loadEvents = function loadEvents () {
         img.alt = $(this).attr('alt');
         img.height = $(this).attr('height');
         img.width = $(this).attr('width');
+        img.setAttribute('style', "max-width: " + $(this).attr('width') + "px;");
         img.setAttribute('class', $(this).attr('class'));
         if (typeof $(this).attr('srcset') !== typeof undefined && $(this).attr('srcset') !== false) {
           img.setAttribute('srcset', $(this).attr('srcset'));
-          img.setAttribute('style', "max-width: " + $(this).attr('width') + "px;");
         }
       }
     });

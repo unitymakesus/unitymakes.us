@@ -60,3 +60,35 @@
     z-index: 1;
   }
 }
+
+// Hack for all Edge browsers
+@supports (-ms-ime-align:auto) {
+  .has-mega-back {
+    overflow: hidden;
+  }
+
+  .parallax-wayback, .parallax-faster {
+    transform: none !important;
+    top: 0 !important;
+
+    &.left-align {
+      left: 0 !important;
+    }
+  }
+}
+
+// Hack for ie 10-11
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .has-mega-back {
+    overflow: hidden;
+  }
+
+  .parallax-wayback, .parallax-faster {
+    transform: none !important;
+    top: 0 !important;
+
+    &.left-align {
+      left: 0 !important;
+    }
+  }
+}
