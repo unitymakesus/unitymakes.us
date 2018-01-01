@@ -133,8 +133,12 @@
 
     header {
       width: 100%;
-      padding: 0 25%;
+      padding: 0 20%;
       z-index: 5;
+
+      @media #{$medium-and-up} {
+        padding: 0 25%;
+      }
     }
 
     time, .entry-title, .byline {

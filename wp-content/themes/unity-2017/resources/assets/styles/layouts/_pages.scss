@@ -46,9 +46,14 @@
 @media #{$medium-and-down} {
   .client-logos {
     padding-top: 0;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .services {
+    padding-left: 10px;
+    padding-right: 10px;
+
     ul {
       padding-left: 15%;
     }
