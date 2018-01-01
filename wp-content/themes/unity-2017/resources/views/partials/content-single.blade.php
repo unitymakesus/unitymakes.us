@@ -15,10 +15,12 @@
       </div>
     </div>
   </header>
-  <div class="entry-content clearfix">
-    @php(the_content())
+  <div class="entry-content">
+    <div class="container clearfix">
+      @php(the_content())
+    </div>
   </div>
-  <footer class="background-dark parallax-container overflow-hidden vertical-padding-3 flex-grid small-center">
+  <footer class="has-mega-back parallax-container vertical-padding-3 flex-grid small-center">
     <div class="low-poly-dark mega-back parallax-wayback"></div>
     <div class="row valign-wrapper flex-center">
       <div>

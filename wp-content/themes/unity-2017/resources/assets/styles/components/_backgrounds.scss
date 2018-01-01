@@ -1,3 +1,8 @@
+section {
+  background: $color-gray-lightest;
+  position: relative;
+}
+
 .background-white {
   background: $color-white;
 }
@@ -29,6 +34,10 @@
 .low-poly-dark {
   background-image: url('../images/tile-triangles-dark@2x.png');
   background-repeat: repeat;
+
+  & + div * {
+    color: $color-white;
+  }
 }
 
 .dark-swish {

@@ -11,7 +11,7 @@ add_shortcode('section', function($atts, $content = null) {
 
   switch ($background) {
     case 'low-poly-dark':
-      $classes = "background-dark parallax-container overflow-hidden vertical-padding-3 flex-grid small-center";
+      $classes = "has-mega-back parallax-container vertical-padding-3 flex-grid small-center";
       $bg_div = '<div class="low-poly-dark mega-back parallax-wayback"></div>';
       break;
     default:
@@ -20,10 +20,10 @@ add_shortcode('section', function($atts, $content = null) {
       break;
   }
 
-  $output = '</div></section><section class="' . $classes . '">';
+  $output = '</div></div></section><section class="' . $classes . '">';
   $output .= $bg_div;
   $output .= do_shortcode($content);
-  $output .= '</section><section class="vertical-padding-2"><div class="container">';
+  $output .= '</section><section><div class="vertical-padding-2"><div class="container">';
 
   return $output;
 });
@@ -101,7 +101,7 @@ add_shortcode('team', function($atts, $content = null) {
 
   $team = $team_query->get_results();
 
-  $output = '</div></section><section class="flex-grid ' . $classes . '"><div class="row people">';
+  $output = '</div></div></section><section class="flex-grid ' . $classes . '"><div class="row people">';
   ob_start();
 
   $i = 0;
@@ -114,7 +114,9 @@ add_shortcode('team', function($atts, $content = null) {
   $output .= ob_get_clean();
 
   if ($section !== 'last') {
-    $output .= '</div></section><section class="vertical-padding-2"><div class="container">';
+    $output .= '</div></section><section><div class="vertical-padding-2"><div class="container">';
+  } else {
+    $output .= '<div>';
   }
 
   return $output;

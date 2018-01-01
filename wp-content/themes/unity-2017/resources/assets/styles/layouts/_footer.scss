@@ -1,8 +1,22 @@
+section.newsletter {
+  position: relative;
+}
+
 footer.content-info {
   font-size: 16px;
+  position: relative;
+  color: $color-white;
+
+  .row:last-child {
+    margin-bottom: 0;
+  }
 
   h4 {
     color: $color-white;
+  }
+
+  img {
+    width: auto;
   }
 
   a {

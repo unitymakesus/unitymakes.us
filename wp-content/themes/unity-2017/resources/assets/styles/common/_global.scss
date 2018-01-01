@@ -38,6 +38,16 @@ body:not(#tinymce) {
   -webkit-overflow-scrolling: touch;
 }
 
+.content {
+  transform-style: preserve-3d;
+
+  .main, .post {
+    &, .hero {
+      transform-style: inherit;
+    }
+  }
+}
+
 img {
   max-width: 100%;
   height: auto;

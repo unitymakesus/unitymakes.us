@@ -16,17 +16,15 @@
     <div class="viewport">
       @php(do_action('get_header'))
       @include('partials.header')
-      <div id="main" class="wrap" role="document">
-        <div class="content">
-          <main class="main" role="main">
-            @yield('content')
-          </main>
-          @if (App\display_sidebar())
-            <aside class="sidebar">
-              @include('partials.sidebar')
-            </aside>
-          @endif
-        </div>
+      <div id="content" class="content" role="document">
+        <main class="main" role="main">
+          @yield('content')
+        </main>
+        @if (App\display_sidebar())
+          <aside class="sidebar">
+            @include('partials.sidebar')
+          </aside>
+        @endif
       </div>
       @php(do_action('get_footer'))
       @include('partials.footer')

@@ -181,10 +181,12 @@
 
 .single {
   .entry-content {
-    @extend .container;
-
-    max-width: 750px;
+    background: $color-gray-lightest;
     padding: 2em 0 3em;
+
+    .container {
+      max-width: 750px;
+    }
 
     h2 {
       font-size: $h3-fontsize;

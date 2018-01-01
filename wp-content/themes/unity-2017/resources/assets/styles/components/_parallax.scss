@@ -8,6 +8,10 @@
   overflow: visible;
   height: auto;
 
+  .col {
+    transform-style: inherit;
+  }
+
   .parallax-faster {
     position: relative;
     transform-origin: top right;
@@ -35,6 +39,12 @@
   img {
     width: 100%;
   }
+}
+
+.has-mega-back {
+  box-shadow: inset 0 0 13px 0 rgba(0, 0, 0, 0.5);
+  background: none;
+  z-index: -1;
 }
 
 .mega-back {

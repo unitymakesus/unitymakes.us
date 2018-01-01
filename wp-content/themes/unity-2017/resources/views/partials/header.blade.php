@@ -1,4 +1,4 @@
-<a href="#main" class="screen-reader-text">Skip to content</a>
+<a href="#content" class="screen-reader-text">Skip to content</a>
 <header class="banner" role="banner">
   <nav role="navigation">
     <a class="brand-logo" href="{{ home_url('/') }}" rel="home">

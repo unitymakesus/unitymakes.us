@@ -10,8 +10,7 @@
 </section>
 @endif
 
-<footer class="content-info background-darker parallax-container overflow-hidden" role="contentinfo">
-  <div class="dark-swish mega-back parallax-wayback"></div>
+<footer class="dark-swish content-info" role="contentinfo">
   <div>
     <div class="row center-align vertical-padding-2">
       <div class="col s12">

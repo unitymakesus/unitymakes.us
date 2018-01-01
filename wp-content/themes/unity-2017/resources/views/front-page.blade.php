@@ -16,9 +16,13 @@
     </div>
   </section>
 
-  <section class="clearfix row vertical-padding-1" role="region" aria-labelledby="h1">
-    <div class="col l9 align-center">
-      <h1 id="h1" class="center">We are a digital agency for community-focused businesses.</h1>
+  <section role="region" aria-labelledby="h1">
+    <div class="clearfix vertical-padding-1">
+      <div class="row">
+        <div class="col l9 align-center">
+          <h1 id="h1" class="center">We are a digital agency for community-focused businesses.</h1>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -41,7 +45,7 @@
     @endif @php (wp_reset_postdata())
   </section>
 
-  <section class="background-dark parallax-container overflow-hidden vertical-padding-3 flex-grid small-center" role="region" aria-labelledby="awesome1">
+  <section class="has-mega-back parallax-container vertical-padding-3 flex-grid small-center" role="region" aria-labelledby="awesome1">
     <div class="low-poly-dark mega-back parallax-wayback"></div>
     <div class="row valign-wrapper flex-center flex-grow-0">
       <div class="col s12 m6 l5">
