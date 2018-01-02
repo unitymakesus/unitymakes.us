@@ -16,7 +16,7 @@
     </div>
   </header>
   <div class="entry-content">
-    <div class="container clearfix">
+    <div class="container clearfix vertical-padding-1">
       @php(the_content())
     </div>
   </div>
