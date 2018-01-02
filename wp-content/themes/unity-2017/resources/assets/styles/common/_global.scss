@@ -1,3 +1,11 @@
+* {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+svg path {
+  -webkit-transform: initial;
+}
+
 html, body:not(#tinymce) {
   margin: 0;
   padding: 0;
@@ -40,10 +48,16 @@ body:not(#tinymce) {
 
 .content {
   transform-style: preserve-3d;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
 
   .main, .post {
     &, .hero {
       transform-style: inherit;
+      -webkit-transform: translate3d(0, 0, 0);
+      -webkit-backface-visibility: hidden;
+      -webkit-perspective: 1000;
     }
   }
 }

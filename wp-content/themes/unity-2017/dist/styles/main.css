@@ -6805,6 +6805,14 @@ button.btn-floating {
   /* Above WP toolbar. */
 }
 
+* {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+svg path {
+  -webkit-transform: initial;
+}
+
 html,
 body:not(#tinymce) {
   margin: 0;
@@ -6852,6 +6860,9 @@ body:not(#tinymce) {
 .content {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
 }
 
 .content .main,
@@ -6860,6 +6871,9 @@ body:not(#tinymce) {
 .content .post .hero {
   -webkit-transform-style: inherit;
           transform-style: inherit;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
 }
 
 img {
