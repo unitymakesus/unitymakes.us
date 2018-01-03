@@ -59,7 +59,7 @@
             {{ App\svg_image('facebook') }}
           </a>
           <a class="social-media-icon circle z-depth-2" href="https://www.linkedin.com/company/unity-digital-agency">
-            {{ App\svg_image('twitter') }}
+            {{ App\svg_image('linkedin') }}
           </a>
         </p>
       </div>
