@@ -97,6 +97,12 @@ add_shortcode('team', function($atts, $content = null) {
     'number' => -1,
     'orderby' => 'meta_value_num',
     'meta_key' => 'display_order',
+    'meta_query' => [
+      [
+        'key' => 'team_member',
+        'value' => TRUE
+      ]
+    ]
   ]);
 
   $team = $team_query->get_results();
