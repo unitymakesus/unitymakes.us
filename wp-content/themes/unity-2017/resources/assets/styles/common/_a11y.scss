@@ -8,7 +8,8 @@
   overflow: hidden;
 
   &:focus {
-    clip: auto !important;
+    clip: auto;
+    clip-path: none;
     display: block;
     height: auto;
     left: 5px;
