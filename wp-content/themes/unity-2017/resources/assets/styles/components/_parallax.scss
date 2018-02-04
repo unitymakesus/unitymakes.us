@@ -25,6 +25,11 @@
       &.left-align {
         left: 8vw;
       }
+
+      body.sidenav-active & {
+        transform: none;
+        top: auto;
+      }
     }
   }
 
