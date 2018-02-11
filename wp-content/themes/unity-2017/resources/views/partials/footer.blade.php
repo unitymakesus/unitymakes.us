@@ -18,10 +18,10 @@
         <div class="valign-wrapper flex-center">
           <a class="valign horizontal-padding-1" href="https://www.bcorporation.net/what-are-b-corps" target="_blank" rel="noopener">
             @include('partials.lazy-image', [
-              'alt'     => 'B Corporation - Pending',
-              'src'     => App\asset_path('images/Certified_B_Corporation_PENDING_White.png'),
-              'srcset'  => App\asset_path('images/Certified_B_Corporation_PENDING_White.png') . ' 1x, ' . App\asset_path('images/Certified_B_Corporation_PENDING_White@2x.png') . ' 2x',
-              'width'   => 56,
+              'alt'     => 'Certified B Corporation',
+              'src'     => App\asset_path('images/certified-b-corp.png'),
+              'srcset'  => App\asset_path('images/certified-b-corp.png') . ' 1x, ' . App\asset_path('images/certified-b-corp@2x.png') . ' 2x',
+              'width'   => 65,
               'height'  => 100
             ])
           </a>
