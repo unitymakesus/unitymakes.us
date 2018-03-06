@@ -3724,9 +3724,9 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-materialize-css@1.0.0-alpha.1:
-  version "1.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/materialize-css/-/materialize-css-1.0.0-alpha.1.tgz#4445a8f14e9e559766c741591b426ec248d54651"
+materialize-css@^1.0.0-alpha.3:
+  version "1.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/materialize-css/-/materialize-css-1.0.0-alpha.3.tgz#a8ac06e274a2e9f0464c628dc7f5047f0bd4f38e"
 
 math-expression-evaluator@^1.2.14:
   version "1.2.17"

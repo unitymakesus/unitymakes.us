@@ -8,7 +8,11 @@
     </div>
     <div class="col s12 m6 push-m1 push-l2">
       <div class="parallax-faster right-align">
-        {!! get_the_post_thumbnail(get_the_id(), 'large', ['class' => "z-depth-2"]) !!}
+        @php
+          $thumb_id = get_post_thumbnail_id(get_the_id());
+          $alt = trim( strip_tags( get_post_meta( $thumb_id, '_wp_attachment_image_alt', true ) ) );
+        @endphp
+        {!! get_the_post_thumbnail(get_the_id(), 'large', ['class' => "z-depth-2", 'alt' => $alt]) !!}
       </div>
     </div>
   </div>
