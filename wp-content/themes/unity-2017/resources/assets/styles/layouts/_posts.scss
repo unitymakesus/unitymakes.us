@@ -1,12 +1,21 @@
 .post {
   time {
+    display: block;
     text-transform: uppercase;
     font-size: $h6-fontsize;
+
+    @media #{$small-and-down} {
+      margin: 1.5em 0 -1em 10%;
+    }
   }
 
   .byline {
     font-family: $font-family-sans-serif;
     margin: 0;
+
+    @media #{$small-and-down} {
+      margin-bottom: 1em;
+    }
   }
 
   .entry-title {
@@ -44,7 +53,7 @@
       }
 
       p {
-        margin-left: 0;
+        margin-left: 0 !important;
       }
     }
   }

@@ -10,7 +10,8 @@
  * @see https://github.com/webpack-contrib/sass-loader#imports
  */
 // Materialize
-@import "~materialize-css/sass/components/color";
+@import "~materialize-css/sass/components/color-variables";
+@import "~materialize-css/sass/components/color-classes";
 @import "~materialize-css/sass/components/variables";
 @import "~materialize-css/sass/components/normalize";
 @import "~materialize-css/sass/components/global";

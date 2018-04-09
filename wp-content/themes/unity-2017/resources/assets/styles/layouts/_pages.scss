@@ -9,10 +9,12 @@
   }
 
   h1 {
-    font-size: $h3-fontsize;
+    @extend .h3;
+
+    margin: ($h3-fontsize / 1.5) 0 ($h3-fontsize / 2.5) 0 !important;
   }
 
-  p {
+  p, h1 {
     font-family: $font-family-serif;
     font-weight: normal;
 
@@ -30,8 +32,8 @@
       width: 90%;
     }
 
-    p {
-      margin-left: 10%;
+    p, h1 {
+      margin-left: 10% !important;
     }
   }
   @media #{$large-and-up} {
