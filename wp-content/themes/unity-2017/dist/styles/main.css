@@ -8034,6 +8034,23 @@ img {
   position: relative;
 }
 
+.entry-content-asset {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+  margin-bottom: 34px;
+}
+
+.entry-content-asset iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
 .pagination .nav-links {
   text-align: center;
 }
