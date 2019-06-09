@@ -6,8 +6,15 @@
 		private $jsLinksExcept = "";
 		private $url = "";
 		private $minify;
+		private $cache_wpfc_minified = "";
 
 		public function __construct($wpfc, $html, $minify = false){
+			if(is_multisite()){
+				$this->cache_wpfc_minified = "cache/".$_SERVER['HTTP_HOST']."/wpfc-minified";
+			}else{
+				$this->cache_wpfc_minified = "cache/wpfc-minified";
+			}
+
 			//$this->html = preg_replace("/\s+/", " ", ((string) $html));
 			$this->minify = $minify;
 			$this->wpfc = $wpfc;
@@ -43,7 +50,7 @@
 					if(!preg_match("/<script[^>]+json[^>]+>.+/", $script_tag) && !preg_match("/<script[^>]+text\/template[^>]+>.+/", $script_tag)){
 						if($href = $this->checkInternal($script_tag)){
 							if(strpos($this->jsLinksExcept, $href) === false){
-								if($this->check_exclude($href)){
+								if(($key + 1) && $this->check_exclude($href)){
 									$this->mergeJs($prev_content, $this->jsLinks[$key - 1]);
 									$prev_content = "";
 									continue;
@@ -53,8 +60,7 @@
 
 								if($minifiedJs){
 									if(!is_dir($minifiedJs["cachFilePath"])){
-										$prefix = time();
-										$this->wpfc->createFolder($minifiedJs["cachFilePath"], $minifiedJs["jsContent"], "js", $prefix, true);
+										$this->wpfc->createFolder($minifiedJs["cachFilePath"], $minifiedJs["jsContent"], "js");
 									}
 
 									if($jsFiles = @scandir($minifiedJs["cachFilePath"], 1)){
@@ -97,8 +103,10 @@
 							}
 						}
 					}else{
-						$this->mergeJs($prev_content, $this->jsLinks[$key - 1]);
-						$prev_content = "";
+						if($key > 0 && $prev_content){
+							$this->mergeJs($prev_content, $this->jsLinks[$key - 1]);
+							$prev_content = "";
+						}
 					}
 				}
 			}
@@ -165,8 +173,10 @@
 		public function minify($url){
 			$this->url = $url;
 
-			$cachFilePath = WPFC_WP_CONTENT_DIR."/cache/wpfc-minified/".md5($url);
-			$jsLink = WPFC_WP_CONTENT_URL."/cache/wpfc-minified/".md5($url);
+			$md5 = $this->wpfc->create_name($url);
+
+			$cachFilePath = WPFC_WP_CONTENT_DIR."/".$this->cache_wpfc_minified."/".$md5;
+			$jsLink = WPFC_WP_CONTENT_URL."/".$this->cache_wpfc_minified."/".$md5;
 
 			if(is_dir($cachFilePath)){
 				return array("cachFilePath" => $cachFilePath, "jsContent" => "", "url" => $jsLink);
@@ -220,10 +230,13 @@
 
 		public function mergeJs($js_content, $value, $last = false){
 			$name = md5($js_content);
-			$cachFilePath = WPFC_WP_CONTENT_DIR."/cache/wpfc-minified/".$name;
+
+			$name = base_convert(crc32($name), 20, 36);
+
+			$cachFilePath = WPFC_WP_CONTENT_DIR."/".$this->cache_wpfc_minified."/".$name;
 
 			if(!is_dir($cachFilePath)){
-				$this->wpfc->createFolder($cachFilePath, $js_content, "js", time());
+				$this->wpfc->createFolder($cachFilePath, $js_content, "js");
 			}
 
 			if($jsFiles = @scandir($cachFilePath, 1)){
@@ -231,7 +244,7 @@
 				$jsFiles[0] = preg_replace("/\.gz$/", "", $jsFiles[0]);
 				
 				$prefixLink = str_replace(array("http:", "https:"), "", WPFC_WP_CONTENT_URL);
-				$newLink = "<script src='".$prefixLink."/cache/wpfc-minified/".$name."/".$jsFiles[0]."' type=\"text/javascript\"></script>";
+				$newLink = "<script src='".$prefixLink."/".$this->cache_wpfc_minified."/".$name."/".$jsFiles[0]."' type=\"text/javascript\"></script>";
 
 				$script_tag = substr($this->html, $value["start"], ($value["end"] - $value["start"] + 1));
 				
