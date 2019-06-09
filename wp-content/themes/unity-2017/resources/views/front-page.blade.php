@@ -4,7 +4,7 @@
   <section class="hero yellow-swish" role="region" aria-labelledby="hero1">
     <div class="row parallax-container">
       <div class="col s12 m4 l3 push-l1 valign-wrapper">
-        <p id="hero1" class="h3">Working together to spark vibrancy in our community.</p>
+        <p id="hero1" class="h3">You deserve an agency that works as hard for you as you do for your community.</p>
       </div>
       <div class="col s12 m8 push-l1">
         <div class="parallax-faster right-align">
@@ -20,7 +20,7 @@
     <div class="clearfix vertical-padding-1">
       <div class="row">
         <div class="col l9 align-center">
-          <h1 id="h1" class="center">We are a digital agency for community-focused businesses.</h1>
+          <h1 id="h1" class="center">We build online brand experiences that capture and amplify your mission.</h1>
         </div>
       </div>
     </div>
