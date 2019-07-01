@@ -4,9 +4,9 @@
   <section class="hero yellow-swish" role="region" aria-labelledby="hero1">
     <div class="row parallax-container">
       <div class="col s12 m4 l3 push-l1 valign-wrapper">
-        <p id="hero1" class="h3">You deserve an agency that works as hard for you as you do for your community.</p>
+        <p id="hero1" class="h1">You do good for the world.<br />Your website can too.</p>
       </div>
-      <div class="col s12 m8 push-l1">
+      <div class="col s12 m7 push-l2">
         <div class="parallax-faster right-align">
           <img src="@asset('images/vibrancy.jpg')"
                alt="Woman with orange hair and clothing standing in front of a brightly painted mural."
@@ -16,18 +16,58 @@
     </div>
   </section>
 
-  <section role="region" aria-labelledby="h1">
-    <div class="clearfix vertical-padding-1">
-      <div class="row">
-        <div class="col l9 align-center">
-          <h1 id="h1" class="center">We build online brand experiences that capture and amplify your mission.</h1>
-        </div>
+  <section class="vertical-padding-3 services" role="region" aria-labelledby="services1">
+    <div class="row">
+      <div class="col l9 align-center">
+        <h1 class="center">Unity creates mission-aligned websites for nonprofits and socially responsible businesses.</h1>
+      </div>
+    </div>
+    <div class="row vertical-padding-1">
+      <div class="col l9 align-center">
+        <p class="h5 center" id="services1"><span class="strong underline">We believe every website should:</span></p>
+      </div>
+    </div>
+    <div class="row vertical-padding-2">
+      @include('partials.content-services', [
+      'columns'   => [
+          [
+            'svg'     => 'mission',
+            'title'   => 'Amplify Your Mission',
+            'desc'   => 'Our team works collaboratively with yours to design custom websites that are strategically aligned to super-charge your mission and meet your goals.'
+          ],
+          [
+            'svg'     => 'access',
+            'title'   => 'Open Doors to Everyone',
+            'desc'   => 'We intentionally design with accessibility in mind. Our inclusive design process means everyone will be able to use your website regardless of disability.'
+          ],
+          [
+            'svg'     => 'world',
+            'title'   => 'Save the World',
+            'desc'   => 'As a Certified B Corporation, we are committed to building a sustainable web that is powered by renewable energy and equitable employment.'
+          ],
+        ]
+      ])
+    </div>
+  </section>
+
+  <section class="has-mega-back parallax-container vertical-padding-3 flex-grid small-center" role="region" aria-labelledby="awesome1">
+    <div class="low-poly-dark mega-back parallax-wayback"></div>
+    <div class="row valign-wrapper flex-center flex-grow-0">
+      <div class="col s12 m6">
+        <p class="strong font-size-h4" id="awesome1">You deserve an agency that works as hard for you as you do for your community.</p>
+      </div>
+      <div class="col s12 m5 l5 push-l1">
+        <a class="btn btn-large icon-appear-right" href="/contact/">Free Consultation <i class="material-icons">arrow_forward</i></a>
       </div>
     </div>
   </section>
 
   <section class="client-logos vertical-padding-3">
-    <p class="center"><span class="strong underline">Elevating businesses as diverse as</span></p>
+    <div class="row valign-wrapper flex-center flex-grow-0">
+      <div class="col l8 align-center">
+        <p class="h5 center"><span class="strong underline">Saving the world one happy client at a time.</span></p>
+      </div>
+    </div>
     @php(
       $clients = new WP_Query([
         'post_type' => 'client',
@@ -44,82 +84,6 @@
       </div>
     @endif @php (wp_reset_postdata())
   </section>
-
-  <section class="has-mega-back parallax-container vertical-padding-3 flex-grid small-center" role="region" aria-labelledby="awesome1">
-    <div class="low-poly-dark mega-back parallax-wayback"></div>
-    <div class="row valign-wrapper flex-center flex-grow-0">
-      <div class="col s12 m6 l5">
-        <p class="strong font-size-h2" id="awesome1">Together, we make awesome happen.</p>
-      </div>
-      <div class="col s12 m5 l5 push-l1">
-        <a class="btn btn-large icon-appear-right" href="/contact/">Let's Do It <i class="material-icons">arrow_forward</i></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="vertical-padding-3 services" role="region" aria-labelledby="services1">
-    <p class="center" id="services1"><span class="strong underline">Leading our clients to inspire action with:</span></p>
-    <div class="row vertical-padding-2">
-      @include('partials.content-services', [
-      'columns'   => [
-          [
-            'svg'     => 'research-icon',
-            'title'   => 'Research',
-            'items'   => [
-              'Mission immersion',
-              'Historic benchmarking',
-              'Stakeholder interviews',
-              'Customer surveys',
-              'Comparative analyses',
-              'User persona workshops',
-              'Keyword research'
-            ]
-          ],
-          [
-            'svg'     => 'strategy-icon',
-            'title'   => 'Strategy',
-            'items'   => [
-              'Digital strategy',
-              'Brand strategy',
-              'Content strategy',
-              'SEO strategy',
-              'Information architecture',
-              'Marketing strategy',
-              'Web accessibility'
-            ]
-          ],
-          [
-            'svg'     => 'design-icon',
-            'title'   => 'Design',
-            'items'   => [
-              'Logo and brand design',
-              'Identity packages',
-              'Marketing materials',
-              'UX design',
-              'Website design',
-              'WordPress development',
-              'Content writing',
-              'Email campaigns'
-            ]
-          ],
-          [
-            'svg'     => 'support-icon',
-            'title'   => 'Support',
-            'items'   => [
-              'Eco-friendly web hosting',
-              'Website maintenance',
-              'Website security',
-              'Page speed optimization',
-              'Analytics reporting',
-              'WordPress training',
-              'Search engine optimization'
-            ]
-          ]
-        ]
-      ])
-    </div>
-  </section>
-
 
   <section class="blog-grid" role="region" aria-label="Recent Blog Posts">
     <div class="row collapse">

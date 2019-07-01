@@ -2,15 +2,15 @@
 # This file is distributed under the same license as the User Profile Picture plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: User Profile Picture 2.2.5\n"
+"Project-Id-Version: User Profile Picture 2.2.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/user-profile-picture\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-06-03T00:12:34+00:00\n"
-"PO-Revision-Date: 2019-06-03T00:12:34+00:00\n"
+"POT-Creation-Date: 2019-06-10T16:20:09+00:00\n"
+"PO-Revision-Date: 2019-06-10T16:20:09+00:00\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: metronet-profile-picture\n"
 
@@ -84,58 +84,61 @@ msgid "You must be able to upload files."
 msgstr ""
 
 #: metronet-profile-picture.php:851
-#: metronet-profile-picture.php:884
-#: metronet-profile-picture.php:911
-#: metronet-profile-picture.php:949
+#: metronet-profile-picture.php:889
+#: metronet-profile-picture.php:916
+#: metronet-profile-picture.php:954
 msgid "User not found."
 msgstr ""
 
-#: metronet-profile-picture.php:855
+#: metronet-profile-picture.php:854
+msgid "You must have a role of editor or above to set a new profile image."
+msgstr ""
+
+#: metronet-profile-picture.php:858
 msgid "User not owner."
 msgstr ""
 
-#: metronet-profile-picture.php:920
-#: metronet-profile-picture.php:956
+#: metronet-profile-picture.php:925
+#: metronet-profile-picture.php:961
 msgid "Profile picture not found."
 msgstr ""
 
-#: metronet-profile-picture.php:1149
+#: metronet-profile-picture.php:1154
 msgid "Author"
 msgstr ""
 
-#: metronet-profile-picture.php:1150
+#: metronet-profile-picture.php:1155
 #: gutenberg/class-gutenberg.php:212
 msgid "Latest Posts"
 msgstr ""
 
-#: metronet-profile-picture.php:1151
+#: metronet-profile-picture.php:1156
 msgid "Author Information"
-msgstr ""
-
-#: metronet-profile-picture.php:1188
-#: metronet-profile-picture.php:1244
-#: gutenberg/class-gutenberg.php:307
-#: gutenberg/class-gutenberg.php:363
-#: dist/blocks.build.js:1
-#: src/block/block.js:220
-msgid "View Posts"
 msgstr ""
 
 #: metronet-profile-picture.php:1193
 #: metronet-profile-picture.php:1249
+#: gutenberg/class-gutenberg.php:307
+#: gutenberg/class-gutenberg.php:363
+#: dist/blocks.build.js:1
+msgid "View Posts"
+msgstr ""
+
+#: metronet-profile-picture.php:1198
+#: metronet-profile-picture.php:1254
 #: gutenberg/class-gutenberg.php:312
 #: gutenberg/class-gutenberg.php:368
 #: dist/blocks.build.js:1
 msgid "View Website"
 msgstr ""
 
-#: metronet-profile-picture.php:1217
+#: metronet-profile-picture.php:1222
 #: gutenberg/class-gutenberg.php:336
 #: dist/blocks.build.js:1
 msgid "View all posts by"
 msgstr ""
 
-#: metronet-profile-picture.php:1221
+#: metronet-profile-picture.php:1226
 #: gutenberg/class-gutenberg.php:340
 #: dist/blocks.build.js:1
 msgid "Website"
@@ -147,12 +150,10 @@ msgid "Author Details"
 msgstr ""
 
 #: dist/blocks.build.js:1
-#: src/block/block.js:124
 msgid "User Profile Legacy"
 msgstr ""
 
 #: dist/blocks.build.js:1
-#: src/block/block.js:244
 msgid "User Profile"
 msgstr ""
 
