@@ -1,40 +1,52 @@
 === User Profile Picture ===
-Contributors: ronalfy
-Tags: users, user, user profile
+Contributors: ronalfy, Alaadiaa
+Tags: users, user profile, gravatar, avatar, blocks, block
 Requires at least: 3.5
-Tested up to: 4.7
-Stable tag: 1.4.3
+Tested up to: 5.2
+Stable tag: 2.2.8
+Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Donate link: https://mediaron.com/contribute/
+Donate link: https://mediaron.com/give/
 
-Set a custom profile image for a user using the standard WordPress media upload tool.
+Set a custom profile image (avatar) for a user using the standard WordPress media upload tool.
 == Description ==
 
 Set or remove a custom profile image for a user using the standard WordPress media upload tool.
+
+<a href="https://mediaron.com/user-profile-picture/">View Documentation and Examples</a>
+
+https://www.youtube.com/watch?v=9icnOWWZUpA&rel=0
 
 Users must have the ability to upload images (typically author role or greater). You can use the plugin <a href="https://wordpress.org/plugins/members/">Members</a> to allow other roles (e.g. subscribers) the ability to upload images.
 
 A template tag is supplied for outputting to a theme and the option to override a user's default avatar is also available.
 
-<h3>Help Contribute</h3>
+== Gutenberg Compatibility ==
 
-* Leave a star rating
-* <a href="https://translate.wordpress.org/projects/wp-plugins/metronet-profile-picture">Contribute a translation</a>
-* <a href="https://github.com/ronalfy/user-profile-picture">Contribute some code</a>
+As of version 2.0.0, there is a Gutenberg block for outputting to a post.
+
+As of version 2.1.0, the old block is deprecated but still supported. A new block supports themes, more output control, and better style support. You can see an overview in the video below. Sorry about the audio quality.
+
+https://www.youtube.com/watch?v=k9bDmgunXvM&rel=0
+
+== Documentation and Feedback ==
+
+See the documentation on <a href="https://github.com/ronalfy/user-profile-picture">GitHub</a>.
+
+> Please <a href="https://wordpress.org/support/plugin/metronet-profile-picture/reviews/#new-post">Rate the Plugin</a> or <a href="https://mediaron.com/give/">Give Back</a> to show support.
 
 == Installation ==
 
 1. Upload `metronet-profile-picture` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Place `<?php mt_profile_img() ?>` in your templates (arguments and usage are below)
-4. Use the "Override Avatar" function to change your default avatar.
 
-Arguments: 
+Arguments:
 
 `/**
 * mt_profile_img
-* 
+*
 * Adds a profile image
 *
 @param $user_id INT - The user ID for the user to retrieve the image for
@@ -59,28 +71,26 @@ if (function_exists ( 'mt_profile_img' ) ) {
 }
 ?>
 `
-View the code on <a href="http://pastebin.com/Xaf8dJqQ">Pastebin</a>.
 
-The `mt_profile_img` function internally uses the <a href="http://codex.wordpress.org/Function_Reference/get_the_post_thumbnail">get_the_post_thumbnail</a> function to retrieve the profile image.
+Since 2.2.0, you can add a profile author box using function `mt_author_box`.
 
-Optionally, if you choose the "Override Avatar" function, you can use <a href="http://codex.wordpress.org/Function_Reference/get_avatar">get_avatar</a> to retrieve the profile image.
+`
+<?php
+mt_author_box( $post->post_author, array(
+	'theme'              => 'tabbed',
+	'profileAvatarShape' => 'round',
+	'showWebsite'        => true,
+	'website'            => 'https://www.ronalfy.com',
+	'showSocialMedia'    => true,
+	'socialMediaOptions' => 'brand',
+	'socialWordPress'    => 'https://profiles.wordpress.org/ronalfy',
+	'socialFacebook'     => 'https://facebook.com/mindefusement',
+) );
+`
 
-If you want the "Override Avatar" checkbox to be checked by default, drop this into your theme's `functions.php` file or <a href="http://www.wpbeginner.com/beginners-guide/what-why-and-how-tos-of-creating-a-site-specific-wordpress-plugin/">Site-specific plugin</a>:
-
-`add_filter( 'mpp_avatar_override', '__return_true' );`
-
-If you want to hide the "Override Avatar" checkbox, use this filter (the override functionality will be enabled by default):
-`add_filter( 'mpp_hide_avatar_override', '__return_true' );`
+View the code on <a href="https://github.com/ronalfy/user-profile-picture">GitHub</a>.
 
 The REST API is currently supported for versions of WordPress 4.4 and up.
-
-The endpoint is: `http://www.yourdomain.com/wp-json/mpp/v1/user/{user_id}`
-
-If a profile picture is found, it'll return JSON as follows:
-
-`
-{"attachment_id":"3638","attachment_url":"http:\/\/localhost\/ronalfy\/wp-content\/uploads\/2015\/12\/Leaderboard-All-Time.png"}
-`
 
 == Frequently Asked Questions ==
 
@@ -89,17 +99,15 @@ If a profile picture is found, it'll return JSON as follows:
 1.  Visit the profile page you would like to edit.
 2.  Click on the profile picture to add, edit, or remove the profile picture.
 
-To override an avatar, select the "Override Avatar?" checkbox and save the profile page.
-
 = What role does a user have to be to set a profile image? =
 
 Author or greater.
 
 = How do I create specific thumbnail sizes? =
 
-Since the plugin uses the native uploader, you'll have to make use of <a href='http://codex.wordpress.org/Function_Reference/add_image_size'>add_image_size</a> in your theme.  You can then call `mt_profile_img` and pass in the custom image size.
+As of 1.5, three image sizes are created: profile_24, profile_48, and profile_96. You are not limited to these sizes, however.
 
-= The image is cropped wrong.  How do I fix this? = 
+= The image is cropped wrong.  How do I fix this? =
 
 We highly recommend the <a href='http://wordpress.org/extend/plugins/post-thumbnail-editor/'>Post Thumbnail Editor</a> plugin for cropping thumbnails, as you can custom-crop various image sizes without affecting other images.
 
@@ -111,8 +119,84 @@ Yes, but you'll have to set a new profile image per site.  This is currently a l
 
 1. Profile page options.
 2. Media upload dialog.
+3. Gutenberg settings back-end
+4. Gutenberg profile front-end
 
 == Changelog ==
+
+= 2.2.8 =
+* Released 2019-06-11
+* New REST API endpoint for changing profile pictures.
+
+= 2.2.7 =
+* Released 2019-06-11
+* Fixing permissions in REST API
+
+= 2.2.6 =
+* Released 2019-06-10
+* Fixing permissions in REST API
+
+= 2.2.5 =
+* Released 2019-06-02
+* Code cleanup.
+* Leaner Gutenberg JavaScript.
+* Gutenberg improvements.
+* Security improvements.
+
+= 2.2.0 =
+* Released 2019-05-12
+* Added template tags for displaying an author box
+
+= 2.1.3 =
+* Released 2019-02-16
+* Added filter to get users in Gutenberg besides author
+
+= 2.1.2 =
+* Released 2019-01-26
+* Resolving PHP notice for dirname
+
+= 2.1.1 =
+* Released 2018-12-20
+* Adding white posts theme to the tabbed view block
+* Fixing clearing for the tabbed view block
+
+= 2.1.0 =
+* Released 2018-12-19
+* Old block deprecated, but still supported
+* New block added with more control over appearance and includes themes.
+
+= 2.0.2 =
+* Released 2018-11-20
+* Gutenberg fixes with alignment (center, right) on the front end.
+* Gutenberg fixes with the toggle boxes defaulting back to nothing.
+
+= 2.0.1 =
+* Released 2018-11-20
+* Fixing PHP 5.2 incompatibility
+* Fixing Gutenberg block when there is no profile picture present on the front-end
+* Updating translations file
+
+= 2.0.0 =
+* Released 2018-11-19
+* Added Gutenberg block for easy outputting to posts
+* Tested with WordPress 5.0
+
+= 1.5.5 =
+* Released 2018-08-19
+* Enhancement: Loading image now shows between states for better UX
+* Enhancement: Plugin attempts to override the default WordPress avatar in the User Profile page
+* Enhancement: Plugin attempts to override the admin bar avatars if the users match
+* Enhancement: Added Click to Edit bar to make it more obvious what to do with the profile picture
+* Refactor: Plugin now uses wp_send_json instead of json_encode for more compatibility
+
+= 1.5.1 =
+* Released 2018-07-12
+* Fixed a condition where a featured image was shown for the author instead of a blank gravatar
+
+= 1.5.0 =
+* Released 2018-07-11
+* Support for AMP avatar has been added
+* Two REST API endpoints have been added to facilitate better programatic avatar selection
 
 = 1.4.3 =
 * Released 2016-09-24
@@ -168,7 +252,7 @@ Yes, but you'll have to set a new profile image per site.  This is currently a l
 * Reducing clutter in the interface.  Removed text option to upload.  Added default image if no profile image is available.  Added option to remove the profile image.
 * Fixed internationalization bug in the JavaScript.
 
-= 1.1.0 = 
+= 1.1.0 =
 * Released 2014-11-11
 * Added the ability to remove profile images (aside from deleting the image).
 * Added better internationalization capabilities.
@@ -186,33 +270,33 @@ Yes, but you'll have to set a new profile image per site.  This is currently a l
 * Released 2013-09-09
 * Fixed avatar override on options discussion page.
 
-= 1.0.20 = 
+= 1.0.20 =
 * Released 2013-05-13
 * Added a filter for turning on "Override Avatar" by default.
 
-= 1.0.19 = 
+= 1.0.19 =
 * Added support for 2.0.x version of <a href='http://wordpress.org/extend/plugins/post-thumbnail-editor/'>Post Thumbnail Editor</a>
 
-= 1.0.18 = 
+= 1.0.18 =
 * Added basic multisite support
 
 = 1.0.16 =
-* Fixed a bug where only the profile image interface was showing for only authors and not editors and administrators. 
+* Fixed a bug where only the profile image interface was showing for only authors and not editors and administrators.
 
 = 1.0.15 =
 * Built-in support for <a href="http://wordpress.org/extend/plugins/post-thumbnail-editor/">Post Thumbnail Editor</a>
 * Better integration with the new WP 3.5 media uploader
 * Various bug fixes.
 
-= 1.0.10 = 
+= 1.0.10 =
 * Usability enhancements.
 * Stripping out useless code.
 * Updating documentation
 
-= 1.0.9 = 
+= 1.0.9 =
 * Adding support for the new 3.5 media uploader.
 
-= 1.0.3 = 
+= 1.0.3 =
 * Bug fix:  Avatar classes in the comment section
 
 = 1.0.2 =
@@ -227,11 +311,14 @@ Yes, but you'll have to set a new profile image per site.  This is currently a l
 
 == Upgrade Notice ==
 
-= 1.4.3 =
-Bug fix: Post featured image is being shown as user's profile picture when no avatar is selected.
+= 2.2.8 =
+New REST API endpoint for changing profile pictures.
 
-= 1.4.1 =
-Fix select states in image modal.
+= 2.2.7 =
+Fixing permissions in REST API.
 
-= 1.4.0 =
-Avatar override is now a default option. Numerous bug fixes. Please see changelog.
+= 2.2.6 =
+Fixing permissions in REST API.
+
+= 2.2.5 =
+Code cleanup. Leaner Gutenberg JavaScript. Gutenberg improvements. Security improvements.

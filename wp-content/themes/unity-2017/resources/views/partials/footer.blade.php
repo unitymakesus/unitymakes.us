@@ -43,6 +43,10 @@
               'height'  => 100
             ])
           </a>
+
+          <a class="onepercent valign horizontal-padding-1" href="https://pledge1percent.org/" target="_blank" rel="noopener">
+            <img src="https://www.unitymakes.us/wp-content/uploads/2019/05/Pledge1_ProudMember_Large.jpg" alt="1% Pledge"/>
+          </a>
         </div>
       </div>
     </div>

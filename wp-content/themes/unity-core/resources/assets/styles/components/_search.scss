@@ -1,0 +1,16 @@
+.searchwp-highlight {
+  background: $color-grey-lighter;
+}
+
+.search-results {
+  .main {
+    margin-bottom: 2rem;
+  }
+
+  .entry-summary {
+    p {
+      display: inline;
+      margin: 0;
+    }
+  }
+}

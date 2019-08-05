@@ -55,6 +55,7 @@
 					<label for="wpFastestCacheNewPost_type_homepage">Clear Cache of Homepage</label><br>
 					<label style="margin-left:24px;" for="wpFastestCacheNewPost_type_homepage">Clear Cache of Post Categories</label><br>
 					<label style="margin-left:24px;" for="wpFastestCacheNewPost_type_homepage">Clear Cache of Post Tags</label><br>
+					<label style="margin-left:24px;" for="wpFastestCacheNewPost_type_homepage">Clear Cache of Pagination</label><br>
 				</div>
 
 
@@ -72,7 +73,7 @@
 </div>
 <script type="text/javascript">
 	jQuery("#wpFastestCacheNewPost").click(function(){
-		if(typeof jQuery(this).attr("checked") != "undefined"){
+		if(jQuery(this).is(':checked')){
 			if(jQuery("div[id^='wpfc-modal-newpost-']").length === 0){
 				Wpfc_New_Dialog.dialog("wpfc-modal-newpost", {close: function(){
 					Wpfc_New_Dialog.clone.find("div.window-content input").each(function(){

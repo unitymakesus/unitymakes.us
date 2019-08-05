@@ -4,8 +4,16 @@
 		private $tags = array();
 		private $except = "";
 		private $wpfc;
+		private $cache_wpfc_minified = "";
 
 		public function __construct($wpfc, $html){
+			if(is_multisite()){
+				$this->cache_wpfc_minified = "cache/".$_SERVER['HTTP_HOST']."/wpfc-minified";
+			}else{
+				$this->cache_wpfc_minified = "cache/wpfc-minified";
+			}
+
+
 			$this->wpfc = $wpfc;
 			$this->html = $html;
 			$this->set_except_tags();
@@ -91,11 +99,11 @@
 					if(count($group_value) > 0){
 
 						$combined_css = "";
-						$combined_name = $this->create_name($group_value);
+						$combined_name = $this->wpfc->create_name($group_value);
 						$combined_link = "";
 
-						$cachFilePath = WPFC_WP_CONTENT_DIR."/cache/wpfc-minified/".$combined_name;
-						$cssLink = str_replace(array("http:", "https:"), "", WPFC_WP_CONTENT_URL)."/cache/wpfc-minified/".$combined_name;
+						$cachFilePath = WPFC_WP_CONTENT_DIR."/".$this->cache_wpfc_minified."/".$combined_name;
+						$cssLink = str_replace(array("http:", "https:"), "", WPFC_WP_CONTENT_URL)."/".$this->cache_wpfc_minified."/".$combined_name;
 
 						if(is_dir($cachFilePath)){
 							if($cssFiles = @scandir($cachFilePath, 1)){
@@ -116,7 +124,7 @@
 								}
 
 
-								$this->wpfc->createFolder($cachFilePath, $combined_css, "css", time(), true);
+								$this->wpfc->createFolder($cachFilePath, $combined_css, "css");
 								
 								if(is_dir($cachFilePath)){
 									if($cssFiles = @scandir($cachFilePath, 1)){
@@ -160,14 +168,6 @@
 			}
 
 			return $combined_css;
-		}
-
-		public function create_name($arr){
-			$name = "";
-			foreach ($arr as $tag_key => $tag_value) {
-				$name = $name.$this->remove_query_string($tag_value["href"]);
-			}
-			return md5($name);
 		}
 
 		public function minifyCss(){
@@ -337,19 +337,12 @@
 			return $list;
 		}
 
-		public function remove_query_string($url){
-			$url = preg_replace("/^(\/\/|http\:\/\/|https\:\/\/)(www\.)?/", "", $url);
-			$url = preg_replace("/\?.*/", "", $url);
-			
-			return $url;
-		}
-
 		public function minify($url){
 			$this->url = $url;
-			$md5 = md5($this->remove_query_string($url));
+			$md5 = $this->wpfc->create_name($url);
 
-			$cachFilePath = WPFC_WP_CONTENT_DIR."/cache/wpfc-minified/".$md5;
-			$cssLink = WPFC_WP_CONTENT_URL."/cache/wpfc-minified/".$md5;
+			$cachFilePath = WPFC_WP_CONTENT_DIR."/".$this->cache_wpfc_minified."/".$md5;
+			$cssLink = WPFC_WP_CONTENT_URL."/".$this->cache_wpfc_minified."/".$md5;
 
 			if(is_dir($cachFilePath)){
 				if($cssFiles = @scandir($cachFilePath, 1)){
@@ -386,13 +379,11 @@
 					}
 
 					if(!is_dir($cachFilePath)){
-						$prefix = time();
-
 						if($this->wpfc->cdn){
 							$cssContent = preg_replace_callback("/(url)\(([^\)]+)\)/i", array($this->wpfc, 'cdn_replace_urls'), $cssContent);
 						}
 
-						$this->wpfc->createFolder($cachFilePath, $cssContent, "css", $prefix);
+						$this->wpfc->createFolder($cachFilePath, $cssContent, "css");
 					}
 
 					if($cssFiles = @scandir($cachFilePath, 1)){
@@ -418,7 +409,9 @@
 		public function newImgPath($matches){
 			$matches[1] = trim($matches[1]);
 			
-			if(preg_match("/data\:image\/svg\+xml/", $matches[1])){
+			if(preg_match("/data\:font\/opentype/i", $matches[1])){
+				$matches[1] = $matches[1];
+			}else if(preg_match("/data\:image\/svg\+xml/i", $matches[1])){
 				$matches[1] = $matches[1];
 			}else{
 				$matches[1] = str_replace(array("\"","'"), "", $matches[1]);
