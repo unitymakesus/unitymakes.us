@@ -8,8 +8,8 @@
       </div>
       <div class="col s12 m7 push-l2">
         <div class="parallax-faster right-align">
-          <img src="@asset('images/vibrancy.jpg')"
-               alt="Woman with orange hair and clothing standing in front of a brightly painted mural."
+          <img src="@asset('images/people.jpg')"
+               alt="Group of diverse people working together."
                class="z-depth-2" />
         </div>
       </div>
