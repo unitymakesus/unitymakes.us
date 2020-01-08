@@ -9,7 +9,7 @@
       <div class="col s12 m7 push-l2">
         <div class="parallax-faster right-align">
           <img src="@asset('images/people.jpg')"
-               alt="Group of diverse people working together."
+               alt="Diverse group of people working together on strategy board."
                class="z-depth-2" />
         </div>
       </div>
